@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="libgweather-gweather-gconf">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgweather-gweather-gconf.top_of_page">gweather-gconf</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gweather-gconf</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libgweather-gweather-gconf.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>                    <link linkend="GWeatherGConf">GWeatherGConf</link>;
+<link linkend="GWeatherGConf">GWeatherGConf</link> *     <link linkend="gweather-gconf-new">gweather_gconf_new</link>                  (const <link linkend="char">char</link> *prefix);
+<link linkend="void">void</link>                <link linkend="gweather-gconf-free">gweather_gconf_free</link>                 (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);
+<link linkend="GConfClient">GConfClient</link> *       <link linkend="gweather-gconf-get-client">gweather_gconf_get_client</link>           (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);
+<link linkend="WeatherLocation">WeatherLocation</link> *   <link linkend="gweather-gconf-get-location">gweather_gconf_get_location</link>         (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);
+<link linkend="gchar">gchar</link> *             <link linkend="gweather-gconf-get-full-key">gweather_gconf_get_full_key</link>         (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key);
+<link linkend="void">void</link>                <link linkend="gweather-gconf-set-bool">gweather_gconf_set_bool</link>             (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gboolean">gboolean</link> the_bool,
+                                                         <link linkend="GError">GError</link> **opt_error);
+<link linkend="void">void</link>                <link linkend="gweather-gconf-set-int">gweather_gconf_set_int</link>              (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gint">gint</link> the_int,
+                                                         <link linkend="GError">GError</link> **opt_error);
+<link linkend="void">void</link>                <link linkend="gweather-gconf-set-string">gweather_gconf_set_string</link>           (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         const <link linkend="gchar">gchar</link> *the_string,
+                                                         <link linkend="GError">GError</link> **opt_error);
+<link linkend="gboolean">gboolean</link>            <link linkend="gweather-gconf-get-bool">gweather_gconf_get_bool</link>             (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GError">GError</link> **opt_error);
+<link linkend="gint">gint</link>                <link linkend="gweather-gconf-get-int">gweather_gconf_get_int</link>              (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GError">GError</link> **opt_error);
+<link linkend="gchar">gchar</link> *             <link linkend="gweather-gconf-get-string">gweather_gconf_get_string</link>           (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GError">GError</link> **opt_error);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgweather-gweather-gconf.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libgweather-gweather-gconf.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GWeatherGConf" role="struct">
+<title>GWeatherGConf</title>
+<indexterm zone="GWeatherGConf"><primary>GWeatherGConf</primary></indexterm>
+<programlisting>typedef struct _GWeatherGConf GWeatherGConf;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gweather-gconf-new" role="function">
+<title>gweather_gconf_new ()</title>
+<indexterm zone="gweather-gconf-new"><primary>gweather_gconf_new</primary></indexterm>
+<programlisting><link linkend="GWeatherGConf">GWeatherGConf</link> *     gweather_gconf_new                  (const <link linkend="char">char</link> *prefix);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>prefix</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-free" role="function">
+<title>gweather_gconf_free ()</title>
+<indexterm zone="gweather-gconf-free"><primary>gweather_gconf_free</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_gconf_free                 (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-get-client" role="function">
+<title>gweather_gconf_get_client ()</title>
+<indexterm zone="gweather-gconf-get-client"><primary>gweather_gconf_get_client</primary></indexterm>
+<programlisting><link linkend="GConfClient">GConfClient</link> *       gweather_gconf_get_client           (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-get-location" role="function">
+<title>gweather_gconf_get_location ()</title>
+<indexterm zone="gweather-gconf-get-location"><primary>gweather_gconf_get_location</primary></indexterm>
+<programlisting><link linkend="WeatherLocation">WeatherLocation</link> *   gweather_gconf_get_location         (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-get-full-key" role="function">
+<title>gweather_gconf_get_full_key ()</title>
+<indexterm zone="gweather-gconf-get-full-key"><primary>gweather_gconf_get_full_key</primary></indexterm>
+<programlisting><link linkend="gchar">gchar</link> *             gweather_gconf_get_full_key         (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-set-bool" role="function">
+<title>gweather_gconf_set_bool ()</title>
+<indexterm zone="gweather-gconf-set-bool"><primary>gweather_gconf_set_bool</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_gconf_set_bool             (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gboolean">gboolean</link> the_bool,
+                                                         <link linkend="GError">GError</link> **opt_error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>the_bool</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-set-int" role="function">
+<title>gweather_gconf_set_int ()</title>
+<indexterm zone="gweather-gconf-set-int"><primary>gweather_gconf_set_int</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_gconf_set_int              (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="gint">gint</link> the_int,
+                                                         <link linkend="GError">GError</link> **opt_error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>the_int</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-set-string" role="function">
+<title>gweather_gconf_set_string ()</title>
+<indexterm zone="gweather-gconf-set-string"><primary>gweather_gconf_set_string</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_gconf_set_string           (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         const <link linkend="gchar">gchar</link> *the_string,
+                                                         <link linkend="GError">GError</link> **opt_error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>the_string</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-get-bool" role="function">
+<title>gweather_gconf_get_bool ()</title>
+<indexterm zone="gweather-gconf-get-bool"><primary>gweather_gconf_get_bool</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            gweather_gconf_get_bool             (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GError">GError</link> **opt_error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-get-int" role="function">
+<title>gweather_gconf_get_int ()</title>
+<indexterm zone="gweather-gconf-get-int"><primary>gweather_gconf_get_int</primary></indexterm>
+<programlisting><link linkend="gint">gint</link>                gweather_gconf_get_int              (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GError">GError</link> **opt_error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-gconf-get-string" role="function">
+<title>gweather_gconf_get_string ()</title>
+<indexterm zone="gweather-gconf-get-string"><primary>gweather_gconf_get_string</primary></indexterm>
+<programlisting><link linkend="gchar">gchar</link> *             gweather_gconf_get_string           (<link linkend="GWeatherGConf">GWeatherGConf</link> *ctx,
+                                                         const <link linkend="gchar">gchar</link> *key,
+                                                         <link linkend="GError">GError</link> **opt_error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>opt_error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

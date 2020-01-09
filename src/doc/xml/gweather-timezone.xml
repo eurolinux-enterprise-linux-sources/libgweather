@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="libgweather-gweather-timezone">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgweather-gweather-timezone.top_of_page">gweather-timezone</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gweather-timezone</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libgweather-gweather-timezone.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>                    <link linkend="GWeatherTimezone">GWeatherTimezone</link>;
+const <link linkend="char">char</link> *        <link linkend="gweather-timezone-get-name">gweather_timezone_get_name</link>          (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+const <link linkend="char">char</link> *        <link linkend="gweather-timezone-get-tzid">gweather_timezone_get_tzid</link>          (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+<link linkend="int">int</link>                 <link linkend="gweather-timezone-get-offset">gweather_timezone_get_offset</link>        (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+<link linkend="gboolean">gboolean</link>            <link linkend="gweather-timezone-has-dst">gweather_timezone_has_dst</link>           (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+<link linkend="int">int</link>                 <link linkend="gweather-timezone-get-dst-offset">gweather_timezone_get_dst_offset</link>    (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+<link linkend="GWeatherTimezone">GWeatherTimezone</link> *  <link linkend="gweather-timezone-ref">gweather_timezone_ref</link>               (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+<link linkend="void">void</link>                <link linkend="gweather-timezone-unref">gweather_timezone_unref</link>             (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgweather-gweather-timezone.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libgweather-gweather-timezone.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GWeatherTimezone" role="struct">
+<title>GWeatherTimezone</title>
+<indexterm zone="GWeatherTimezone"><primary>GWeatherTimezone</primary></indexterm>
+<programlisting>typedef struct _GWeatherTimezone GWeatherTimezone;</programlisting>
+<para>
+A timezone.
+</para>
+<para>
+There are no public methods for creating timezones; they can only
+be created by calling <link linkend="gweather-location-new-world"><function>gweather_location_new_world()</function></link> to parse
+Locations.xml, and then calling various <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link> methods
+to extract relevant timezones from the location hierarchy.</para>
+<para>
+</para></refsect2>
+<refsect2 id="gweather-timezone-get-name" role="function">
+<title>gweather_timezone_get_name ()</title>
+<indexterm zone="gweather-timezone-get-name"><primary>gweather_timezone_get_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_timezone_get_name          (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Gets <parameter>zone</parameter>'s name; a translated, user-presentable string.
+</para>
+<para>
+Note that the returned name might not be unique among timezones,
+and may not make sense to the user unless it is presented along
+with the timezone's country's name (or in some context where the
+country is obvious).</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>zone</parameter>'s name
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-get-tzid" role="function">
+<title>gweather_timezone_get_tzid ()</title>
+<indexterm zone="gweather-timezone-get-tzid"><primary>gweather_timezone_get_tzid</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_timezone_get_tzid          (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Gets <parameter>zone</parameter>'s tzdata identifier, eg "America/New_York".</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>zone</parameter>'s tzid
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-get-offset" role="function">
+<title>gweather_timezone_get_offset ()</title>
+<indexterm zone="gweather-timezone-get-offset"><primary>gweather_timezone_get_offset</primary></indexterm>
+<programlisting><link linkend="int">int</link>                 gweather_timezone_get_offset        (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Gets <parameter>zone</parameter>'s standard offset from UTC, in minutes. Eg, a value of
+<link linkend="120:CAPS"><literal>120</literal></link> would indicate "GMT+2".</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>zone</parameter>'s standard offset, in minutes
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-has-dst" role="function">
+<title>gweather_timezone_has_dst ()</title>
+<indexterm zone="gweather-timezone-has-dst"><primary>gweather_timezone_has_dst</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            gweather_timezone_has_dst           (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Checks if <parameter>zone</parameter> observes daylight/summer time for part of the year.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>zone</parameter> observes daylight/summer time.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-get-dst-offset" role="function">
+<title>gweather_timezone_get_dst_offset ()</title>
+<indexterm zone="gweather-timezone-get-dst-offset"><primary>gweather_timezone_get_dst_offset</primary></indexterm>
+<programlisting><link linkend="int">int</link>                 gweather_timezone_get_dst_offset    (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Gets <parameter>zone</parameter>'s daylight/summer time offset from UTC, in minutes. Eg,
+a value of <link linkend="120:CAPS"><literal>120</literal></link> would indicate "GMT+2". This is only meaningful if
+<link linkend="gweather-timezone-has-dst"><function>gweather_timezone_has_dst()</function></link> returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>zone</parameter>'s daylight/summer time offset, in minutes
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-ref" role="function">
+<title>gweather_timezone_ref ()</title>
+<indexterm zone="gweather-timezone-ref"><primary>gweather_timezone_ref</primary></indexterm>
+<programlisting><link linkend="GWeatherTimezone">GWeatherTimezone</link> *  gweather_timezone_ref               (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Adds 1 to <parameter>zone</parameter>'s reference count.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>zone</parameter>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-unref" role="function">
+<title>gweather_timezone_unref ()</title>
+<indexterm zone="gweather-timezone-unref"><primary>gweather_timezone_unref</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_timezone_unref             (<link linkend="GWeatherTimezone">GWeatherTimezone</link> *zone);</programlisting>
+<para>
+Subtracts 1 from <parameter>zone</parameter>'s reference count and frees it if it reaches 0.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

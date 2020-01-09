@@ -1,0 +1,1058 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="libgweather-weather">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgweather-weather.top_of_page">weather</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>weather</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libgweather-weather.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>                    <link linkend="WeatherLocation">WeatherLocation</link>;
+<link linkend="WeatherLocation">WeatherLocation</link> *   <link linkend="weather-location-new">weather_location_new</link>                (const <link linkend="gchar">gchar</link> *trans_name,
+                                                         const <link linkend="gchar">gchar</link> *code,
+                                                         const <link linkend="gchar">gchar</link> *zone,
+                                                         const <link linkend="gchar">gchar</link> *radar,
+                                                         const <link linkend="gchar">gchar</link> *coordinates,
+                                                         const <link linkend="gchar">gchar</link> *country_code,
+                                                         const <link linkend="gchar">gchar</link> *tz_hint);
+<link linkend="WeatherLocation">WeatherLocation</link> *   <link linkend="weather-location-clone">weather_location_clone</link>              (const <link linkend="WeatherLocation">WeatherLocation</link> *location);
+<link linkend="void">void</link>                <link linkend="weather-location-free">weather_location_free</link>               (<link linkend="WeatherLocation">WeatherLocation</link> *location);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-location-equal">weather_location_equal</link>              (const <link linkend="WeatherLocation">WeatherLocation</link> *location1,
+                                                         const <link linkend="WeatherLocation">WeatherLocation</link> *location2);
+enum                <link linkend="WeatherForecastType">WeatherForecastType</link>;
+enum                <link linkend="TempUnit">TempUnit</link>;
+enum                <link linkend="SpeedUnit">SpeedUnit</link>;
+enum                <link linkend="PressureUnit">PressureUnit</link>;
+enum                <link linkend="DistanceUnit">DistanceUnit</link>;
+                    <link linkend="WeatherPrefs">WeatherPrefs</link>;
+                    <link linkend="WeatherInfo">WeatherInfo</link>;
+<link linkend="void">void</link>                (<link linkend="WeatherInfoFunc">*WeatherInfoFunc</link>)                  (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="gpointer">gpointer</link> data);
+#define             <link linkend="weather-info-new">weather_info_new</link>                    (location, prefs, cb, data)
+#define             <link linkend="weather-info-update">weather_info_update</link>                 (info, prefs, cb, data)
+<link linkend="void">void</link>                <link linkend="weather-info-abort">weather_info_abort</link>                  (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="WeatherInfo">WeatherInfo</link> *       <link linkend="weather-info-clone">weather_info_clone</link>                  (const <link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="void">void</link>                <link linkend="weather-info-free">weather_info_free</link>                   (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-is-valid">weather_info_is_valid</link>               (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-network-error">weather_info_network_error</link>          (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="void">void</link>                <link linkend="weather-info-to-metric">weather_info_to_metric</link>              (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="void">void</link>                <link linkend="weather-info-to-imperial">weather_info_to_imperial</link>            (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="WeatherLocation">WeatherLocation</link> * <link linkend="weather-info-get-location">weather_info_get_location</link>       (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-location-name">weather_info_get_location_name</link>      (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-update">weather_info_get_update</link>             (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-sky">weather_info_get_sky</link>                (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-conditions">weather_info_get_conditions</link>         (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-temp">weather_info_get_temp</link>               (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-temp-min">weather_info_get_temp_min</link>           (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-temp-max">weather_info_get_temp_max</link>           (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-dew">weather_info_get_dew</link>                (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-humidity">weather_info_get_humidity</link>           (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-wind">weather_info_get_wind</link>               (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-pressure">weather_info_get_pressure</link>           (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-visibility">weather_info_get_visibility</link>         (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-apparent">weather_info_get_apparent</link>           (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-sunrise">weather_info_get_sunrise</link>            (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-sunset">weather_info_get_sunset</link>             (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-forecast">weather_info_get_forecast</link>           (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="GSList">GSList</link> *            <link linkend="weather-info-get-forecast-list">weather_info_get_forecast_list</link>      (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="GdkPixbufAnimation">GdkPixbufAnimation</link> * <link linkend="weather-info-get-radar">weather_info_get_radar</link>             (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-temp-summary">weather_info_get_temp_summary</link>       (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="gchar">gchar</link> *             <link linkend="weather-info-get-weather-summary">weather_info_get_weather_summary</link>    (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="weather-info-get-icon-name">weather_info_get_icon_name</link>          (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+<link linkend="gint">gint</link>                <link linkend="weather-info-next-sun-event">weather_info_next_sun_event</link>         (<link linkend="WeatherInfo">WeatherInfo</link> *info);
+enum                <link linkend="WeatherWindDirection">WeatherWindDirection</link>;
+enum                <link linkend="WeatherSky">WeatherSky</link>;
+enum                <link linkend="WeatherConditionPhenomenon">WeatherConditionPhenomenon</link>;
+enum                <link linkend="WeatherConditionQualifier">WeatherConditionQualifier</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-update">weather_info_get_value_update</link>       (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="time-t">time_t</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-sky">weather_info_get_value_sky</link>          (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="WeatherSky">WeatherSky</link> *sky);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-conditions">weather_info_get_value_conditions</link>   (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="WeatherConditionPhenomenon">WeatherConditionPhenomenon</link> *phenomenon,
+                                                         <link linkend="WeatherConditionQualifier">WeatherConditionQualifier</link> *qualifier);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-temp">weather_info_get_value_temp</link>         (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-temp-min">weather_info_get_value_temp_min</link>     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-temp-max">weather_info_get_value_temp_max</link>     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-dew">weather_info_get_value_dew</link>          (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-apparent">weather_info_get_value_apparent</link>     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-wind">weather_info_get_value_wind</link>         (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="SpeedUnit">SpeedUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *speed,
+                                                         <link linkend="WeatherWindDirection">WeatherWindDirection</link> *direction);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-pressure">weather_info_get_value_pressure</link>     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="PressureUnit">PressureUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-visibility">weather_info_get_value_visibility</link>   (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="DistanceUnit">DistanceUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-sunrise">weather_info_get_value_sunrise</link>      (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="time-t">time_t</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="weather-info-get-value-sunset">weather_info_get_value_sunset</link>       (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="time-t">time_t</link> *value);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgweather-weather.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libgweather-weather.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="WeatherLocation" role="struct">
+<title>WeatherLocation</title>
+<indexterm zone="WeatherLocation"><primary>WeatherLocation</primary></indexterm>
+<programlisting>typedef struct {
+    gchar *name;
+    gchar *code;
+    gchar *zone;
+    gchar *radar;
+    gboolean zone_valid;
+    gchar *coordinates;
+    gdouble  latitude;
+    gdouble  longitude;
+    gboolean latlon_valid;
+    gchar *country_code;
+    gchar *tz_hint;
+} WeatherLocation;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="weather-location-new" role="function">
+<title>weather_location_new ()</title>
+<indexterm zone="weather-location-new"><primary>weather_location_new</primary></indexterm>
+<programlisting><link linkend="WeatherLocation">WeatherLocation</link> *   weather_location_new                (const <link linkend="gchar">gchar</link> *trans_name,
+                                                         const <link linkend="gchar">gchar</link> *code,
+                                                         const <link linkend="gchar">gchar</link> *zone,
+                                                         const <link linkend="gchar">gchar</link> *radar,
+                                                         const <link linkend="gchar">gchar</link> *coordinates,
+                                                         const <link linkend="gchar">gchar</link> *country_code,
+                                                         const <link linkend="gchar">gchar</link> *tz_hint);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>code</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>zone</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>radar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>coordinates</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>country_code</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tz_hint</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-location-clone" role="function">
+<title>weather_location_clone ()</title>
+<indexterm zone="weather-location-clone"><primary>weather_location_clone</primary></indexterm>
+<programlisting><link linkend="WeatherLocation">WeatherLocation</link> *   weather_location_clone              (const <link linkend="WeatherLocation">WeatherLocation</link> *location);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>location</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-location-free" role="function">
+<title>weather_location_free ()</title>
+<indexterm zone="weather-location-free"><primary>weather_location_free</primary></indexterm>
+<programlisting><link linkend="void">void</link>                weather_location_free               (<link linkend="WeatherLocation">WeatherLocation</link> *location);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>location</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-location-equal" role="function">
+<title>weather_location_equal ()</title>
+<indexterm zone="weather-location-equal"><primary>weather_location_equal</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_location_equal              (const <link linkend="WeatherLocation">WeatherLocation</link> *location1,
+                                                         const <link linkend="WeatherLocation">WeatherLocation</link> *location2);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>location1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>location2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="WeatherForecastType" role="enum">
+<title>enum WeatherForecastType</title>
+<indexterm zone="WeatherForecastType"><primary>WeatherForecastType</primary></indexterm>
+<programlisting>typedef enum _WeatherForecastType {
+    FORECAST_STATE,
+    FORECAST_ZONE,
+    FORECAST_LIST
+} WeatherForecastType;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="TempUnit" role="enum">
+<title>enum TempUnit</title>
+<indexterm zone="TempUnit"><primary>TempUnit</primary></indexterm>
+<programlisting>typedef enum {
+    TEMP_UNIT_INVALID = 0,
+    TEMP_UNIT_DEFAULT,
+    TEMP_UNIT_KELVIN,
+    TEMP_UNIT_CENTIGRADE,
+    TEMP_UNIT_FAHRENHEIT
+} TempUnit;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="SpeedUnit" role="enum">
+<title>enum SpeedUnit</title>
+<indexterm zone="SpeedUnit"><primary>SpeedUnit</primary></indexterm>
+<programlisting>typedef enum {
+    SPEED_UNIT_INVALID = 0,
+    SPEED_UNIT_DEFAULT,
+    SPEED_UNIT_MS,    /* metres per second */
+    SPEED_UNIT_KPH,   /* kilometres per hour */
+    SPEED_UNIT_MPH,   /* miles per hour */
+    SPEED_UNIT_KNOTS, /* Knots */
+    SPEED_UNIT_BFT    /* Beaufort scale */
+} SpeedUnit;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="PressureUnit" role="enum">
+<title>enum PressureUnit</title>
+<indexterm zone="PressureUnit"><primary>PressureUnit</primary></indexterm>
+<programlisting>typedef enum {
+    PRESSURE_UNIT_INVALID = 0,
+    PRESSURE_UNIT_DEFAULT,
+    PRESSURE_UNIT_KPA,    /* kiloPascal */
+    PRESSURE_UNIT_HPA,    /* hectoPascal */
+    PRESSURE_UNIT_MB,     /* 1 millibars = 1 hectoPascal */
+    PRESSURE_UNIT_MM_HG,  /* millimeters of mecury */
+    PRESSURE_UNIT_INCH_HG, /* inches of mercury */
+    PRESSURE_UNIT_ATM     /* atmosphere */
+} PressureUnit;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DistanceUnit" role="enum">
+<title>enum DistanceUnit</title>
+<indexterm zone="DistanceUnit"><primary>DistanceUnit</primary></indexterm>
+<programlisting>typedef enum {
+    DISTANCE_UNIT_INVALID = 0,
+    DISTANCE_UNIT_DEFAULT,
+    DISTANCE_UNIT_METERS,
+    DISTANCE_UNIT_KM,
+    DISTANCE_UNIT_MILES
+} DistanceUnit;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="WeatherPrefs" role="struct">
+<title>WeatherPrefs</title>
+<indexterm zone="WeatherPrefs"><primary>WeatherPrefs</primary></indexterm>
+<programlisting>typedef struct {
+    WeatherForecastType type;
+
+    gboolean radar;
+    const char *radar_custom_url;
+
+    TempUnit temperature_unit;
+    SpeedUnit speed_unit;
+    PressureUnit pressure_unit;
+    DistanceUnit distance_unit;
+} WeatherPrefs;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="WeatherInfo" role="struct">
+<title>WeatherInfo</title>
+<indexterm zone="WeatherInfo"><primary>WeatherInfo</primary></indexterm>
+<programlisting>typedef struct _WeatherInfo WeatherInfo;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="WeatherInfoFunc" role="function">
+<title>WeatherInfoFunc ()</title>
+<indexterm zone="WeatherInfoFunc"><primary>WeatherInfoFunc</primary></indexterm>
+<programlisting><link linkend="void">void</link>                (*WeatherInfoFunc)                  (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-new" role="macro">
+<title>weather_info_new()</title>
+<indexterm zone="weather-info-new"><primary>weather_info_new</primary></indexterm>
+<programlisting>#define&#160;weather_info_new(location, prefs, cb, data) _weather_info_fill (NULL, (location), (prefs), (cb), (data))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>location</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prefs</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cb</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-update" role="macro">
+<title>weather_info_update()</title>
+<indexterm zone="weather-info-update"><primary>weather_info_update</primary></indexterm>
+<programlisting>#define&#160;weather_info_update(info, prefs, cb, data) _weather_info_fill ((info), NULL, (prefs), (cb), (data))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prefs</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>cb</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-abort" role="function">
+<title>weather_info_abort ()</title>
+<indexterm zone="weather-info-abort"><primary>weather_info_abort</primary></indexterm>
+<programlisting><link linkend="void">void</link>                weather_info_abort                  (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-clone" role="function">
+<title>weather_info_clone ()</title>
+<indexterm zone="weather-info-clone"><primary>weather_info_clone</primary></indexterm>
+<programlisting><link linkend="WeatherInfo">WeatherInfo</link> *       weather_info_clone                  (const <link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-free" role="function">
+<title>weather_info_free ()</title>
+<indexterm zone="weather-info-free"><primary>weather_info_free</primary></indexterm>
+<programlisting><link linkend="void">void</link>                weather_info_free                   (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-is-valid" role="function">
+<title>weather_info_is_valid ()</title>
+<indexterm zone="weather-info-is-valid"><primary>weather_info_is_valid</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_is_valid               (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-network-error" role="function">
+<title>weather_info_network_error ()</title>
+<indexterm zone="weather-info-network-error"><primary>weather_info_network_error</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_network_error          (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-to-metric" role="function">
+<title>weather_info_to_metric ()</title>
+<indexterm zone="weather-info-to-metric"><primary>weather_info_to_metric</primary></indexterm>
+<programlisting><link linkend="void">void</link>                weather_info_to_metric              (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-to-imperial" role="function">
+<title>weather_info_to_imperial ()</title>
+<indexterm zone="weather-info-to-imperial"><primary>weather_info_to_imperial</primary></indexterm>
+<programlisting><link linkend="void">void</link>                weather_info_to_imperial            (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-location" role="function">
+<title>weather_info_get_location ()</title>
+<indexterm zone="weather-info-get-location"><primary>weather_info_get_location</primary></indexterm>
+<programlisting>const <link linkend="WeatherLocation">WeatherLocation</link> * weather_info_get_location       (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-location-name" role="function">
+<title>weather_info_get_location_name ()</title>
+<indexterm zone="weather-info-get-location-name"><primary>weather_info_get_location_name</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_location_name      (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-update" role="function">
+<title>weather_info_get_update ()</title>
+<indexterm zone="weather-info-get-update"><primary>weather_info_get_update</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_update             (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-sky" role="function">
+<title>weather_info_get_sky ()</title>
+<indexterm zone="weather-info-get-sky"><primary>weather_info_get_sky</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_sky                (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-conditions" role="function">
+<title>weather_info_get_conditions ()</title>
+<indexterm zone="weather-info-get-conditions"><primary>weather_info_get_conditions</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_conditions         (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-temp" role="function">
+<title>weather_info_get_temp ()</title>
+<indexterm zone="weather-info-get-temp"><primary>weather_info_get_temp</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_temp               (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-temp-min" role="function">
+<title>weather_info_get_temp_min ()</title>
+<indexterm zone="weather-info-get-temp-min"><primary>weather_info_get_temp_min</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_temp_min           (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-temp-max" role="function">
+<title>weather_info_get_temp_max ()</title>
+<indexterm zone="weather-info-get-temp-max"><primary>weather_info_get_temp_max</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_temp_max           (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-dew" role="function">
+<title>weather_info_get_dew ()</title>
+<indexterm zone="weather-info-get-dew"><primary>weather_info_get_dew</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_dew                (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-humidity" role="function">
+<title>weather_info_get_humidity ()</title>
+<indexterm zone="weather-info-get-humidity"><primary>weather_info_get_humidity</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_humidity           (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-wind" role="function">
+<title>weather_info_get_wind ()</title>
+<indexterm zone="weather-info-get-wind"><primary>weather_info_get_wind</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_wind               (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-pressure" role="function">
+<title>weather_info_get_pressure ()</title>
+<indexterm zone="weather-info-get-pressure"><primary>weather_info_get_pressure</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_pressure           (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-visibility" role="function">
+<title>weather_info_get_visibility ()</title>
+<indexterm zone="weather-info-get-visibility"><primary>weather_info_get_visibility</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_visibility         (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-apparent" role="function">
+<title>weather_info_get_apparent ()</title>
+<indexterm zone="weather-info-get-apparent"><primary>weather_info_get_apparent</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_apparent           (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-sunrise" role="function">
+<title>weather_info_get_sunrise ()</title>
+<indexterm zone="weather-info-get-sunrise"><primary>weather_info_get_sunrise</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_sunrise            (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-sunset" role="function">
+<title>weather_info_get_sunset ()</title>
+<indexterm zone="weather-info-get-sunset"><primary>weather_info_get_sunset</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_sunset             (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-forecast" role="function">
+<title>weather_info_get_forecast ()</title>
+<indexterm zone="weather-info-get-forecast"><primary>weather_info_get_forecast</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_forecast           (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-forecast-list" role="function">
+<title>weather_info_get_forecast_list ()</title>
+<indexterm zone="weather-info-get-forecast-list"><primary>weather_info_get_forecast_list</primary></indexterm>
+<programlisting><link linkend="GSList">GSList</link> *            weather_info_get_forecast_list      (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-radar" role="function">
+<title>weather_info_get_radar ()</title>
+<indexterm zone="weather-info-get-radar"><primary>weather_info_get_radar</primary></indexterm>
+<programlisting><link linkend="GdkPixbufAnimation">GdkPixbufAnimation</link> * weather_info_get_radar             (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-temp-summary" role="function">
+<title>weather_info_get_temp_summary ()</title>
+<indexterm zone="weather-info-get-temp-summary"><primary>weather_info_get_temp_summary</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_temp_summary       (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-weather-summary" role="function">
+<title>weather_info_get_weather_summary ()</title>
+<indexterm zone="weather-info-get-weather-summary"><primary>weather_info_get_weather_summary</primary></indexterm>
+<programlisting><link linkend="gchar">gchar</link> *             weather_info_get_weather_summary    (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-icon-name" role="function">
+<title>weather_info_get_icon_name ()</title>
+<indexterm zone="weather-info-get-icon-name"><primary>weather_info_get_icon_name</primary></indexterm>
+<programlisting>const <link linkend="gchar">gchar</link> *       weather_info_get_icon_name          (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-next-sun-event" role="function">
+<title>weather_info_next_sun_event ()</title>
+<indexterm zone="weather-info-next-sun-event"><primary>weather_info_next_sun_event</primary></indexterm>
+<programlisting><link linkend="gint">gint</link>                weather_info_next_sun_event         (<link linkend="WeatherInfo">WeatherInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="WeatherWindDirection" role="enum">
+<title>enum WeatherWindDirection</title>
+<indexterm zone="WeatherWindDirection"><primary>WeatherWindDirection</primary></indexterm>
+<programlisting>enum WeatherWindDirection {
+    WIND_INVALID = -1,
+    WIND_VARIABLE,
+    WIND_N, WIND_NNE, WIND_NE, WIND_ENE,
+    WIND_E, WIND_ESE, WIND_SE, WIND_SSE,
+    WIND_S, WIND_SSW, WIND_SW, WIND_WSW,
+    WIND_W, WIND_WNW, WIND_NW, WIND_NNW,
+    WIND_LAST
+};
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="WeatherSky" role="enum">
+<title>enum WeatherSky</title>
+<indexterm zone="WeatherSky"><primary>WeatherSky</primary></indexterm>
+<programlisting>enum WeatherSky {
+    SKY_INVALID = -1,
+    SKY_CLEAR,
+    SKY_BROKEN,
+    SKY_SCATTERED,
+    SKY_FEW,
+    SKY_OVERCAST,
+    SKY_LAST
+};
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="WeatherConditionPhenomenon" role="enum">
+<title>enum WeatherConditionPhenomenon</title>
+<indexterm zone="WeatherConditionPhenomenon"><primary>WeatherConditionPhenomenon</primary></indexterm>
+<programlisting>enum WeatherConditionPhenomenon {
+    PHENOMENON_INVALID = -1,
+
+    PHENOMENON_NONE,
+
+    PHENOMENON_DRIZZLE,
+    PHENOMENON_RAIN,
+    PHENOMENON_SNOW,
+    PHENOMENON_SNOW_GRAINS,
+    PHENOMENON_ICE_CRYSTALS,
+    PHENOMENON_ICE_PELLETS,
+    PHENOMENON_HAIL,
+    PHENOMENON_SMALL_HAIL,
+    PHENOMENON_UNKNOWN_PRECIPITATION,
+
+    PHENOMENON_MIST,
+    PHENOMENON_FOG,
+    PHENOMENON_SMOKE,
+    PHENOMENON_VOLCANIC_ASH,
+    PHENOMENON_SAND,
+    PHENOMENON_HAZE,
+    PHENOMENON_SPRAY,
+    PHENOMENON_DUST,
+
+    PHENOMENON_SQUALL,
+    PHENOMENON_SANDSTORM,
+    PHENOMENON_DUSTSTORM,
+    PHENOMENON_FUNNEL_CLOUD,
+    PHENOMENON_TORNADO,
+    PHENOMENON_DUST_WHIRLS,
+
+    PHENOMENON_LAST
+};
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="WeatherConditionQualifier" role="enum">
+<title>enum WeatherConditionQualifier</title>
+<indexterm zone="WeatherConditionQualifier"><primary>WeatherConditionQualifier</primary></indexterm>
+<programlisting>enum WeatherConditionQualifier {
+    QUALIFIER_INVALID = -1,
+
+    QUALIFIER_NONE,
+
+    QUALIFIER_VICINITY,
+
+    QUALIFIER_LIGHT,
+    QUALIFIER_MODERATE,
+    QUALIFIER_HEAVY,
+    QUALIFIER_SHALLOW,
+    QUALIFIER_PATCHES,
+    QUALIFIER_PARTIAL,
+    QUALIFIER_THUNDERSTORM,
+    QUALIFIER_BLOWING,
+    QUALIFIER_SHOWERS,
+    QUALIFIER_DRIFTING,
+    QUALIFIER_FREEZING,
+
+    QUALIFIER_LAST
+};
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="weather-info-get-value-update" role="function">
+<title>weather_info_get_value_update ()</title>
+<indexterm zone="weather-info-get-value-update"><primary>weather_info_get_value_update</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_update       (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="time-t">time_t</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-sky" role="function">
+<title>weather_info_get_value_sky ()</title>
+<indexterm zone="weather-info-get-value-sky"><primary>weather_info_get_value_sky</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_sky          (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="WeatherSky">WeatherSky</link> *sky);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sky</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-conditions" role="function">
+<title>weather_info_get_value_conditions ()</title>
+<indexterm zone="weather-info-get-value-conditions"><primary>weather_info_get_value_conditions</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_conditions   (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="WeatherConditionPhenomenon">WeatherConditionPhenomenon</link> *phenomenon,
+                                                         <link linkend="WeatherConditionQualifier">WeatherConditionQualifier</link> *qualifier);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>phenomenon</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>qualifier</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-temp" role="function">
+<title>weather_info_get_value_temp ()</title>
+<indexterm zone="weather-info-get-value-temp"><primary>weather_info_get_value_temp</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_temp         (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-temp-min" role="function">
+<title>weather_info_get_value_temp_min ()</title>
+<indexterm zone="weather-info-get-value-temp-min"><primary>weather_info_get_value_temp_min</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_temp_min     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-temp-max" role="function">
+<title>weather_info_get_value_temp_max ()</title>
+<indexterm zone="weather-info-get-value-temp-max"><primary>weather_info_get_value_temp_max</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_temp_max     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-dew" role="function">
+<title>weather_info_get_value_dew ()</title>
+<indexterm zone="weather-info-get-value-dew"><primary>weather_info_get_value_dew</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_dew          (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-apparent" role="function">
+<title>weather_info_get_value_apparent ()</title>
+<indexterm zone="weather-info-get-value-apparent"><primary>weather_info_get_value_apparent</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_apparent     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="TempUnit">TempUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-wind" role="function">
+<title>weather_info_get_value_wind ()</title>
+<indexterm zone="weather-info-get-value-wind"><primary>weather_info_get_value_wind</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_wind         (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="SpeedUnit">SpeedUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *speed,
+                                                         <link linkend="WeatherWindDirection">WeatherWindDirection</link> *direction);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>speed</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>direction</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-pressure" role="function">
+<title>weather_info_get_value_pressure ()</title>
+<indexterm zone="weather-info-get-value-pressure"><primary>weather_info_get_value_pressure</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_pressure     (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="PressureUnit">PressureUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-visibility" role="function">
+<title>weather_info_get_value_visibility ()</title>
+<indexterm zone="weather-info-get-value-visibility"><primary>weather_info_get_value_visibility</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_visibility   (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="DistanceUnit">DistanceUnit</link> unit,
+                                                         <link linkend="gdouble">gdouble</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-sunrise" role="function">
+<title>weather_info_get_value_sunrise ()</title>
+<indexterm zone="weather-info-get-value-sunrise"><primary>weather_info_get_value_sunrise</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_sunrise      (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="time-t">time_t</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="weather-info-get-value-sunset" role="function">
+<title>weather_info_get_value_sunset ()</title>
+<indexterm zone="weather-info-get-value-sunset"><primary>weather_info_get_value_sunset</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            weather_info_get_value_sunset       (<link linkend="WeatherInfo">WeatherInfo</link> *info,
+                                                         <link linkend="time-t">time_t</link> *value);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

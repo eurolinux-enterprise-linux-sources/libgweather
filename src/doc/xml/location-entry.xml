@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="GWeatherLocationEntry">
+<refmeta>
+<refentrytitle role="top_of_page" id="GWeatherLocationEntry.top_of_page">GWeatherLocationEntry</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GWeatherLocationEntry</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GWeatherLocationEntry.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>                    <link linkend="GWeatherLocationEntry-struct">GWeatherLocationEntry</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="gweather-location-entry-new">gweather_location_entry_new</link>         (<link linkend="GWeatherLocation">GWeatherLocation</link> *top);
+<link linkend="void">void</link>                <link linkend="gweather-location-entry-set-location">gweather_location_entry_set_location</link>
+                                                        (<link linkend="GWeatherLocationEntry">GWeatherLocationEntry</link> *entry,
+                                                         <link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="GWeatherLocation">GWeatherLocation</link> *  <link linkend="gweather-location-entry-get-location">gweather_location_entry_get_location</link>
+                                                        (<link linkend="GWeatherLocationEntry">GWeatherLocationEntry</link> *entry);
+<link linkend="gboolean">gboolean</link>            <link linkend="gweather-location-entry-set-city">gweather_location_entry_set_city</link>    (<link linkend="GWeatherLocationEntry">GWeatherLocationEntry</link> *entry,
+                                                         const <link linkend="char">char</link> *city_name,
+                                                         const <link linkend="char">char</link> *code);
+</synopsis>
+</refsynopsisdiv>
+<refsect1 id="GWeatherLocationEntry.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkEntry">GtkEntry</link>
+                           +----GWeatherLocationEntry
+</synopsis>
+</refsect1>
+<refsect1 id="GWeatherLocationEntry.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GWeatherLocationEntry implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkEditable">GtkEditable</link> and  <link linkend="GtkCellEditable">GtkCellEditable</link>.</para>
+</refsect1>
+<refsect1 id="GWeatherLocationEntry.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GWeatherLocationEntry--location">location</link>&quot;                 <link linkend="gpointer">gpointer</link>              : Read / Write
+  &quot;<link linkend="GWeatherLocationEntry--top">top</link>&quot;                      <link linkend="gpointer">gpointer</link>              : Write / Construct Only
+</synopsis>
+</refsect1>
+
+<refsect1 id="GWeatherLocationEntry.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="GWeatherLocationEntry.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GWeatherLocationEntry-struct" role="struct">
+<title>GWeatherLocationEntry</title>
+<indexterm zone="GWeatherLocationEntry-struct"><primary>GWeatherLocationEntry</primary></indexterm>
+<programlisting>typedef struct _GWeatherLocationEntry GWeatherLocationEntry;</programlisting>
+<para>
+A subclass of <link linkend="GtkEntry"><type>GtkEntry</type></link> that provides autocompletion on
+<link linkend="GWeatherLocation"><type>GWeatherLocation</type></link><!-- -->s</para>
+<para>
+</para></refsect2>
+<refsect2 id="gweather-location-entry-new" role="function">
+<title>gweather_location_entry_new ()</title>
+<indexterm zone="gweather-location-entry-new"><primary>gweather_location_entry_new</primary></indexterm>
+<programlisting><link linkend="GtkWidget">GtkWidget</link> *         gweather_location_entry_new         (<link linkend="GWeatherLocation">GWeatherLocation</link> *top);</programlisting>
+<para>
+Creates a new <link linkend="GWeatherLocationEntry."><type>GWeatherLocationEntry.</type></link>
+</para>
+<para>
+<parameter>top</parameter> will normally be a location returned from
+<link linkend="gweather-location-new-world"><function>gweather_location_new_world()</function></link>, but you can create an entry that
+only accepts a smaller set of locations if you want.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>top</parameter>&#160;:</term>
+<listitem><simpara> the top-level location for the entry.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the new <link linkend="GWeatherLocationEntry"><type>GWeatherLocationEntry</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-entry-set-location" role="function">
+<title>gweather_location_entry_set_location ()</title>
+<indexterm zone="gweather-location-entry-set-location"><primary>gweather_location_entry_set_location</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_location_entry_set_location
+                                                        (<link linkend="GWeatherLocationEntry">GWeatherLocationEntry</link> *entry,
+                                                         <link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Sets <parameter>entry</parameter>'s location to <parameter>loc</parameter>, and updates the text of the
+entry accordingly.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocationEntry"><type>GWeatherLocationEntry</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara>allow-none. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-entry-get-location" role="function">
+<title>gweather_location_entry_get_location ()</title>
+<indexterm zone="gweather-location-entry-get-location"><primary>gweather_location_entry_get_location</primary></indexterm>
+<programlisting><link linkend="GWeatherLocation">GWeatherLocation</link> *  gweather_location_entry_get_location
+                                                        (<link linkend="GWeatherLocationEntry">GWeatherLocationEntry</link> *entry);</programlisting>
+<para>
+Gets the location that was set by a previous call to
+<link linkend="gweather-location-entry-set-location"><function>gweather_location_entry_set_location()</function></link> or was selected by the user.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocationEntry"><type>GWeatherLocationEntry</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>transfer full) (allow-none. <acronym>transfer full</acronym>. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-entry-set-city" role="function">
+<title>gweather_location_entry_set_city ()</title>
+<indexterm zone="gweather-location-entry-set-city"><primary>gweather_location_entry_set_city</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            gweather_location_entry_set_city    (<link linkend="GWeatherLocationEntry">GWeatherLocationEntry</link> *entry,
+                                                         const <link linkend="char">char</link> *city_name,
+                                                         const <link linkend="char">char</link> *code);</programlisting>
+<para>
+Sets <parameter>entry</parameter>'s location to a city with the given <parameter>code</parameter>, and given
+<parameter>city_name</parameter>, if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>. If there is no matching city, sets
+<parameter>entry</parameter>'s location to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>entry</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocationEntry"><type>GWeatherLocationEntry</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>city_name</parameter>&#160;:</term>
+<listitem><simpara> the city name, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+<varlistentry><term><parameter>code</parameter>&#160;:</term>
+<listitem><simpara> the METAR station code
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>entry</parameter>'s location could be set to a matching city,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GWeatherLocationEntry.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GWeatherLocationEntry--location" role="property"><title>The <literal>&quot;location&quot;</literal> property</title>
+<indexterm zone="GWeatherLocationEntry--location"><primary>GWeatherLocationEntry:location</primary></indexterm>
+<programlisting>  &quot;location&quot;                 <link linkend="gpointer">gpointer</link>              : Read / Write</programlisting>
+<para>The selected GWeatherLocation.</para></refsect2>
+<refsect2 id="GWeatherLocationEntry--top" role="property"><title>The <literal>&quot;top&quot;</literal> property</title>
+<indexterm zone="GWeatherLocationEntry--top"><primary>GWeatherLocationEntry:top</primary></indexterm>
+<programlisting>  &quot;top&quot;                      <link linkend="gpointer">gpointer</link>              : Write / Construct Only</programlisting>
+<para>The GWeatherLocation whose children will be used to fill in the entry.</para></refsect2>
+</refsect1>
+
+</refentry>

@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="libgweather-gweather-prefs">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgweather-gweather-prefs.top_of_page">gweather-prefs</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gweather-prefs</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libgweather-gweather-prefs.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>#define             <link linkend="GCONF-TEMP-UNIT:CAPS">GCONF_TEMP_UNIT</link>
+#define             <link linkend="GCONF-SPEED-UNIT:CAPS">GCONF_SPEED_UNIT</link>
+#define             <link linkend="GCONF-PRESSURE-UNIT:CAPS">GCONF_PRESSURE_UNIT</link>
+#define             <link linkend="GCONF-DISTANCE-UNIT:CAPS">GCONF_DISTANCE_UNIT</link>
+                    <link linkend="GWeatherPrefs">GWeatherPrefs</link>;
+<link linkend="void">void</link>                <link linkend="gweather-prefs-load">gweather_prefs_load</link>                 (<link linkend="GWeatherPrefs">GWeatherPrefs</link> *prefs,
+                                                         <link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-temp-enum-to-string">gweather_prefs_temp_enum_to_string</link>  (<link linkend="TempUnit">TempUnit</link> temp);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-speed-enum-to-string">gweather_prefs_speed_enum_to_string</link> (<link linkend="SpeedUnit">SpeedUnit</link> speed);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-pressure-enum-to-string">gweather_prefs_pressure_enum_to_string</link>
+                                                        (<link linkend="PressureUnit">PressureUnit</link> pressure);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-distance-enum-to-string">gweather_prefs_distance_enum_to_string</link>
+                                                        (<link linkend="DistanceUnit">DistanceUnit</link> distance);
+<link linkend="TempUnit">TempUnit</link>            <link linkend="gweather-prefs-parse-temperature">gweather_prefs_parse_temperature</link>    (const <link linkend="char">char</link> *str,
+                                                         <link linkend="gboolean">gboolean</link> *is_default);
+<link linkend="SpeedUnit">SpeedUnit</link>           <link linkend="gweather-prefs-parse-speed">gweather_prefs_parse_speed</link>          (const <link linkend="char">char</link> *str,
+                                                         <link linkend="gboolean">gboolean</link> *is_default);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-get-temp-display-name">gweather_prefs_get_temp_display_name</link>
+                                                        (<link linkend="TempUnit">TempUnit</link> temp);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-get-speed-display-name">gweather_prefs_get_speed_display_name</link>
+                                                        (<link linkend="SpeedUnit">SpeedUnit</link> speed);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-get-pressure-display-name">gweather_prefs_get_pressure_display_name</link>
+                                                        (<link linkend="PressureUnit">PressureUnit</link> pressure);
+const <link linkend="char">char</link> *        <link linkend="gweather-prefs-get-distance-display-name">gweather_prefs_get_distance_display_name</link>
+                                                        (<link linkend="DistanceUnit">DistanceUnit</link> distance);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgweather-gweather-prefs.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libgweather-gweather-prefs.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GCONF-TEMP-UNIT:CAPS" role="macro">
+<title>GCONF_TEMP_UNIT</title>
+<indexterm zone="GCONF-TEMP-UNIT:CAPS"><primary>GCONF_TEMP_UNIT</primary></indexterm>
+<programlisting>#define GCONF_TEMP_UNIT     "temperature_unit"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCONF-SPEED-UNIT:CAPS" role="macro">
+<title>GCONF_SPEED_UNIT</title>
+<indexterm zone="GCONF-SPEED-UNIT:CAPS"><primary>GCONF_SPEED_UNIT</primary></indexterm>
+<programlisting>#define GCONF_SPEED_UNIT    "speed_unit"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCONF-PRESSURE-UNIT:CAPS" role="macro">
+<title>GCONF_PRESSURE_UNIT</title>
+<indexterm zone="GCONF-PRESSURE-UNIT:CAPS"><primary>GCONF_PRESSURE_UNIT</primary></indexterm>
+<programlisting>#define GCONF_PRESSURE_UNIT "pressure_unit"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GCONF-DISTANCE-UNIT:CAPS" role="macro">
+<title>GCONF_DISTANCE_UNIT</title>
+<indexterm zone="GCONF-DISTANCE-UNIT:CAPS"><primary>GCONF_DISTANCE_UNIT</primary></indexterm>
+<programlisting>#define GCONF_DISTANCE_UNIT "distance_unit"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="GWeatherPrefs" role="struct">
+<title>GWeatherPrefs</title>
+<indexterm zone="GWeatherPrefs"><primary>GWeatherPrefs</primary></indexterm>
+<programlisting>typedef struct {
+    WeatherLocation *location;
+    gint update_interval;  /* in seconds */
+    gboolean update_enabled;
+    gboolean detailed;
+    gboolean radar_enabled;
+    gboolean use_custom_radar_url;
+    gchar *radar;
+
+    TempUnit     temperature_unit;
+    gboolean     use_temperature_default;
+    SpeedUnit    speed_unit;
+    gboolean     use_speed_default;
+    PressureUnit pressure_unit;
+    gboolean     use_pressure_default;
+    DistanceUnit distance_unit;
+    gboolean     use_distance_default;
+} GWeatherPrefs;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="gweather-prefs-load" role="function">
+<title>gweather_prefs_load ()</title>
+<indexterm zone="gweather-prefs-load"><primary>gweather_prefs_load</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_prefs_load                 (<link linkend="GWeatherPrefs">GWeatherPrefs</link> *prefs,
+                                                         <link linkend="GWeatherGConf">GWeatherGConf</link> *ctx);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>prefs</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ctx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-temp-enum-to-string" role="function">
+<title>gweather_prefs_temp_enum_to_string ()</title>
+<indexterm zone="gweather-prefs-temp-enum-to-string"><primary>gweather_prefs_temp_enum_to_string</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_temp_enum_to_string  (<link linkend="TempUnit">TempUnit</link> temp);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>temp</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-speed-enum-to-string" role="function">
+<title>gweather_prefs_speed_enum_to_string ()</title>
+<indexterm zone="gweather-prefs-speed-enum-to-string"><primary>gweather_prefs_speed_enum_to_string</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_speed_enum_to_string (<link linkend="SpeedUnit">SpeedUnit</link> speed);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>speed</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-pressure-enum-to-string" role="function">
+<title>gweather_prefs_pressure_enum_to_string ()</title>
+<indexterm zone="gweather-prefs-pressure-enum-to-string"><primary>gweather_prefs_pressure_enum_to_string</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_pressure_enum_to_string
+                                                        (<link linkend="PressureUnit">PressureUnit</link> pressure);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pressure</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-distance-enum-to-string" role="function">
+<title>gweather_prefs_distance_enum_to_string ()</title>
+<indexterm zone="gweather-prefs-distance-enum-to-string"><primary>gweather_prefs_distance_enum_to_string</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_distance_enum_to_string
+                                                        (<link linkend="DistanceUnit">DistanceUnit</link> distance);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>distance</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-parse-temperature" role="function">
+<title>gweather_prefs_parse_temperature ()</title>
+<indexterm zone="gweather-prefs-parse-temperature"><primary>gweather_prefs_parse_temperature</primary></indexterm>
+<programlisting><link linkend="TempUnit">TempUnit</link>            gweather_prefs_parse_temperature    (const <link linkend="char">char</link> *str,
+                                                         <link linkend="gboolean">gboolean</link> *is_default);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_default</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-parse-speed" role="function">
+<title>gweather_prefs_parse_speed ()</title>
+<indexterm zone="gweather-prefs-parse-speed"><primary>gweather_prefs_parse_speed</primary></indexterm>
+<programlisting><link linkend="SpeedUnit">SpeedUnit</link>           gweather_prefs_parse_speed          (const <link linkend="char">char</link> *str,
+                                                         <link linkend="gboolean">gboolean</link> *is_default);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_default</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-get-temp-display-name" role="function">
+<title>gweather_prefs_get_temp_display_name ()</title>
+<indexterm zone="gweather-prefs-get-temp-display-name"><primary>gweather_prefs_get_temp_display_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_get_temp_display_name
+                                                        (<link linkend="TempUnit">TempUnit</link> temp);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>temp</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-get-speed-display-name" role="function">
+<title>gweather_prefs_get_speed_display_name ()</title>
+<indexterm zone="gweather-prefs-get-speed-display-name"><primary>gweather_prefs_get_speed_display_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_get_speed_display_name
+                                                        (<link linkend="SpeedUnit">SpeedUnit</link> speed);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>speed</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-get-pressure-display-name" role="function">
+<title>gweather_prefs_get_pressure_display_name ()</title>
+<indexterm zone="gweather-prefs-get-pressure-display-name"><primary>gweather_prefs_get_pressure_display_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_get_pressure_display_name
+                                                        (<link linkend="PressureUnit">PressureUnit</link> pressure);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pressure</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-prefs-get-distance-display-name" role="function">
+<title>gweather_prefs_get_distance_display_name ()</title>
+<indexterm zone="gweather-prefs-get-distance-display-name"><primary>gweather_prefs_get_distance_display_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_prefs_get_distance_display_name
+                                                        (<link linkend="DistanceUnit">DistanceUnit</link> distance);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>distance</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

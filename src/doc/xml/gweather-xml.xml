@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="libgweather-gweather-xml">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgweather-gweather-xml.top_of_page">gweather-xml</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gweather-xml</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libgweather-gweather-xml.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis><link linkend="GtkTreeModel">GtkTreeModel</link> *      <link linkend="gweather-xml-load-locations">gweather_xml_load_locations</link>         (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgweather-gweather-xml.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libgweather-gweather-xml.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="gweather-xml-load-locations" role="function">
+<title>gweather_xml_load_locations ()</title>
+<indexterm zone="gweather-xml-load-locations"><primary>gweather_xml_load_locations</primary></indexterm>
+<programlisting><link linkend="GtkTreeModel">GtkTreeModel</link> *      gweather_xml_load_locations         (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

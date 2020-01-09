@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="libgweather-gweather-location">
+<refmeta>
+<refentrytitle role="top_of_page" id="libgweather-gweather-location.top_of_page">gweather-location</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gweather-location</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="libgweather-gweather-location.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>                    <link linkend="GWeatherLocation">GWeatherLocation</link>;
+enum                <link linkend="GWeatherLocationLevel">GWeatherLocationLevel</link>;
+<link linkend="GWeatherLocation">GWeatherLocation</link> *  <link linkend="gweather-location-new-world">gweather_location_new_world</link>         (<link linkend="gboolean">gboolean</link> use_regions);
+<link linkend="GWeatherLocation">GWeatherLocation</link> *  <link linkend="gweather-location-ref">gweather_location_ref</link>               (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="void">void</link>                <link linkend="gweather-location-unref">gweather_location_unref</link>             (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+const <link linkend="char">char</link> *        <link linkend="gweather-location-get-name">gweather_location_get_name</link>          (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+const <link linkend="char">char</link> *        <link linkend="gweather-location-get-sort-name">gweather_location_get_sort_name</link>     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="GWeatherLocationLevel">GWeatherLocationLevel</link>  <link linkend="gweather-location-get-level">gweather_location_get_level</link>      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="GWeatherLocation">GWeatherLocation</link> *  <link linkend="gweather-location-get-parent">gweather_location_get_parent</link>        (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="GWeatherLocation">GWeatherLocation</link> ** <link linkend="gweather-location-get-children">gweather_location_get_children</link>      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="void">void</link>                <link linkend="gweather-location-free-children">gweather_location_free_children</link>     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="GWeatherLocation">GWeatherLocation</link> **children);
+<link linkend="gboolean">gboolean</link>            <link linkend="gweather-location-has-coords">gweather_location_has_coords</link>        (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="void">void</link>                <link linkend="gweather-location-get-coords">gweather_location_get_coords</link>        (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="double">double</link> *latitude,
+                                                         <link linkend="double">double</link> *longitude);
+<link linkend="double">double</link>              <link linkend="gweather-location-get-distance">gweather_location_get_distance</link>      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="GWeatherLocation">GWeatherLocation</link> *loc2);
+const <link linkend="char">char</link> *        <link linkend="gweather-location-get-country">gweather_location_get_country</link>       (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="GWeatherTimezone">GWeatherTimezone</link> *  <link linkend="gweather-location-get-timezone">gweather_location_get_timezone</link>      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="GWeatherTimezone">GWeatherTimezone</link> ** <link linkend="gweather-location-get-timezones">gweather_location_get_timezones</link>     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="void">void</link>                <link linkend="gweather-location-free-timezones">gweather_location_free_timezones</link>    (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="GWeatherTimezone">GWeatherTimezone</link> **zones);
+const <link linkend="char">char</link> *        <link linkend="gweather-location-get-code">gweather_location_get_code</link>          (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="char">char</link> *              <link linkend="gweather-location-get-city-name">gweather_location_get_city_name</link>     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+<link linkend="WeatherInfo">WeatherInfo</link> *       <link linkend="gweather-location-get-weather">gweather_location_get_weather</link>       (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="libgweather-gweather-location.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="libgweather-gweather-location.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GWeatherLocation" role="struct">
+<title>GWeatherLocation</title>
+<indexterm zone="GWeatherLocation"><primary>GWeatherLocation</primary></indexterm>
+<programlisting>typedef struct _GWeatherLocation GWeatherLocation;</programlisting>
+<para>
+A <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link> represents a "location" of some type known to
+libgweather; anything from a single weather station to the entire
+world. See <link linkend="GWeatherLocationLevel"><type>GWeatherLocationLevel</type></link> for information about how the
+hierarchy of locations works.</para>
+<para>
+</para></refsect2>
+<refsect2 id="GWeatherLocationLevel" role="enum">
+<title>enum GWeatherLocationLevel</title>
+<indexterm zone="GWeatherLocationLevel"><primary>GWeatherLocationLevel</primary></indexterm>
+<programlisting>typedef enum { /*&lt; underscore_name=gweather_location_level &gt;*/
+    GWEATHER_LOCATION_WORLD,
+    GWEATHER_LOCATION_REGION,
+    GWEATHER_LOCATION_COUNTRY,
+    /* ADM1 = first-order administrative division = state/province, etc */
+    GWEATHER_LOCATION_ADM1,
+    /* ADM2 = second-order division = county, etc */
+    GWEATHER_LOCATION_ADM2,
+    GWEATHER_LOCATION_CITY,
+    GWEATHER_LOCATION_WEATHER_STATION
+} GWeatherLocationLevel;
+</programlisting>
+<para>
+The size/scope of a particular <link linkend="GWeatherLocation."><type>GWeatherLocation.</type></link>
+</para>
+<para>
+Locations form a hierarchy, with a <link linkend="GWEATHER-LOCATION-WORLD:CAPS"><literal>GWEATHER_LOCATION_WORLD</literal></link>
+location at the top, divided into regions or countries, and so on.
+Countries may or may not be divided into "adm1"s, and "adm1"s may
+or may not be divided into "adm2"s. A city will have at least one,
+and possibly several, weather stations inside it. Weather stations
+will never appear outside of cities.</para>
+<para>
+</para><variablelist role="enum">
+<varlistentry id="GWEATHER-LOCATION-WORLD:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_WORLD</literal></term>
+<listitem><simpara> A location representing the entire world.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GWEATHER-LOCATION-REGION:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_REGION</literal></term>
+<listitem><simpara> A location representing a continent or
+other top-level region.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GWEATHER-LOCATION-COUNTRY:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_COUNTRY</literal></term>
+<listitem><simpara> A location representing a "country" (or
+other geographic unit that has an ISO-3166 country code)
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GWEATHER-LOCATION-ADM1:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_ADM1</literal></term>
+<listitem><simpara> A location representing a "first-level
+administrative division"; ie, a state, province, or similar
+division.
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GWEATHER-LOCATION-ADM2:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_ADM2</literal></term>
+<listitem><simpara> A location representing a subdivision of a
+<link linkend="GWEATHER-LOCATION-ADM1:CAPS"><literal>GWEATHER_LOCATION_ADM1</literal></link> location. (Not currently used.)
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GWEATHER-LOCATION-CITY:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_CITY</literal></term>
+<listitem><simpara> A location representing a city
+</simpara></listitem>
+</varlistentry>
+<varlistentry id="GWEATHER-LOCATION-WEATHER-STATION:CAPS" role="constant">
+<term><literal>GWEATHER_LOCATION_WEATHER_STATION</literal></term>
+<listitem><simpara> A location representing a
+weather station.
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-new-world" role="function">
+<title>gweather_location_new_world ()</title>
+<indexterm zone="gweather-location-new-world"><primary>gweather_location_new_world</primary></indexterm>
+<programlisting><link linkend="GWeatherLocation">GWeatherLocation</link> *  gweather_location_new_world         (<link linkend="gboolean">gboolean</link> use_regions);</programlisting>
+<para>
+Creates a new <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link> of type <link linkend="GWEATHER-LOCATION-WORLD:CAPS"><literal>GWEATHER_LOCATION_WORLD</literal></link>,
+representing a hierarchy containing all of the locations from
+Locations.xml.
+</para>
+<para>
+If <parameter>use_regions</parameter> is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the immediate children of the returned
+location will be <link linkend="GWEATHER-LOCATION-REGION:CAPS"><literal>GWEATHER_LOCATION_REGION</literal></link> nodes, representing the
+top-level "regions" of Locations.xml (the continents and a few
+other divisions), and the country-level nodes will be the children
+of the regions. If <parameter>use_regions</parameter> is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, the regions will be
+skipped, and the children of the returned location will be the
+<link linkend="GWEATHER-LOCATION-COUNTRY:CAPS"><literal>GWEATHER_LOCATION_COUNTRY</literal></link> nodes.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>use_regions</parameter>&#160;:</term>
+<listitem><simpara> whether or not to divide the world into regions
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>allow-none. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-ref" role="function">
+<title>gweather_location_ref ()</title>
+<indexterm zone="gweather-location-ref"><primary>gweather_location_ref</primary></indexterm>
+<programlisting><link linkend="GWeatherLocation">GWeatherLocation</link> *  gweather_location_ref               (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Adds 1 to <parameter>loc</parameter>'s reference count.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>loc</parameter>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-unref" role="function">
+<title>gweather_location_unref ()</title>
+<indexterm zone="gweather-location-unref"><primary>gweather_location_unref</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_location_unref             (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Subtracts 1 from <parameter>loc</parameter>'s reference count, and frees it if the
+reference count reaches 0.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-name" role="function">
+<title>gweather_location_get_name ()</title>
+<indexterm zone="gweather-location-get-name"><primary>gweather_location_get_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_location_get_name          (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets <parameter>loc</parameter>'s name, localized into the current language.
+</para>
+<para>
+Note that <link linkend="GWEATHER-LOCATION-WEATHER-STATION:CAPS"><literal>GWEATHER_LOCATION_WEATHER_STATION</literal></link> nodes are not
+localized, and so the name returned for those nodes will always be
+in English, and should therefore not be displayed to the user.
+(FIXME: should we just not return a name?)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>loc</parameter>'s name
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-sort-name" role="function">
+<title>gweather_location_get_sort_name ()</title>
+<indexterm zone="gweather-location-get-sort-name"><primary>gweather_location_get_sort_name</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_location_get_sort_name     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets <parameter>loc</parameter>'s "sort name", which is the name after having
+<link linkend="g-utf8-normalize"><function>g_utf8_normalize()</function></link> (with <link linkend="G-NORMALIZE-ALL:CAPS"><literal>G_NORMALIZE_ALL</literal></link>) and <link linkend="g-utf8-casefold"><function>g_utf8_casefold()</function></link>
+called on it. You can use this to sort locations, or to comparing
+user input against a location name.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>loc</parameter>'s sort name
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-level" role="function">
+<title>gweather_location_get_level ()</title>
+<indexterm zone="gweather-location-get-level"><primary>gweather_location_get_level</primary></indexterm>
+<programlisting><link linkend="GWeatherLocationLevel">GWeatherLocationLevel</link>  gweather_location_get_level      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets <parameter>loc</parameter>'s level, from <link linkend="GWEATHER-LOCATION-WORLD:CAPS"><literal>GWEATHER_LOCATION_WORLD</literal></link>, to
+<link linkend="GWEATHER-LOCATION-WEATHER-STATION:CAPS"><literal>GWEATHER_LOCATION_WEATHER_STATION</literal></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>loc</parameter>'s level
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-parent" role="function">
+<title>gweather_location_get_parent ()</title>
+<indexterm zone="gweather-location-get-parent"><primary>gweather_location_get_parent</primary></indexterm>
+<programlisting><link linkend="GWeatherLocation">GWeatherLocation</link> *  gweather_location_get_parent        (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets <parameter>loc</parameter>'s parent location.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>transfer none) (allow-none. <acronym>transfer none</acronym>. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-children" role="function">
+<title>gweather_location_get_children ()</title>
+<indexterm zone="gweather-location-get-children"><primary>gweather_location_get_children</primary></indexterm>
+<programlisting><link linkend="GWeatherLocation">GWeatherLocation</link> ** gweather_location_get_children      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets an array of <parameter>loc</parameter>'s children; this is owned by <parameter>loc</parameter> and will
+not remain valid if <parameter>loc</parameter> is freed.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>transfer none) (array zero-terminated=1. <acronym>transfer none</acronym>. <acronym>array</acronym> zero-terminated=1. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-free-children" role="function" condition="deprecated:This is a no-op.">
+<title>gweather_location_free_children ()</title>
+<indexterm zone="gweather-location-free-children" role="deprecated"><primary>gweather_location_free_children</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_location_free_children     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="GWeatherLocation">GWeatherLocation</link> **children);</programlisting>
+<warning><para><literal>gweather_location_free_children</literal> is deprecated and should not be used in newly-written code. This is a no-op.</para></warning>
+<para>
+This is a no-op. Do not use it.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>children</parameter>&#160;:</term>
+<listitem><simpara> an array of <parameter>loc</parameter>'s children
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-has-coords" role="function">
+<title>gweather_location_has_coords ()</title>
+<indexterm zone="gweather-location-has-coords"><primary>gweather_location_has_coords</primary></indexterm>
+<programlisting><link linkend="gboolean">gboolean</link>            gweather_location_has_coords        (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Checks if <parameter>loc</parameter> has valid latitude and longitude.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>loc</parameter> has valid latitude and longitude.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-coords" role="function">
+<title>gweather_location_get_coords ()</title>
+<indexterm zone="gweather-location-get-coords"><primary>gweather_location_get_coords</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_location_get_coords        (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="double">double</link> *latitude,
+                                                         <link linkend="double">double</link> *longitude);</programlisting>
+<para>
+Gets <parameter>loc</parameter>'s coordinates; you must check
+<link linkend="gweather-location-has-coords"><function>gweather_location_has_coords()</function></link> before calling this.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>latitude</parameter>&#160;:</term>
+<listitem><simpara> on return will contain <parameter>loc</parameter>'s latitude. <acronym>out</acronym>. </simpara></listitem></varlistentry>
+<varlistentry><term><parameter>longitude</parameter>&#160;:</term>
+<listitem><simpara> on return will contain <parameter>loc</parameter>'s longitude. <acronym>out</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-distance" role="function">
+<title>gweather_location_get_distance ()</title>
+<indexterm zone="gweather-location-get-distance"><primary>gweather_location_get_distance</primary></indexterm>
+<programlisting><link linkend="double">double</link>              gweather_location_get_distance      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="GWeatherLocation">GWeatherLocation</link> *loc2);</programlisting>
+<para>
+Determines the distance in kilometers between <parameter>loc</parameter> and <parameter>loc2</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>loc2</parameter>&#160;:</term>
+<listitem><simpara> a second <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the distance between <parameter>loc</parameter> and <parameter>loc2</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-country" role="function">
+<title>gweather_location_get_country ()</title>
+<indexterm zone="gweather-location-get-country"><primary>gweather_location_get_country</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_location_get_country       (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets the ISO 3166 country code of <parameter>loc</parameter> (or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>loc</parameter> is a
+region- or world-level location)</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>allow-none. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-timezone" role="function">
+<title>gweather_location_get_timezone ()</title>
+<indexterm zone="gweather-location-get-timezone"><primary>gweather_location_get_timezone</primary></indexterm>
+<programlisting><link linkend="GWeatherTimezone">GWeatherTimezone</link> *  gweather_location_get_timezone      (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets the timezone associated with <parameter>loc</parameter>, if known.
+</para>
+<para>
+The timezone is owned either by <parameter>loc</parameter> or by one of its parents.
+FIXME.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>transfer none) (allow-none. <acronym>transfer none</acronym>. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-timezones" role="function">
+<title>gweather_location_get_timezones ()</title>
+<indexterm zone="gweather-location-get-timezones"><primary>gweather_location_get_timezones</primary></indexterm>
+<programlisting><link linkend="GWeatherTimezone">GWeatherTimezone</link> ** gweather_location_get_timezones     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets an array of all timezones associated with any location under
+<parameter>loc</parameter>. You can use <link linkend="gweather-location-free-timezones"><function>gweather_location_free_timezones()</function></link> to free this
+array.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>transfer full) (array zero-terminated=1. <acronym>transfer full</acronym>. <acronym>array</acronym> zero-terminated=1. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-free-timezones" role="function">
+<title>gweather_location_free_timezones ()</title>
+<indexterm zone="gweather-location-free-timezones"><primary>gweather_location_free_timezones</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_location_free_timezones    (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc,
+                                                         <link linkend="GWeatherTimezone">GWeatherTimezone</link> **zones);</programlisting>
+<para>
+Frees the array of timezones returned by
+<link linkend="gweather-location-get-timezones"><function>gweather_location_get_timezones()</function></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>zones</parameter>&#160;:</term>
+<listitem><simpara> an array returned from <link linkend="gweather-location-get-timezones"><function>gweather_location_get_timezones()</function></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-code" role="function">
+<title>gweather_location_get_code ()</title>
+<indexterm zone="gweather-location-get-code"><primary>gweather_location_get_code</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_location_get_code          (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Gets the METAR station code associated with a
+<link linkend="GWEATHER-LOCATION-WEATHER-STATION:CAPS"><literal>GWEATHER_LOCATION_WEATHER_STATION</literal></link> location.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <parameter>loc</parameter>'s METAR station code, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-city-name" role="function">
+<title>gweather_location_get_city_name ()</title>
+<indexterm zone="gweather-location-get-city-name"><primary>gweather_location_get_city_name</primary></indexterm>
+<programlisting><link linkend="char">char</link> *              gweather_location_get_city_name     (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+For a <link linkend="GWEATHER-LOCATION-CITY:CAPS"><literal>GWEATHER_LOCATION_CITY</literal></link> location, this is equivalent to
+<link linkend="gweather-location-get-name"><function>gweather_location_get_name()</function></link>. For a
+<link linkend="GWEATHER-LOCATION-WEATHER-STATION:CAPS"><literal>GWEATHER_LOCATION_WEATHER_STATION</literal></link> location, it is equivalent to
+calling <link linkend="gweather-location-get-name"><function>gweather_location_get_name()</function></link> on the location's parent. For
+other locations it will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><type>GWeatherLocation</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> (allow-none) <parameter>loc</parameter>'s city name, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-location-get-weather" role="function">
+<title>gweather_location_get_weather ()</title>
+<indexterm zone="gweather-location-get-weather"><primary>gweather_location_get_weather</primary></indexterm>
+<programlisting><link linkend="WeatherInfo">WeatherInfo</link> *       gweather_location_get_weather       (<link linkend="GWeatherLocation">GWeatherLocation</link> *loc);</programlisting>
+<para>
+Creates a <link linkend="WeatherInfo"><type>WeatherInfo</type></link> corresponding to <parameter>loc</parameter>; you can use
+<link linkend="weather-info-update"><function>weather_info_update()</function></link> to fill it in.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>loc</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherLocation"><literal>GWeatherLocation</literal></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>transfer full. <acronym>transfer full</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+</refentry>

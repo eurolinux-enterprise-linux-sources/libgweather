@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="DistanceUnit"><link linkend="DistanceUnit">DistanceUnit</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="GWeatherGConf"><link linkend="GWeatherGConf">GWeatherGConf</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCONF-DISTANCE-UNIT:CAPS"><link linkend="GCONF-DISTANCE-UNIT:CAPS">GCONF_DISTANCE_UNIT</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-free"><link linkend="gweather-gconf-free">gweather_gconf_free</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-get-bool"><link linkend="gweather-gconf-get-bool">gweather_gconf_get_bool</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-get-client"><link linkend="gweather-gconf-get-client">gweather_gconf_get_client</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-get-full-key"><link linkend="gweather-gconf-get-full-key">gweather_gconf_get_full_key</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-get-int"><link linkend="gweather-gconf-get-int">gweather_gconf_get_int</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-get-location"><link linkend="gweather-gconf-get-location">gweather_gconf_get_location</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-get-string"><link linkend="gweather-gconf-get-string">gweather_gconf_get_string</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-new"><link linkend="gweather-gconf-new">gweather_gconf_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCONF-PRESSURE-UNIT:CAPS"><link linkend="GCONF-PRESSURE-UNIT:CAPS">GCONF_PRESSURE_UNIT</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-set-bool"><link linkend="gweather-gconf-set-bool">gweather_gconf_set_bool</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-set-int"><link linkend="gweather-gconf-set-int">gweather_gconf_set_int</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-gconf-set-string"><link linkend="gweather-gconf-set-string">gweather_gconf_set_string</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCONF-SPEED-UNIT:CAPS"><link linkend="GCONF-SPEED-UNIT:CAPS">GCONF_SPEED_UNIT</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GCONF-TEMP-UNIT:CAPS"><link linkend="GCONF-TEMP-UNIT:CAPS">GCONF_TEMP_UNIT</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="GWeatherLocation"><link linkend="GWeatherLocation">GWeatherLocation</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherLocationEntry-struct"><link linkend="GWeatherLocationEntry-struct">GWeatherLocationEntry</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherLocationEntry--location"><link linkend="GWeatherLocationEntry--location">GWeatherLocationEntry:location</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherLocationEntry--top"><link linkend="GWeatherLocationEntry--top">GWeatherLocationEntry:top</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherLocationLevel"><link linkend="GWeatherLocationLevel">GWeatherLocationLevel</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-entry-get-location"><link linkend="gweather-location-entry-get-location">gweather_location_entry_get_location</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-entry-new"><link linkend="gweather-location-entry-new">gweather_location_entry_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-entry-set-city"><link linkend="gweather-location-entry-set-city">gweather_location_entry_set_city</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-entry-set-location"><link linkend="gweather-location-entry-set-location">gweather_location_entry_set_location</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-free-children"><link linkend="gweather-location-free-children">gweather_location_free_children</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-free-timezones"><link linkend="gweather-location-free-timezones">gweather_location_free_timezones</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-children"><link linkend="gweather-location-get-children">gweather_location_get_children</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-city-name"><link linkend="gweather-location-get-city-name">gweather_location_get_city_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-code"><link linkend="gweather-location-get-code">gweather_location_get_code</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-coords"><link linkend="gweather-location-get-coords">gweather_location_get_coords</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-country"><link linkend="gweather-location-get-country">gweather_location_get_country</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-distance"><link linkend="gweather-location-get-distance">gweather_location_get_distance</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-level"><link linkend="gweather-location-get-level">gweather_location_get_level</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-name"><link linkend="gweather-location-get-name">gweather_location_get_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-parent"><link linkend="gweather-location-get-parent">gweather_location_get_parent</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-sort-name"><link linkend="gweather-location-get-sort-name">gweather_location_get_sort_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-timezone"><link linkend="gweather-location-get-timezone">gweather_location_get_timezone</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-timezones"><link linkend="gweather-location-get-timezones">gweather_location_get_timezones</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-get-weather"><link linkend="gweather-location-get-weather">gweather_location_get_weather</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-has-coords"><link linkend="gweather-location-has-coords">gweather_location_has_coords</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-new-world"><link linkend="gweather-location-new-world">gweather_location_new_world</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-ref"><link linkend="gweather-location-ref">gweather_location_ref</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-location-unref"><link linkend="gweather-location-unref">gweather_location_unref</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>P</title>
+<indexentry><primaryie linkends="GWeatherPrefs"><link linkend="GWeatherPrefs">GWeatherPrefs</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-distance-enum-to-string"><link linkend="gweather-prefs-distance-enum-to-string">gweather_prefs_distance_enum_to_string</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-get-distance-display-name"><link linkend="gweather-prefs-get-distance-display-name">gweather_prefs_get_distance_display_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-get-pressure-display-name"><link linkend="gweather-prefs-get-pressure-display-name">gweather_prefs_get_pressure_display_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-get-speed-display-name"><link linkend="gweather-prefs-get-speed-display-name">gweather_prefs_get_speed_display_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-get-temp-display-name"><link linkend="gweather-prefs-get-temp-display-name">gweather_prefs_get_temp_display_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-load"><link linkend="gweather-prefs-load">gweather_prefs_load</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-parse-speed"><link linkend="gweather-prefs-parse-speed">gweather_prefs_parse_speed</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-parse-temperature"><link linkend="gweather-prefs-parse-temperature">gweather_prefs_parse_temperature</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-pressure-enum-to-string"><link linkend="gweather-prefs-pressure-enum-to-string">gweather_prefs_pressure_enum_to_string</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-speed-enum-to-string"><link linkend="gweather-prefs-speed-enum-to-string">gweather_prefs_speed_enum_to_string</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-prefs-temp-enum-to-string"><link linkend="gweather-prefs-temp-enum-to-string">gweather_prefs_temp_enum_to_string</link></primaryie></indexentry>
+<indexentry><primaryie linkends="PressureUnit"><link linkend="PressureUnit">PressureUnit</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="SpeedUnit"><link linkend="SpeedUnit">SpeedUnit</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>T</title>
+<indexentry><primaryie linkends="TempUnit"><link linkend="TempUnit">TempUnit</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherTimezone"><link linkend="GWeatherTimezone">GWeatherTimezone</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherTimezoneMenu-struct"><link linkend="GWeatherTimezoneMenu-struct">GWeatherTimezoneMenu</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherTimezoneMenu--top"><link linkend="GWeatherTimezoneMenu--top">GWeatherTimezoneMenu:top</link></primaryie></indexentry>
+<indexentry><primaryie linkends="GWeatherTimezoneMenu--tzid"><link linkend="GWeatherTimezoneMenu--tzid">GWeatherTimezoneMenu:tzid</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-get-dst-offset"><link linkend="gweather-timezone-get-dst-offset">gweather_timezone_get_dst_offset</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-get-name"><link linkend="gweather-timezone-get-name">gweather_timezone_get_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-get-offset"><link linkend="gweather-timezone-get-offset">gweather_timezone_get_offset</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-get-tzid"><link linkend="gweather-timezone-get-tzid">gweather_timezone_get_tzid</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-has-dst"><link linkend="gweather-timezone-has-dst">gweather_timezone_has_dst</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-menu-get-tzid"><link linkend="gweather-timezone-menu-get-tzid">gweather_timezone_menu_get_tzid</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-menu-new"><link linkend="gweather-timezone-menu-new">gweather_timezone_menu_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-menu-set-tzid"><link linkend="gweather-timezone-menu-set-tzid">gweather_timezone_menu_set_tzid</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-ref"><link linkend="gweather-timezone-ref">gweather_timezone_ref</link></primaryie></indexentry>
+<indexentry><primaryie linkends="gweather-timezone-unref"><link linkend="gweather-timezone-unref">gweather_timezone_unref</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>W</title>
+<indexentry><primaryie linkends="WeatherConditionPhenomenon"><link linkend="WeatherConditionPhenomenon">WeatherConditionPhenomenon</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherConditionQualifier"><link linkend="WeatherConditionQualifier">WeatherConditionQualifier</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherForecastType"><link linkend="WeatherForecastType">WeatherForecastType</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherInfo"><link linkend="WeatherInfo">WeatherInfo</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherInfoFunc"><link linkend="WeatherInfoFunc">WeatherInfoFunc</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherLocation"><link linkend="WeatherLocation">WeatherLocation</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherPrefs"><link linkend="WeatherPrefs">WeatherPrefs</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherSky"><link linkend="WeatherSky">WeatherSky</link></primaryie></indexentry>
+<indexentry><primaryie linkends="WeatherWindDirection"><link linkend="WeatherWindDirection">WeatherWindDirection</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-abort"><link linkend="weather-info-abort">weather_info_abort</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-clone"><link linkend="weather-info-clone">weather_info_clone</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-free"><link linkend="weather-info-free">weather_info_free</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-apparent"><link linkend="weather-info-get-apparent">weather_info_get_apparent</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-conditions"><link linkend="weather-info-get-conditions">weather_info_get_conditions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-dew"><link linkend="weather-info-get-dew">weather_info_get_dew</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-forecast"><link linkend="weather-info-get-forecast">weather_info_get_forecast</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-forecast-list"><link linkend="weather-info-get-forecast-list">weather_info_get_forecast_list</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-humidity"><link linkend="weather-info-get-humidity">weather_info_get_humidity</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-icon-name"><link linkend="weather-info-get-icon-name">weather_info_get_icon_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-location"><link linkend="weather-info-get-location">weather_info_get_location</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-location-name"><link linkend="weather-info-get-location-name">weather_info_get_location_name</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-pressure"><link linkend="weather-info-get-pressure">weather_info_get_pressure</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-radar"><link linkend="weather-info-get-radar">weather_info_get_radar</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-sky"><link linkend="weather-info-get-sky">weather_info_get_sky</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-sunrise"><link linkend="weather-info-get-sunrise">weather_info_get_sunrise</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-sunset"><link linkend="weather-info-get-sunset">weather_info_get_sunset</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-temp"><link linkend="weather-info-get-temp">weather_info_get_temp</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-temp-max"><link linkend="weather-info-get-temp-max">weather_info_get_temp_max</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-temp-min"><link linkend="weather-info-get-temp-min">weather_info_get_temp_min</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-temp-summary"><link linkend="weather-info-get-temp-summary">weather_info_get_temp_summary</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-update"><link linkend="weather-info-get-update">weather_info_get_update</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-apparent"><link linkend="weather-info-get-value-apparent">weather_info_get_value_apparent</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-conditions"><link linkend="weather-info-get-value-conditions">weather_info_get_value_conditions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-dew"><link linkend="weather-info-get-value-dew">weather_info_get_value_dew</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-pressure"><link linkend="weather-info-get-value-pressure">weather_info_get_value_pressure</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-sky"><link linkend="weather-info-get-value-sky">weather_info_get_value_sky</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-sunrise"><link linkend="weather-info-get-value-sunrise">weather_info_get_value_sunrise</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-sunset"><link linkend="weather-info-get-value-sunset">weather_info_get_value_sunset</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-temp"><link linkend="weather-info-get-value-temp">weather_info_get_value_temp</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-temp-max"><link linkend="weather-info-get-value-temp-max">weather_info_get_value_temp_max</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-temp-min"><link linkend="weather-info-get-value-temp-min">weather_info_get_value_temp_min</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-update"><link linkend="weather-info-get-value-update">weather_info_get_value_update</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-visibility"><link linkend="weather-info-get-value-visibility">weather_info_get_value_visibility</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-value-wind"><link linkend="weather-info-get-value-wind">weather_info_get_value_wind</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-visibility"><link linkend="weather-info-get-visibility">weather_info_get_visibility</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-weather-summary"><link linkend="weather-info-get-weather-summary">weather_info_get_weather_summary</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-get-wind"><link linkend="weather-info-get-wind">weather_info_get_wind</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-is-valid"><link linkend="weather-info-is-valid">weather_info_is_valid</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-network-error"><link linkend="weather-info-network-error">weather_info_network_error</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-new"><link linkend="weather-info-new">weather_info_new</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-next-sun-event"><link linkend="weather-info-next-sun-event">weather_info_next_sun_event</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-to-imperial"><link linkend="weather-info-to-imperial">weather_info_to_imperial</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-to-metric"><link linkend="weather-info-to-metric">weather_info_to_metric</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-info-update"><link linkend="weather-info-update">weather_info_update</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-location-clone"><link linkend="weather-location-clone">weather_location_clone</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-location-equal"><link linkend="weather-location-equal">weather_location_equal</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-location-free"><link linkend="weather-location-free">weather_location_free</link></primaryie></indexentry>
+<indexentry><primaryie linkends="weather-location-new"><link linkend="weather-location-new">weather_location_new</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>X</title>
+<indexentry><primaryie linkends="gweather-xml-load-locations"><link linkend="gweather-xml-load-locations">gweather_xml_load_locations</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

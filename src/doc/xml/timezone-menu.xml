@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<refentry id="GWeatherTimezoneMenu">
+<refmeta>
+<refentrytitle role="top_of_page" id="GWeatherTimezoneMenu.top_of_page">GWeatherTimezoneMenu</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBGWEATHER Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GWeatherTimezoneMenu</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="GWeatherTimezoneMenu.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>                    <link linkend="GWeatherTimezoneMenu-struct">GWeatherTimezoneMenu</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="gweather-timezone-menu-new">gweather_timezone_menu_new</link>          (<link linkend="GWeatherLocation">GWeatherLocation</link> *top);
+<link linkend="void">void</link>                <link linkend="gweather-timezone-menu-set-tzid">gweather_timezone_menu_set_tzid</link>     (<link linkend="GWeatherTimezoneMenu">GWeatherTimezoneMenu</link> *menu,
+                                                         const <link linkend="char">char</link> *tzid);
+const <link linkend="char">char</link> *        <link linkend="gweather-timezone-menu-get-tzid">gweather_timezone_menu_get_tzid</link>     (<link linkend="GWeatherTimezoneMenu">GWeatherTimezoneMenu</link> *menu);
+</synopsis>
+</refsynopsisdiv>
+<refsect1 id="GWeatherTimezoneMenu.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkComboBox">GtkComboBox</link>
+                                       +----GWeatherTimezoneMenu
+</synopsis>
+</refsect1>
+<refsect1 id="GWeatherTimezoneMenu.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GWeatherTimezoneMenu implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkCellLayout">GtkCellLayout</link> and  <link linkend="GtkCellEditable">GtkCellEditable</link>.</para>
+</refsect1>
+<refsect1 id="GWeatherTimezoneMenu.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="GWeatherTimezoneMenu--top">top</link>&quot;                      <link linkend="gpointer">gpointer</link>              : Write / Construct Only
+  &quot;<link linkend="GWeatherTimezoneMenu--tzid">tzid</link>&quot;                     <link linkend="gchar">gchar</link>*                : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="GWeatherTimezoneMenu.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+<refsect1 id="GWeatherTimezoneMenu.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="GWeatherTimezoneMenu-struct" role="struct">
+<title>GWeatherTimezoneMenu</title>
+<indexterm zone="GWeatherTimezoneMenu-struct"><primary>GWeatherTimezoneMenu</primary></indexterm>
+<programlisting>typedef struct _GWeatherTimezoneMenu GWeatherTimezoneMenu;</programlisting>
+<para>
+A <link linkend="GtkComboBox"><type>GtkComboBox</type></link> subclass for choosing a <link linkend="GWeatherTimezone"><type>GWeatherTimezone</type></link></para>
+<para>
+</para></refsect2>
+<refsect2 id="gweather-timezone-menu-new" role="function">
+<title>gweather_timezone_menu_new ()</title>
+<indexterm zone="gweather-timezone-menu-new"><primary>gweather_timezone_menu_new</primary></indexterm>
+<programlisting><link linkend="GtkWidget">GtkWidget</link> *         gweather_timezone_menu_new          (<link linkend="GWeatherLocation">GWeatherLocation</link> *top);</programlisting>
+<para>
+Creates a new <link linkend="GWeatherTimezoneMenu."><type>GWeatherTimezoneMenu.</type></link>
+</para>
+<para>
+<parameter>top</parameter> will normally be a location returned from
+<link linkend="gweather-location-new-world"><function>gweather_location_new_world()</function></link>, but you can create a menu that
+contains the timezones from a smaller set of locations if you want.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>top</parameter>&#160;:</term>
+<listitem><simpara> the top-level location for the menu.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the new <link linkend="GWeatherTimezoneMenu"><type>GWeatherTimezoneMenu</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-menu-set-tzid" role="function">
+<title>gweather_timezone_menu_set_tzid ()</title>
+<indexterm zone="gweather-timezone-menu-set-tzid"><primary>gweather_timezone_menu_set_tzid</primary></indexterm>
+<programlisting><link linkend="void">void</link>                gweather_timezone_menu_set_tzid     (<link linkend="GWeatherTimezoneMenu">GWeatherTimezoneMenu</link> *menu,
+                                                         const <link linkend="char">char</link> *tzid);</programlisting>
+<para>
+Sets <parameter>menu</parameter> to the given <parameter>tzid</parameter>. If <parameter>tzid</parameter> is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, sets <parameter>menu</parameter> to
+"Unknown".</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezoneMenu"><type>GWeatherTimezoneMenu</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tzid</parameter>&#160;:</term>
+<listitem><simpara> a tzdata id (eg, "America/New_York"). <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="gweather-timezone-menu-get-tzid" role="function">
+<title>gweather_timezone_menu_get_tzid ()</title>
+<indexterm zone="gweather-timezone-menu-get-tzid"><primary>gweather_timezone_menu_get_tzid</primary></indexterm>
+<programlisting>const <link linkend="char">char</link> *        gweather_timezone_menu_get_tzid     (<link linkend="GWeatherTimezoneMenu">GWeatherTimezoneMenu</link> *menu);</programlisting>
+<para>
+Gets <parameter>menu</parameter>'s timezone id.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>menu</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GWeatherTimezoneMenu"><type>GWeatherTimezoneMenu</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>allow-none. <acronym>allow-none</acronym>. </simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="GWeatherTimezoneMenu.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GWeatherTimezoneMenu--top" role="property"><title>The <literal>&quot;top&quot;</literal> property</title>
+<indexterm zone="GWeatherTimezoneMenu--top"><primary>GWeatherTimezoneMenu:top</primary></indexterm>
+<programlisting>  &quot;top&quot;                      <link linkend="gpointer">gpointer</link>              : Write / Construct Only</programlisting>
+<para>The GWeatherLocation whose children will be used to fill in the menu.</para></refsect2>
+<refsect2 id="GWeatherTimezoneMenu--tzid" role="property"><title>The <literal>&quot;tzid&quot;</literal> property</title>
+<indexterm zone="GWeatherTimezoneMenu--tzid"><primary>GWeatherTimezoneMenu:tzid</primary></indexterm>
+<programlisting>  &quot;tzid&quot;                     <link linkend="gchar">gchar</link>*                : Read / Write</programlisting>
+<para>The selected TZID.</para><para>Default value: NULL</para>
+</refsect2>
+</refsect1>
+
+</refentry>
