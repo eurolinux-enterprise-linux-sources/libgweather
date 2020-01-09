@@ -1,6 +1,6 @@
 Name:           libgweather
 Version:        2.28.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        A library for weather information
 
 Group:          System Environment/Libraries
@@ -30,6 +30,9 @@ Patch1: better-weather-in-montreal.patch
 Patch2: libgweather-translations.patch
 Patch3: libgweather-translations2.patch
 
+# https://bugzilla.redhat.com/show_bug.cgi?id=704105
+Patch4: libgweather-add-jerusalem-location.patch
+
 %description
 libgweather is a library to access weather information from online
 services for numerous locations.
@@ -56,6 +59,7 @@ developing applications that use %{name}.
 %patch1 -p1 -b .montreal
 %patch2 -p1 -b .translations
 %patch3 -p2 -b .translations2
+%patch4 -p1 -b .jerusalem
 
 gtkdocize
 autoreconf -i -f
@@ -113,6 +117,10 @@ fi
 
 
 %changelog
+* Tue Feb  2 2012 Cosimo Cecchi <cosimoc@redhat.com> - 2.28.0-5
+- Add an entry for the city of Jerusalem
+Resolves: #704105
+
 * Tue Aug  3 2010 Matthias Clasen <mclasen@redhat.com> 2.28.0-4
 - Some more translation updates (Kannada)
 Resolves: #618495
