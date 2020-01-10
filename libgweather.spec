@@ -1,6 +1,6 @@
 Name:           libgweather
 Version:        3.14.1
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        A library for weather information
 
 Group:          System Environment/Libraries
@@ -8,6 +8,9 @@ License:        GPLv2+
 URL:            http://www.gnome.org
 #VCS: git:git://git.gnome.org/libgweather
 Source0:        http://download.gnome.org/sources/libgweather/3.14/%{name}-%{version}.tar.xz
+
+Patch0:         translations.patch
+Patch1:         0001-Switch-to-new-METAR-data-provider.patch
 
 BuildRequires:  dbus-devel
 BuildRequires:  geocode-glib-devel
@@ -41,6 +44,8 @@ developing applications that use %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure --disable-static --disable-gtk-doc
@@ -91,6 +96,14 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 
 %changelog
+* Wed Aug 31 2016 Kalev Lember <klember@redhat.com> - 3.14.1-3
+- Switch to new METAR data provider
+- Resolves: #1371550
+
+* Fri Jul  1 2016 Matthias Clasen <mclasen@redhat.com> - 3.14.1-2
+- Update translations
+  Resolves: #1304249
+
 * Mon Oct 13 2014 Kalev Lember <kalevlember@gmail.com> - 3.14.1-1
 - Update to 3.14.1
 - Resolves: #1174505
