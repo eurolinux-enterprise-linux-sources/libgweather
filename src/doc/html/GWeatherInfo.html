@@ -1,0 +1,2407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>libgweather Reference Manual: GWeatherInfo</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libgweather Reference Manual">
+<link rel="up" href="ch01.html" title="libgweather Reference Manual">
+<link rel="prev" href="GWeatherTimezone.html" title="GWeatherTimezone">
+<link rel="next" href="GWeatherLocationEntry.html" title="GWeatherLocationEntry">
+<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#GWeatherInfo.description" class="shortcut">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a href="#GWeatherInfo.object-hierarchy" class="shortcut">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a href="#GWeatherInfo.properties" class="shortcut">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a href="#GWeatherInfo.signals" class="shortcut">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GWeatherTimezone.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GWeatherLocationEntry.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="GWeatherInfo"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GWeatherInfo.top_of_page"></a>GWeatherInfo</span></h2>
+<p>GWeatherInfo</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="GWeatherInfo.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="returnvalue">GWeatherInfo</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-new" title="gweather_info_new ()">gweather_info_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-update" title="gweather_info_update ()">gweather_info_update</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-abort" title="gweather_info_abort ()">gweather_info_abort</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-is-valid" title="gweather_info_is_valid ()">gweather_info_is_valid</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-network-error" title="gweather_info_network_error ()">gweather_info_network_error</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-store-cache" title="gweather_info_store_cache ()">gweather_info_store_cache</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="returnvalue">GWeatherLocation</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-location" title="gweather_info_get_location ()">gweather_info_get_location</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-set-location" title="gweather_info_set_location ()">gweather_info_set_location</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-forecast" title="gweather_info_get_forecast ()">gweather_info_get_forecast</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-forecast-list" title="gweather_info_get_forecast_list ()">gweather_info_get_forecast_list</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GWeatherInfo.html#GWeatherProvider" title="enum GWeatherProvider"><span class="returnvalue">GWeatherProvider</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-enabled-providers" title="gweather_info_get_enabled_providers ()">gweather_info_get_enabled_providers</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-set-enabled-providers" title="gweather_info_set_enabled_providers ()">gweather_info_set_enabled_providers</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-attribution" title="gweather_info_get_attribution ()">gweather_info_get_attribution</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-location-name" title="gweather_info_get_location_name ()">gweather_info_get_location_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-icon-name" title="gweather_info_get_icon_name ()">gweather_info_get_icon_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-symbolic-icon-name" title="gweather_info_get_symbolic_icon_name ()">gweather_info_get_symbolic_icon_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-weather-summary" title="gweather_info_get_weather_summary ()">gweather_info_get_weather_summary</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-temp-summary" title="gweather_info_get_temp_summary ()">gweather_info_get_temp_summary</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-update" title="gweather_info_get_update ()">gweather_info_get_update</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-sky" title="gweather_info_get_sky ()">gweather_info_get_sky</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-conditions" title="gweather_info_get_conditions ()">gweather_info_get_conditions</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-temp" title="gweather_info_get_temp ()">gweather_info_get_temp</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-temp-min" title="gweather_info_get_temp_min ()">gweather_info_get_temp_min</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-temp-max" title="gweather_info_get_temp_max ()">gweather_info_get_temp_max</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-dew" title="gweather_info_get_dew ()">gweather_info_get_dew</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-humidity" title="gweather_info_get_humidity ()">gweather_info_get_humidity</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-wind" title="gweather_info_get_wind ()">gweather_info_get_wind</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-pressure" title="gweather_info_get_pressure ()">gweather_info_get_pressure</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-visibility" title="gweather_info_get_visibility ()">gweather_info_get_visibility</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-apparent" title="gweather_info_get_apparent ()">gweather_info_get_apparent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-sunrise" title="gweather_info_get_sunrise ()">gweather_info_get_sunrise</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-sunset" title="gweather_info_get_sunset ()">gweather_info_get_sunset</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Animations.html#GdkPixbufAnimation"><span class="returnvalue">GdkPixbufAnimation</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-radar" title="gweather_info_get_radar ()">gweather_info_get_radar</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-conditions-to-string" title="gweather_conditions_to_string ()">gweather_conditions_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-sky-to-string" title="gweather_sky_to_string ()">gweather_sky_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-wind-direction-to-string" title="gweather_wind_direction_to_string ()">gweather_wind_direction_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-update" title="gweather_info_get_value_update ()">gweather_info_get_value_update</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-sky" title="gweather_info_get_value_sky ()">gweather_info_get_value_sky</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-conditions" title="gweather_info_get_value_conditions ()">gweather_info_get_value_conditions</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-temp" title="gweather_info_get_value_temp ()">gweather_info_get_value_temp</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-temp-min" title="gweather_info_get_value_temp_min ()">gweather_info_get_value_temp_min</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-temp-max" title="gweather_info_get_value_temp_max ()">gweather_info_get_value_temp_max</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-dew" title="gweather_info_get_value_dew ()">gweather_info_get_value_dew</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-apparent" title="gweather_info_get_value_apparent ()">gweather_info_get_value_apparent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-wind" title="gweather_info_get_value_wind ()">gweather_info_get_value_wind</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-pressure" title="gweather_info_get_value_pressure ()">gweather_info_get_value_pressure</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-visibility" title="gweather_info_get_value_visibility ()">gweather_info_get_value_visibility</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-sunrise" title="gweather_info_get_value_sunrise ()">gweather_info_get_value_sunrise</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-sunset" title="gweather_info_get_value_sunset ()">gweather_info_get_value_sunset</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-next-sun-event" title="gweather_info_next_sun_event ()">gweather_info_next_sun_event</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-moonphase" title="gweather_info_get_value_moonphase ()">gweather_info_get_value_moonphase</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-get-upcoming-moonphases" title="gweather_info_get_upcoming_moonphases ()">gweather_info_get_upcoming_moonphases</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GWeatherInfo.html#gweather-info-is-daytime" title="gweather_info_is_daytime ()">gweather_info_is_daytime</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type"><a class="link" href="GWeatherInfo.html#GWeatherProvider" title="enum GWeatherProvider"><span class="type">GWeatherProvider</span></a></td>
+<td class="property_name"><a class="link" href="GWeatherInfo.html#GWeatherInfo--enabled-providers" title="The “enabled-providers” property">enabled-providers</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="type">GWeatherLocation</span></a> *</td>
+<td class="property_name"><a class="link" href="GWeatherInfo.html#GWeatherInfo--location" title="The “location” property">location</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0">
+<colgroup>
+<col width="150px" class="signals_return">
+<col width="300px" class="signals_name">
+<col width="200px" class="signals_flags">
+</colgroup>
+<tbody><tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GWeatherInfo.html#GWeatherInfo-updated" title="The “updated” signal">updated</a></td>
+<td class="signal_flags">Run First</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherProvider" title="enum GWeatherProvider">GWeatherProvider</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherConditionPhenomenon" title="enum GWeatherConditionPhenomenon">GWeatherConditionPhenomenon</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherConditionQualifier" title="enum GWeatherConditionQualifier">GWeatherConditionQualifier</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherConditions" title="struct GWeatherConditions">GWeatherConditions</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherSky" title="enum GWeatherSky">GWeatherSky</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherWindDirection" title="enum GWeatherWindDirection">GWeatherWindDirection</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherMoonLatitude" title="GWeatherMoonLatitude">GWeatherMoonLatitude</a></td>
+</tr>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherMoonPhase" title="GWeatherMoonPhase">GWeatherMoonPhase</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherDistanceUnit" title="enum GWeatherDistanceUnit">GWeatherDistanceUnit</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherPressureUnit" title="enum GWeatherPressureUnit">GWeatherPressureUnit</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherSpeedUnit" title="enum GWeatherSpeedUnit">GWeatherSpeedUnit</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit">GWeatherTemperatureUnit</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GWeatherInfo.html#GWeatherForecastType" title="enum GWeatherForecastType">GWeatherForecastType</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="https://developer.gnome.org/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+    <span class="lineart">╰──</span> GWeatherInfo
+</pre>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libgweather/gweather.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.description"></a><h2>Description</h2>
+<p><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> provides a handy way to access weather conditions
+and forecasts from a <a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="type">GWeatherLocation</span></a>, aggregating multiple
+different web services.</p>
+<p>It includes also astronomical data such as sunrise times and
+moon phases.</p>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gweather-info-new"></a><h3>gweather_info_new ()</h3>
+<pre class="programlisting"><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="returnvalue">GWeatherInfo</span></a> *
+gweather_info_new (<em class="parameter"><code><a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="type">GWeatherLocation</span></a> *location</code></em>,
+                   <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherForecastType" title="enum GWeatherForecastType"><span class="type">GWeatherForecastType</span></a> type</code></em>);</pre>
+<p>Builds a new <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> that will provide weather information about
+<em class="parameter"><code>location</code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.2.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>location</p></td>
+<td class="parameter_description"><p> the desidered <a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="type">GWeatherLocation</span></a> (<a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for default). </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>deprecated and ignored</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.2.6"></a><h4>Returns</h4>
+<p> a new <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-update"></a><h3>gweather_info_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gweather_info_update (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<p>Requests a reload of weather conditions and forecast data from
+enabled network services.
+This call does no synchronous IO: rather, the result is delivered
+by emitting the <a class="link" href="GWeatherInfo.html#GWeatherInfo-updated" title="The “updated” signal"><span class="type">“updated”</span></a> signal.
+Note that if no network services are enabled, the signal will not
+be emitted. See <a class="link" href="GWeatherInfo.html#GWeatherInfo--enabled-providers" title="The “enabled-providers” property"><span class="type">“enabled-providers”</span></a> for details.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-abort"></a><h3>gweather_info_abort ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gweather_info_abort (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-is-valid"></a><h3>gweather_info_is_valid ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_is_valid (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-network-error"></a><h3>gweather_info_network_error ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_network_error (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-store-cache"></a><h3>gweather_info_store_cache ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gweather_info_store_cache (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Ensures that any data cached from the network is stored to disk.
+Calling this is not necessary, as the cache will be saved when
+the last reference to a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> will be dropped.
+On the other hand, it must be called if there is any chance that
+the application will be closed without unreffing all objects, such
+as when using a language binding that employs a GC.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-location"></a><h3>gweather_info_get_location ()</h3>
+<pre class="programlisting">const <a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="returnvalue">GWeatherLocation</span></a> *
+gweather_info_get_location (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-set-location"></a><h3>gweather_info_set_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gweather_info_set_location (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                            <em class="parameter"><code><a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="type">GWeatherLocation</span></a> *location</code></em>);</pre>
+<p>Changes <em class="parameter"><code>info</code></em>
+ to report weather for <em class="parameter"><code>location</code></em>
+.
+Note that this will clear any forecast or current conditions from
+<em class="parameter"><code>info</code></em>
+, you must call <a class="link" href="GWeatherInfo.html#gweather-info-update" title="gweather_info_update ()"><code class="function">gweather_info_update()</code></a> to obtain the new data.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>location</p></td>
+<td class="parameter_description"><p> a location for which weather is desired. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-forecast"></a><h3>gweather_info_get_forecast ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_forecast (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">gweather_info_get_forecast</code> has been deprecated since version 3.10 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="GWeatherInfo.html#gweather-info-get-forecast-list" title="gweather_info_get_forecast_list ()"><code class="function">gweather_info_get_forecast_list()</code></a> instead.</p>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.10.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-forecast-list"></a><h3>gweather_info_get_forecast_list ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
+gweather_info_get_forecast_list (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.11.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.11.5"></a><h4>Returns</h4>
+<p> list
+of GWeatherInfo* objects for the forecast.
+The list is owned by the 'info' object thus is alive as long
+as the 'info'. This list is filled only when requested with
+type FORECAST_LIST and if available for given location.
+The 'update' property is the date/time when the forecast info
+is used for. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GWeather.Info]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-enabled-providers"></a><h3>gweather_info_get_enabled_providers ()</h3>
+<pre class="programlisting"><a class="link" href="GWeatherInfo.html#GWeatherProvider" title="enum GWeatherProvider"><span class="returnvalue">GWeatherProvider</span></a>
+gweather_info_get_enabled_providers (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-set-enabled-providers"></a><h3>gweather_info_set_enabled_providers ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gweather_info_set_enabled_providers (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                     <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherProvider" title="enum GWeatherProvider"><span class="type">GWeatherProvider</span></a> providers</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-attribution"></a><h3>gweather_info_get_attribution ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_attribution (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<p>Some weather services require the application showing the
+data to include an attribution text, possibly including links
+to the service website.
+This must be shown prominently toghether with the data.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.14.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.14.6"></a><h4>Returns</h4>
+<p> the required attribution text, in Pango
+markup form, or <a href="https://developer.gnome.org/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not required. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-location-name"></a><h3>gweather_info_get_location_name ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_location_name (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-icon-name"></a><h3>gweather_info_get_icon_name ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_icon_name (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-symbolic-icon-name"></a><h3>gweather_info_get_symbolic_icon_name ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_symbolic_icon_name (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-weather-summary"></a><h3>gweather_info_get_weather_summary ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_weather_summary (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.18.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.18.5"></a><h4>Returns</h4>
+<p> a summary for current weather conditions. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-temp-summary"></a><h3>gweather_info_get_temp_summary ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_temp_summary (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-update"></a><h3>gweather_info_get_update ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_update (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-sky"></a><h3>gweather_info_get_sky ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_sky (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-conditions"></a><h3>gweather_info_get_conditions ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_conditions (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-temp"></a><h3>gweather_info_get_temp ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_temp (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-temp-min"></a><h3>gweather_info_get_temp_min ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_temp_min (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-temp-max"></a><h3>gweather_info_get_temp_max ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_temp_max (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-dew"></a><h3>gweather_info_get_dew ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_dew (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-humidity"></a><h3>gweather_info_get_humidity ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_humidity (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-wind"></a><h3>gweather_info_get_wind ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_wind (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-pressure"></a><h3>gweather_info_get_pressure ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_pressure (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-visibility"></a><h3>gweather_info_get_visibility ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_visibility (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-apparent"></a><h3>gweather_info_get_apparent ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_apparent (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-sunrise"></a><h3>gweather_info_get_sunrise ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_sunrise (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-sunset"></a><h3>gweather_info_get_sunset ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_info_get_sunset (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-radar"></a><h3>gweather_info_get_radar ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Animations.html#GdkPixbufAnimation"><span class="returnvalue">GdkPixbufAnimation</span></a> *
+gweather_info_get_radar (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.34.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.34.5"></a><h4>Returns</h4>
+<p> what?. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-conditions-to-string"></a><h3>gweather_conditions_to_string ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_conditions_to_string (<em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherConditions" title="struct GWeatherConditions"><span class="type">GWeatherConditions</span></a> *conditions</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-sky-to-string"></a><h3>gweather_sky_to_string ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_sky_to_string (<em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherSky" title="enum GWeatherSky"><span class="type">GWeatherSky</span></a> sky</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-wind-direction-to-string"></a><h3>gweather_wind_direction_to_string ()</h3>
+<pre class="programlisting">const <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gweather_wind_direction_to_string (<em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherWindDirection" title="enum GWeatherWindDirection"><span class="type">GWeatherWindDirection</span></a> wind</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-update"></a><h3>gweather_info_get_value_update ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_update (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                <em class="parameter"><code><span class="type">time_t</span> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.38.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the time <em class="parameter"><code>info</code></em>
+was last updated. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> glong]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.38.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-sky"></a><h3>gweather_info_get_value_sky ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_sky (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                             <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherSky" title="enum GWeatherSky"><span class="type">GWeatherSky</span></a> *sky</code></em>);</pre>
+<p>Fills out <em class="parameter"><code>sky</code></em>
+ with current sky conditions.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.39.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>sky</p></td>
+<td class="parameter_description"><p> a location for a <a class="link" href="GWeatherInfo.html#GWeatherSky" title="enum GWeatherSky"><span class="type">GWeatherSky</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.39.6"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>sky</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-conditions"></a><h3>gweather_info_get_value_conditions ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_conditions (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                    <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherConditionPhenomenon" title="enum GWeatherConditionPhenomenon"><span class="type">GWeatherConditionPhenomenon</span></a> *phenomenon</code></em>,
+                                    <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherConditionQualifier" title="enum GWeatherConditionQualifier"><span class="type">GWeatherConditionQualifier</span></a> *qualifier</code></em>);</pre>
+<p>Fills out <em class="parameter"><code>phenomenon</code></em>
+ and <em class="parameter"><code>qualifier</code></em>
+ with current weather conditions.</p>
+<div class="refsect3">
+<a name="id-1.2.4.10.40.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>phenomenon</p></td>
+<td class="parameter_description"><p> a location for a <a class="link" href="GWeatherInfo.html#GWeatherConditionPhenomenon" title="enum GWeatherConditionPhenomenon"><span class="type">GWeatherConditionPhenomenon</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>qualifier</p></td>
+<td class="parameter_description"><p> a location for a <a class="link" href="GWeatherInfo.html#GWeatherConditionQualifier" title="enum GWeatherConditionQualifier"><span class="type">GWeatherConditionQualifier</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.40.6"></a><h4>Returns</h4>
+<p> TRUE is out arguments are valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-temp"></a><h3>gweather_info_get_value_temp ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_temp (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                              <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a> unit</code></em>,
+                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.41.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the temperature value. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.41.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-temp-min"></a><h3>gweather_info_get_value_temp_min ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_temp_min (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                  <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a> unit</code></em>,
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.42.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the minimum temperature value. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.42.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-temp-max"></a><h3>gweather_info_get_value_temp_max ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_temp_max (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                  <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a> unit</code></em>,
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.43.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the maximum temperature value. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.43.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-dew"></a><h3>gweather_info_get_value_dew ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_dew (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                             <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a> unit</code></em>,
+                             <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.44.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the dew point. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.44.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-apparent"></a><h3>gweather_info_get_value_apparent ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_apparent (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                  <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a> unit</code></em>,
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.45.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherTemperatureUnit" title="enum GWeatherTemperatureUnit"><span class="type">GWeatherTemperatureUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the apparent temperature. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.45.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-wind"></a><h3>gweather_info_get_value_wind ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_wind (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                              <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherSpeedUnit" title="enum GWeatherSpeedUnit"><span class="type">GWeatherSpeedUnit</span></a> unit</code></em>,
+                              <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *speed</code></em>,
+                              <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherWindDirection" title="enum GWeatherWindDirection"><span class="type">GWeatherWindDirection</span></a> *direction</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.46.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherSpeedUnit" title="enum GWeatherSpeedUnit"><span class="type">GWeatherSpeedUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>speed</p></td>
+<td class="parameter_description"><p> forecasted wind speed. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>direction</p></td>
+<td class="parameter_description"><p> forecasted wind direction. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.46.5"></a><h4>Returns</h4>
+<p> TRUE if <em class="parameter"><code>speed</code></em>
+and <em class="parameter"><code>direction</code></em>
+are valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-pressure"></a><h3>gweather_info_get_value_pressure ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_pressure (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                  <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherPressureUnit" title="enum GWeatherPressureUnit"><span class="type">GWeatherPressureUnit</span></a> unit</code></em>,
+                                  <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.47.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherPressureUnit" title="enum GWeatherPressureUnit"><span class="type">GWeatherPressureUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> forecasted pressure, expressed in <em class="parameter"><code>unit</code></em>
+. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.47.5"></a><h4>Returns</h4>
+<p> TRUE if <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-visibility"></a><h3>gweather_info_get_value_visibility ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_visibility (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                    <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherDistanceUnit" title="enum GWeatherDistanceUnit"><span class="type">GWeatherDistanceUnit</span></a> unit</code></em>,
+                                    <em class="parameter"><code><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.48.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>unit</p></td>
+<td class="parameter_description"><p>the desired unit, as a <a class="link" href="GWeatherInfo.html#GWeatherDistanceUnit" title="enum GWeatherDistanceUnit"><span class="type">GWeatherDistanceUnit</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> forecasted visibility, expressed in <em class="parameter"><code>unit</code></em>
+. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.48.5"></a><h4>Returns</h4>
+<p> TRUE if <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-sunrise"></a><h3>gweather_info_get_value_sunrise ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_sunrise (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                 <em class="parameter"><code><span class="type">time_t</span> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.49.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the time of sunrise. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> gulong]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.49.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-sunset"></a><h3>gweather_info_get_value_sunset ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_sunset (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                <em class="parameter"><code><span class="type">time_t</span> *value</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.50.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the time of sunset. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> gulong]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.50.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-next-sun-event"></a><h3>gweather_info_next_sun_event ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>
+gweather_info_next_sun_event (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-value-moonphase"></a><h3>gweather_info_get_value_moonphase ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_value_moonphase (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                   <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherMoonPhase" title="GWeatherMoonPhase"><span class="type">GWeatherMoonPhase</span></a> *value</code></em>,
+                                   <em class="parameter"><code><a class="link" href="GWeatherInfo.html#GWeatherMoonLatitude" title="GWeatherMoonLatitude"><span class="type">GWeatherMoonLatitude</span></a> *lat</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.52.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p> the current moon phase (represented as the visible percentage). </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>lat</p></td>
+<td class="parameter_description"><p> the latitude the moon is at (???). </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.52.5"></a><h4>Returns</h4>
+<p> TRUE is <em class="parameter"><code>value</code></em>
+is valid, FALSE otherwise.</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-get-upcoming-moonphases"></a><h3>gweather_info_get_upcoming_moonphases ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_get_upcoming_moonphases (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>,
+                                       <em class="parameter"><code><span class="type">time_t</span> *phases</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.53.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> containing the time_t of interest</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>phases</p></td>
+<td class="parameter_description"><p> An array of four
+time_t values that will hold the returned values.
+The values are estimates of the time of the next new, quarter, full and
+three-quarter moons. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> fixed-size=4][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gulong]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.53.5"></a><h4>Returns</h4>
+<p> gboolean indicating success or failure</p>
+<p></p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gweather-info-is-daytime"></a><h3>gweather_info_is_daytime ()</h3>
+<pre class="programlisting"><a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gweather_info_is_daytime (<em class="parameter"><code><a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *info</code></em>);</pre>
+<div class="refsect3">
+<a name="id-1.2.4.10.54.4"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.2.4.10.54.5"></a><h4>Returns</h4>
+<p> Whether it is daytime (that is, if the sun is visible)
+or not at the location and the point of time referred by <em class="parameter"><code>info</code></em>
+.
+This is mostly equivalent to comparing the return value
+of <a class="link" href="GWeatherInfo.html#gweather-info-get-value-sunrise" title="gweather_info_get_value_sunrise ()"><code class="function">gweather_info_get_value_sunrise()</code></a> and
+<a class="link" href="GWeatherInfo.html#gweather-info-get-value-sunset" title="gweather_info_get_value_sunset ()"><code class="function">gweather_info_get_value_sunset()</code></a>, but it accounts also
+for midnight sun and polar night, for locations within
+the Artic and Antartic circles.</p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GWeatherProvider"></a><h3>enum GWeatherProvider</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.2.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-NONE:CAPS"></a>GWEATHER_PROVIDER_NONE</p></td>
+<td class="enum_member_description">
+<p>no provider, no weather information available</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-METAR:CAPS"></a>GWEATHER_PROVIDER_METAR</p></td>
+<td class="enum_member_description">
+<p>METAR office, providing current conditions worldwide</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-IWIN:CAPS"></a>GWEATHER_PROVIDER_IWIN</p></td>
+<td class="enum_member_description">
+<p>US weather office, providing 7 days of forecast</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-YAHOO:CAPS"></a>GWEATHER_PROVIDER_YAHOO</p></td>
+<td class="enum_member_description">
+<p>Yahoo Weather Service, worldwide but non commercial only</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-YR-NO:CAPS"></a>GWEATHER_PROVIDER_YR_NO</p></td>
+<td class="enum_member_description">
+<p>Yr.no service, worldwide but requires attribution</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-OWM:CAPS"></a>GWEATHER_PROVIDER_OWM</p></td>
+<td class="enum_member_description">
+<p>OpenWeatherMap, worldwide and possibly more reliable, but requires attribution and is limited in the number of queries</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PROVIDER-ALL:CAPS"></a>GWEATHER_PROVIDER_ALL</p></td>
+<td class="enum_member_description">
+<p>enable all available providers</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherConditionPhenomenon"></a><h3>enum GWeatherConditionPhenomenon</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.3.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-INVALID:CAPS"></a>GWEATHER_PHENOMENON_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-NONE:CAPS"></a>GWEATHER_PHENOMENON_NONE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-DRIZZLE:CAPS"></a>GWEATHER_PHENOMENON_DRIZZLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-RAIN:CAPS"></a>GWEATHER_PHENOMENON_RAIN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SNOW:CAPS"></a>GWEATHER_PHENOMENON_SNOW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SNOW-GRAINS:CAPS"></a>GWEATHER_PHENOMENON_SNOW_GRAINS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-ICE-CRYSTALS:CAPS"></a>GWEATHER_PHENOMENON_ICE_CRYSTALS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-ICE-PELLETS:CAPS"></a>GWEATHER_PHENOMENON_ICE_PELLETS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-HAIL:CAPS"></a>GWEATHER_PHENOMENON_HAIL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SMALL-HAIL:CAPS"></a>GWEATHER_PHENOMENON_SMALL_HAIL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-UNKNOWN-PRECIPITATION:CAPS"></a>GWEATHER_PHENOMENON_UNKNOWN_PRECIPITATION</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-MIST:CAPS"></a>GWEATHER_PHENOMENON_MIST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-FOG:CAPS"></a>GWEATHER_PHENOMENON_FOG</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SMOKE:CAPS"></a>GWEATHER_PHENOMENON_SMOKE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-VOLCANIC-ASH:CAPS"></a>GWEATHER_PHENOMENON_VOLCANIC_ASH</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SAND:CAPS"></a>GWEATHER_PHENOMENON_SAND</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-HAZE:CAPS"></a>GWEATHER_PHENOMENON_HAZE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SPRAY:CAPS"></a>GWEATHER_PHENOMENON_SPRAY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-DUST:CAPS"></a>GWEATHER_PHENOMENON_DUST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SQUALL:CAPS"></a>GWEATHER_PHENOMENON_SQUALL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-SANDSTORM:CAPS"></a>GWEATHER_PHENOMENON_SANDSTORM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-DUSTSTORM:CAPS"></a>GWEATHER_PHENOMENON_DUSTSTORM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-FUNNEL-CLOUD:CAPS"></a>GWEATHER_PHENOMENON_FUNNEL_CLOUD</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-TORNADO:CAPS"></a>GWEATHER_PHENOMENON_TORNADO</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-DUST-WHIRLS:CAPS"></a>GWEATHER_PHENOMENON_DUST_WHIRLS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PHENOMENON-LAST:CAPS"></a>GWEATHER_PHENOMENON_LAST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherConditionQualifier"></a><h3>enum GWeatherConditionQualifier</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.4.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-INVALID:CAPS"></a>GWEATHER_QUALIFIER_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-NONE:CAPS"></a>GWEATHER_QUALIFIER_NONE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-VICINITY:CAPS"></a>GWEATHER_QUALIFIER_VICINITY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-LIGHT:CAPS"></a>GWEATHER_QUALIFIER_LIGHT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-MODERATE:CAPS"></a>GWEATHER_QUALIFIER_MODERATE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-HEAVY:CAPS"></a>GWEATHER_QUALIFIER_HEAVY</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-SHALLOW:CAPS"></a>GWEATHER_QUALIFIER_SHALLOW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-PATCHES:CAPS"></a>GWEATHER_QUALIFIER_PATCHES</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-PARTIAL:CAPS"></a>GWEATHER_QUALIFIER_PARTIAL</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-THUNDERSTORM:CAPS"></a>GWEATHER_QUALIFIER_THUNDERSTORM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-BLOWING:CAPS"></a>GWEATHER_QUALIFIER_BLOWING</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-SHOWERS:CAPS"></a>GWEATHER_QUALIFIER_SHOWERS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-DRIFTING:CAPS"></a>GWEATHER_QUALIFIER_DRIFTING</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-FREEZING:CAPS"></a>GWEATHER_QUALIFIER_FREEZING</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-QUALIFIER-LAST:CAPS"></a>GWEATHER_QUALIFIER_LAST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherConditions"></a><h3>struct GWeatherConditions</h3>
+<pre class="programlisting">struct GWeatherConditions {
+    gboolean significant;
+    GWeatherConditionPhenomenon phenomenon;
+    GWeatherConditionQualifier qualifier;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherSky"></a><h3>enum GWeatherSky</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.6.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-INVALID:CAPS"></a>GWEATHER_SKY_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-CLEAR:CAPS"></a>GWEATHER_SKY_CLEAR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-BROKEN:CAPS"></a>GWEATHER_SKY_BROKEN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-SCATTERED:CAPS"></a>GWEATHER_SKY_SCATTERED</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-FEW:CAPS"></a>GWEATHER_SKY_FEW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-OVERCAST:CAPS"></a>GWEATHER_SKY_OVERCAST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SKY-LAST:CAPS"></a>GWEATHER_SKY_LAST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherWindDirection"></a><h3>enum GWeatherWindDirection</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.7.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-INVALID:CAPS"></a>GWEATHER_WIND_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-VARIABLE:CAPS"></a>GWEATHER_WIND_VARIABLE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-N:CAPS"></a>GWEATHER_WIND_N</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-NNE:CAPS"></a>GWEATHER_WIND_NNE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-NE:CAPS"></a>GWEATHER_WIND_NE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-ENE:CAPS"></a>GWEATHER_WIND_ENE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-E:CAPS"></a>GWEATHER_WIND_E</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-ESE:CAPS"></a>GWEATHER_WIND_ESE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-SE:CAPS"></a>GWEATHER_WIND_SE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-SSE:CAPS"></a>GWEATHER_WIND_SSE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-S:CAPS"></a>GWEATHER_WIND_S</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-SSW:CAPS"></a>GWEATHER_WIND_SSW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-SW:CAPS"></a>GWEATHER_WIND_SW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-WSW:CAPS"></a>GWEATHER_WIND_WSW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-W:CAPS"></a>GWEATHER_WIND_W</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-WNW:CAPS"></a>GWEATHER_WIND_WNW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-NW:CAPS"></a>GWEATHER_WIND_NW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-NNW:CAPS"></a>GWEATHER_WIND_NNW</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-WIND-LAST:CAPS"></a>GWEATHER_WIND_LAST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherMoonLatitude"></a><h3>GWeatherMoonLatitude</h3>
+<pre class="programlisting">typedef gdouble GWeatherMoonLatitude;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherMoonPhase"></a><h3>GWeatherMoonPhase</h3>
+<pre class="programlisting">typedef gdouble GWeatherMoonPhase;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherDistanceUnit"></a><h3>enum GWeatherDistanceUnit</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.10.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-DISTANCE-UNIT-INVALID:CAPS"></a>GWEATHER_DISTANCE_UNIT_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-DISTANCE-UNIT-DEFAULT:CAPS"></a>GWEATHER_DISTANCE_UNIT_DEFAULT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-DISTANCE-UNIT-METERS:CAPS"></a>GWEATHER_DISTANCE_UNIT_METERS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-DISTANCE-UNIT-KM:CAPS"></a>GWEATHER_DISTANCE_UNIT_KM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-DISTANCE-UNIT-MILES:CAPS"></a>GWEATHER_DISTANCE_UNIT_MILES</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherPressureUnit"></a><h3>enum GWeatherPressureUnit</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.11.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-INVALID:CAPS"></a>GWEATHER_PRESSURE_UNIT_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-DEFAULT:CAPS"></a>GWEATHER_PRESSURE_UNIT_DEFAULT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-KPA:CAPS"></a>GWEATHER_PRESSURE_UNIT_KPA</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-HPA:CAPS"></a>GWEATHER_PRESSURE_UNIT_HPA</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-MB:CAPS"></a>GWEATHER_PRESSURE_UNIT_MB</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-MM-HG:CAPS"></a>GWEATHER_PRESSURE_UNIT_MM_HG</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-INCH-HG:CAPS"></a>GWEATHER_PRESSURE_UNIT_INCH_HG</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-PRESSURE-UNIT-ATM:CAPS"></a>GWEATHER_PRESSURE_UNIT_ATM</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherSpeedUnit"></a><h3>enum GWeatherSpeedUnit</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.12.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-INVALID:CAPS"></a>GWEATHER_SPEED_UNIT_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-DEFAULT:CAPS"></a>GWEATHER_SPEED_UNIT_DEFAULT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-MS:CAPS"></a>GWEATHER_SPEED_UNIT_MS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-KPH:CAPS"></a>GWEATHER_SPEED_UNIT_KPH</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-MPH:CAPS"></a>GWEATHER_SPEED_UNIT_MPH</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-KNOTS:CAPS"></a>GWEATHER_SPEED_UNIT_KNOTS</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-SPEED-UNIT-BFT:CAPS"></a>GWEATHER_SPEED_UNIT_BFT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherTemperatureUnit"></a><h3>enum GWeatherTemperatureUnit</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.13.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-TEMP-UNIT-INVALID:CAPS"></a>GWEATHER_TEMP_UNIT_INVALID</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-TEMP-UNIT-DEFAULT:CAPS"></a>GWEATHER_TEMP_UNIT_DEFAULT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-TEMP-UNIT-KELVIN:CAPS"></a>GWEATHER_TEMP_UNIT_KELVIN</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-TEMP-UNIT-CENTIGRADE:CAPS"></a>GWEATHER_TEMP_UNIT_CENTIGRADE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-TEMP-UNIT-FAHRENHEIT:CAPS"></a>GWEATHER_TEMP_UNIT_FAHRENHEIT</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherForecastType"></a><h3>enum GWeatherForecastType</h3>
+<div class="refsect3">
+<a name="id-1.2.4.11.14.3"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-FORECAST-STATE:CAPS"></a>GWEATHER_FORECAST_STATE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-FORECAST-ZONE:CAPS"></a>GWEATHER_FORECAST_ZONE</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GWEATHER-FORECAST-LIST:CAPS"></a>GWEATHER_FORECAST_LIST</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GWeatherInfo--enabled-providers"></a><h3>The <code class="literal">“enabled-providers”</code> property</h3>
+<pre class="programlisting">  “enabled-providers”        <a class="link" href="GWeatherInfo.html#GWeatherProvider" title="enum GWeatherProvider"><span class="type">GWeatherProvider</span></a></pre>
+<p>A bitmask of enabled weather service providers.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: GWEATHER_PROVIDER_METAR | GWEATHER_PROVIDER_IWIN</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GWeatherInfo--location"></a><h3>The <code class="literal">“location”</code> property</h3>
+<pre class="programlisting">  “location”                 <a class="link" href="GWeatherLocation.html" title="GWeatherLocation"><span class="type">GWeatherLocation</span></a> *</pre>
+<p>The location this info represents.</p>
+<p>Flags: Read / Write / Construct</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GWeatherInfo.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GWeatherInfo-updated"></a><h3>The <code class="literal">“updated”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GWeatherInfo.html" title="GWeatherInfo"><span class="type">GWeatherInfo</span></a> *object,
+               <a href="https://developer.gnome.org/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)</pre>
+<p>This signal is emitted after the initial fetch of the weather
+data from upstream services, and after every successful call
+to <em class="parameter"><code><a class="link" href="GWeatherInfo.html#gweather-info-update" title="gweather_info_update ()"><code class="function">gweather_info_update()</code></a></code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.2.4.13.2.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>object</p></td>
+<td class="parameter_description"><p>the emitter of the signal.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.21</div>
+</body>
+</html>
