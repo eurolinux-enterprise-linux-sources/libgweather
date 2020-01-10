@@ -1,0 +1,8 @@
+--- libgweather-3.28.1/meson/meson_post_install.py.python3	2018-03-22 15:41:39.000000000 +0100
++++ libgweather-3.28.1/meson/meson_post_install.py	2018-05-16 19:23:48.833658566 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/env python
+ 
+ import os
+ import subprocess

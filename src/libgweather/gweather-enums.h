@@ -75,7 +75,7 @@ typedef enum { /*< underscore_name=gweather_speed_unit >*/
  * @GWEATHER_PRESSURE_UNIT_HPA: hectoPascal (* 10^2 Pa); also known
  *                              as millibars, but formatted differently
  * @GWEATHER_PRESSURE_UNIT_MB: millibars; same as %GWEATHER_PRESSURE_UNIT_HPA
- * @GWEATHER_PRESSURE_UNIT_MM_HG: millimiters of mercury
+ * @GWEATHER_PRESSURE_UNIT_MM_HG: millimeters of mercury
  * @GWEATHER_PRESSURE_UNIT_INCH_HG: inches of mercury
  * @GWEATHER_PRESSURE_UNIT_ATM: atmospheres
  *
@@ -111,12 +111,6 @@ typedef enum { /*< underscore_name=gweather_distance_unit >*/
     GWEATHER_DISTANCE_UNIT_KM,
     GWEATHER_DISTANCE_UNIT_MILES
 } GWeatherDistanceUnit;
-
-typedef enum { /*< underscore_name=gweather_forecast_type >*/
-    GWEATHER_FORECAST_STATE,
-    GWEATHER_FORECAST_ZONE,
-    GWEATHER_FORECAST_LIST
-} GWeatherForecastType;
 
 /**
  * GWeatherFormatOptions:

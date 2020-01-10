@@ -104,7 +104,6 @@ _weather_location_free (WeatherLocation *location)
     g_free (location->name);
     g_free (location->code);
     g_free (location->zone);
-    g_free (location->yahoo_id);
     g_free (location->radar);
     g_free (location->country_code);
     g_free (location->tz_hint);
@@ -675,12 +674,6 @@ gweather_info_update (GWeatherInfo *info)
     if (ok)
 	return;
 
-    /* Try Yahoo! Weather next */
-    if (priv->providers & GWEATHER_PROVIDER_YAHOO)
-	ok = yahoo_start_open (info);
-    if (ok)
-	return;
-
     /* Try yr.no next */
     if (priv->providers & GWEATHER_PROVIDER_YR_NO)
 	ok = yrno_start_open (info);
@@ -745,6 +738,7 @@ gweather_info_finalize (GObject *object)
     GWeatherInfoPrivate *priv = info->priv;
 
     _weather_location_free (&priv->location);
+    g_clear_object (&priv->settings);
 
     if (priv->glocation)
 	gweather_location_unref (priv->glocation);
@@ -888,29 +882,35 @@ temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean wan
     switch (to_unit) {
     case GWEATHER_TEMP_UNIT_FAHRENHEIT:
 	if (!want_round) {
-	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT) */
-	    return g_strdup_printf (_("%.1f \u2109"), temp_f);
+	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%.1f\u00A0\u2109"), temp_f);
 	} else {
-	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT) */
-	    return g_strdup_printf (_("%d \u2109"), (int)floor (temp_f + 0.5));
+	    /* TRANSLATOR: This is the temperature in degrees Fahrenheit (U+2109 DEGREE FAHRENHEIT)i
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%d\u00A0\u2109"), (int)floor (temp_f + 0.5));
 	}
 	break;
     case GWEATHER_TEMP_UNIT_CENTIGRADE:
 	if (!want_round) {
-	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS) */
-	    return g_strdup_printf (_("%.1f \u2103"), TEMP_F_TO_C (temp_f));
+	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%.1f\u00A0\u2103"), TEMP_F_TO_C (temp_f));
 	} else {
-	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS) */
-	    return g_strdup_printf (_("%d \u2103"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
+	    /* TRANSLATOR: This is the temperature in degrees Celsius (U+2103 DEGREE CELSIUS)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%d\u00A0\u2103"), (int)floor (TEMP_F_TO_C (temp_f) + 0.5));
 	}
 	break;
     case GWEATHER_TEMP_UNIT_KELVIN:
 	if (!want_round) {
-	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN) */
-	    return g_strdup_printf (_("%.1f \u212A"), TEMP_F_TO_K (temp_f));
+	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%.1f\u00A0\u212A"), TEMP_F_TO_K (temp_f));
 	} else {
-	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN) */
-	    return g_strdup_printf (_("%d \u212A"), (int)floor (TEMP_F_TO_K (temp_f)));
+	    /* TRANSLATOR: This is the temperature in kelvin (U+212A KELVIN SIGN)
+	     * with a non-break space (U+00A0) between the digits and the degrees sign */
+	    return g_strdup_printf (_("%d\u00A0\u212A"), (int)floor (TEMP_F_TO_K (temp_f)));
 	}
 	break;
 
@@ -2276,7 +2276,6 @@ gweather_info_class_init (GWeatherInfoClass *klass)
 /**
  * gweather_info_new:
  * @location: (allow-none): the desidered #GWeatherLocation (%NULL for default)
- * @type: deprecated and ignored
  *
  * Builds a new #GWeatherInfo that will provide weather information about
  * @location.
@@ -2284,8 +2283,7 @@ gweather_info_class_init (GWeatherInfoClass *klass)
  * Returns: (transfer full): a new #GWeatherInfo
  */
 GWeatherInfo *
-gweather_info_new (GWeatherLocation     *location,
-		   GWeatherForecastType  type)
+gweather_info_new (GWeatherLocation     *location)
 {
     GWeatherInfo *self;
 
@@ -2304,37 +2302,3 @@ _gweather_info_new_clone (GWeatherInfo *other)
     return g_object_new (GWEATHER_TYPE_INFO, "location", other->priv->glocation, NULL);
 }
 
-/**
- * gweather_info_get_forecast:
- * @info: a #GWeatherInfo
- *
- * Deprecated: 3.10: Use gweather_info_get_forecast_list() instead.
- */
-char *
-gweather_info_get_forecast (GWeatherInfo *info)
-{
-    GString *buffer;
-    GSList *iter;
-
-    buffer = g_string_new ("");
-
-    for (iter = info->priv->forecast_list; iter; iter = iter->next) {
-	char *date, *summary, *temp;
-
-	date = gweather_info_get_update (iter->data);
-	summary = gweather_info_get_conditions (iter->data);
-	if (g_str_equal (summary, "-")) {
-	    g_free (summary);
-	    summary = gweather_info_get_sky (iter->data);
-	}
-	temp = gweather_info_get_temp_summary (iter->data);
-
-	g_string_append_printf (buffer, " * %s: %s, %s", date, summary, temp);
-
-	g_free (date);
-	g_free (summary);
-	g_free (temp);
-    }
-
-    return g_string_free (buffer, FALSE);
-}

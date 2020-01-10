@@ -165,6 +165,8 @@ gweather_timezone_get_by_tzid (const char *tzid)
 {
     GWeatherLocation *world;
 
+    g_return_val_if_fail (tzid != NULL, NULL);
+
     world = gweather_location_get_world ();
 
     return g_hash_table_lookup (world->timezone_cache, tzid);
@@ -198,7 +200,7 @@ parse_timezone (GWeatherParser *parser)
 		continue;
 	    }
 
-	    if (!strcmp ((const char *) xmlTextReaderConstName (parser->xml), "name"))
+	    if (!strcmp ((const char *) xmlTextReaderConstName (parser->xml), "_name"))
 		name = _gweather_parser_get_localized_value (parser);
 	    else {
 		if (xmlTextReaderNext (parser->xml) != 1)

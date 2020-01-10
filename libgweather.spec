@@ -1,29 +1,29 @@
 Name:           libgweather
-Version:        3.26.0
-Release:        1%{?dist}
+Version:        3.28.2
+Release:        2%{?dist}
 Summary:        A library for weather information
 
 License:        GPLv2+
 URL:            https://wiki.gnome.org/Projects/LibGWeather
-Source0:        https://download.gnome.org/sources/libgweather/3.20/%{name}-%{version}.tar.xz
-Patch0:         libgweather-3.20.3-fix-includes.patch
+Source0:        https://download.gnome.org/sources/libgweather/3.28/%{name}-%{version}.tar.xz
+# Downstream RHEL 7 patches
+Patch0:         libgweather-fix-includes.patch
+Patch1:         libgweather-python3.patch
 
+BuildRequires:  gettext
+BuildRequires:  gtk-doc
+BuildRequires:  meson
 BuildRequires:  pkgconfig(geocode-glib-1.0)
 BuildRequires:  pkgconfig(gladeui-2.0)
 BuildRequires:  pkgconfig(gobject-introspection-1.0) >= 0.10
 BuildRequires:  pkgconfig(gtk+-3.0) >= 3.13.5
 BuildRequires:  pkgconfig(libsoup-2.4) >= 2.34
 BuildRequires:  pkgconfig(libxml-2.0) >= 2.6.0
-BuildRequires:  gettext
-BuildRequires:  intltool
-BuildRequires:  gnome-common
-BuildRequires:  vala-devel
 BuildRequires:  vala
 
 %description
 libgweather is a library to access weather information from online
 services for numerous locations.
-
 
 %package        devel
 Summary:        Development files for %{name}
@@ -33,18 +33,15 @@ Requires:       %{name}%{_isa} = %{version}-%{release}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
-
 %prep
-%setup -q
-%patch0 -p1
+%autosetup -p1
 
 %build
-%configure --disable-static --disable-gtk-doc
-make %{?_smp_mflags}
+%meson -Dgtk_doc=true
+%meson_build
 
 %install
-%make_install
-find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
+%meson_install
 
 %find_lang %{name} --all-name
 
@@ -61,9 +58,9 @@ fi
 glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 %files -f %{name}.lang
-%doc HACKING NEWS README
+%doc HACKING NEWS README.md
 %license COPYING
-%{_libdir}/libgweather-3.so.*
+%{_libdir}/libgweather-3.so.15*
 %{_libdir}/girepository-1.0/GWeather-3.0.typelib
 %dir %{_datadir}/libgweather
 %{_datadir}/libgweather/Locations.xml
@@ -81,13 +78,29 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 %{_datadir}/glade/catalogs/libgweather.xml
 %dir %{_datadir}/gtk-doc
 %dir %{_datadir}/gtk-doc/html
-%{_datadir}/gtk-doc/html/libgweather-3.0
+%{_datadir}/gtk-doc/html/libgweather/
 %dir %{_datadir}/vala/
 %dir %{_datadir}/vala/vapi/
+%{_datadir}/vala/vapi/gweather-3.0.deps
 %{_datadir}/vala/vapi/gweather-3.0.vapi
 
-
 %changelog
+* Thu Aug 09 2018 Debarshi Ray <rishi@fedoraproject.org> - 3.28.2-2
+- Fix dangling symbolic link to README.md
+- Resolves: #1569295
+
+* Wed Aug 01 2018 Kalev Lember <klember@redhat.com> - 3.28.2-1
+- Update to 3.28.2
+- Resolves: #1569295
+
+* Fri Jun 15 2018 Richard Hughes <rhughes@redhat.com> - 3.28.1-2
+- Backport a patch to fix a gnome-shell crash
+- Related: #1569295
+
+* Thu Mar 22 2018 Kalev Lember <klember@redhat.com> - 3.28.1-1
+- Update to 3.28.1
+- Resolves: #1569295
+
 * Mon Oct 23 2017 Florian Müllner <fmuellner@redhat.com> - 3.26.0-1
 - Update to 3.26.0
 - Related: #1481381

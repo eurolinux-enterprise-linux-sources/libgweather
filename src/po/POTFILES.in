@@ -1,8 +1,6 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 #
-[encoding: UTF-8]
-data/glade/libgweather.xml.in
 libgweather/gweather-location.c
 libgweather/gweather-location-entry.c
 libgweather/gweather-parser.c
@@ -13,6 +11,5 @@ libgweather/weather-iwin.c
 libgweather/weather-metar.c
 libgweather/weather-owm.c
 libgweather/weather-wx.c
-libgweather/weather-yahoo.c
 libgweather/weather-yrno.c
 schemas/org.gnome.GWeather.gschema.xml

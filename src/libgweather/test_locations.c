@@ -1,4 +1,5 @@
 
+#include <gweather-version.h>
 #include "gweather-location-entry.h"
 #include "gweather-timezone-menu.h"
 
@@ -35,6 +36,10 @@ main (int argc, char **argv)
     GtkWidget *window, *vbox, *entry;
     GtkWidget *combo;
     gtk_init (&argc, &argv);
+
+    g_setenv ("LIBGWEATHER_LOCATIONS_PATH",
+              TEST_SRCDIR "../data/Locations.xml",
+              FALSE);
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (window), "location");

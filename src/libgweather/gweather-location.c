@@ -68,6 +68,8 @@
  * database, for example because it was loaded from external storage
  * and could not be fully recovered. The parent of this location is
  * the nearest weather station.
+ * @GWEATHER_LOCATION_NAMED_TIMEZONE: A location representing a named
+ * or special timezone in the world, such as UTC
  *
  * The size/scope of a particular #GWeatherLocation.
  *
@@ -125,6 +127,71 @@ parse_coordinates (const char *coordinates,
 }
 
 static GWeatherLocation *
+location_new (GWeatherLocationLevel level)
+{
+    GWeatherLocation *loc;
+
+    loc = g_slice_new0 (GWeatherLocation);
+    loc->latitude = loc->longitude = DBL_MAX;
+    loc->level = level;
+    loc->ref_count = 1;
+
+    return loc;
+}
+
+static void
+add_nearest_weather_station (GWeatherLocation *location)
+{
+    GWeatherLocation **siblings;
+    GWeatherLocation *closest = NULL;
+    double min_distance = G_MAXDOUBLE;
+    guint i;
+
+    g_assert (location->parent);
+    g_assert (gweather_location_get_level (location) == GWEATHER_LOCATION_CITY);
+
+    if (location->children != NULL)
+        return;
+
+    siblings = location->parent->children;
+    for (i = 0; siblings[i] != NULL; i++) {
+        double distance;
+
+        if (siblings[i] == location)
+            continue;
+
+        distance = gweather_location_get_distance (location, siblings[i]);
+        if (distance < min_distance)
+            closest = siblings[i];
+    }
+
+    if (!closest) {
+        g_critical ("Location '%s' has no valid airports attached", location->english_name);
+        return;
+    }
+
+    location->children = g_new0 (GWeatherLocation *, 2);
+    location->children[0] = g_memdup (closest, sizeof(GWeatherLocation));
+}
+
+static void
+add_nearest_weather_stations (GWeatherLocation *location)
+{
+    GWeatherLocation **children;
+    guint i;
+
+    /* For each city without a <location>, add the nearest airport in the
+     * same country or state to it */
+    children = gweather_location_get_children (location);
+    for (i = 0; children[i] != NULL; i++) {
+        if (gweather_location_get_level (children[i]) == GWEATHER_LOCATION_CITY)
+            add_nearest_weather_station (children[i]);
+        else
+            add_nearest_weather_stations (children[i]);
+    }
+}
+
+static GWeatherLocation *
 location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		       GWeatherLocation *parent)
 {
@@ -135,12 +202,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     int tagtype;
     unsigned int i;
 
-    loc = g_slice_new0 (GWeatherLocation);
-    loc->latitude = loc->longitude = DBL_MAX;
+    loc = location_new (level);
     loc->parent = parent;
-    loc->level = level;
-    loc->ref_count = 1;
-    loc->msgctxt = NULL;
     if (level == GWEATHER_LOCATION_WORLD) {
 	loc->metar_code_cache = g_hash_table_ref (parser->metar_code_cache);
 	loc->country_code_cache = g_hash_table_ref (parser->country_code_cache);
@@ -159,7 +222,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	}
 
 	tagname = (const char *) xmlTextReaderConstName (parser->xml);
-	if (!strcmp (tagname, "name") && !loc->english_name) {
+	if ((!strcmp (tagname, "name") || !strcmp (tagname, "_name")) && !loc->english_name) {
             loc->msgctxt = _gweather_parser_get_msgctxt_value (parser);
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
@@ -206,18 +269,14 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		goto error_out;
 	    if (parse_coordinates (value, &loc->latitude, &loc->longitude))
 		loc->latlon_valid = TRUE;
+	    else
+	        g_warning ("Coordinates could not be parsed: '%s'", value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "zone") && !loc->forecast_zone) {
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
 		goto error_out;
 	    loc->forecast_zone = g_strdup (value);
-	    xmlFree (value);
-	} else if (!strcmp (tagname, "yahoo-woeid") && !loc->yahoo_id) {
-	    value = _gweather_parser_get_value (parser);
-	    if (!value)
-		goto error_out;
-	    loc->yahoo_id = g_strdup (value);
 	    xmlFree (value);
 	} else if (!strcmp (tagname, "radar") && !loc->radar) {
 	    value = _gweather_parser_get_value (parser);
@@ -257,6 +316,12 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 		goto error_out;
 	    g_ptr_array_add (children, child);
 
+	} else if (!strcmp (tagname, "named-timezone")) {
+	    child = location_new_from_xml (parser, GWEATHER_LOCATION_NAMED_TIMEZONE, loc);
+	    if (!child)
+		goto error_out;
+	    g_ptr_array_add (children, child);
+
 	} else if (!strcmp (tagname, "timezones")) {
 	    loc->zones = _gweather_timezones_parse_xml (parser);
 	    if (!loc->zones)
@@ -270,7 +335,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     if (xmlTextReaderRead (parser->xml) != 1 && parent)
 	goto error_out;
 
-    if (level == GWEATHER_LOCATION_WEATHER_STATION) {
+    if (level == GWEATHER_LOCATION_WEATHER_STATION ||
+	level == GWEATHER_LOCATION_NAMED_TIMEZONE) {
 	/* Cache weather stations by METAR code */
 	GList *a, *b;
 
@@ -282,6 +348,12 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 
     if (level == GWEATHER_LOCATION_COUNTRY) {
 	if (loc->country_code) {
+	    GWeatherLocation *existing;
+
+	    existing = g_hash_table_lookup (parser->country_code_cache, loc->country_code);
+	    if (existing)
+	        g_warning ("A country with country code '%s' is already in the database",
+	                   loc->country_code);
 	    g_hash_table_replace (parser->country_code_cache, loc->country_code,
 				  gweather_location_ref (loc));
 	}
@@ -328,34 +400,28 @@ gweather_location_get_world (void)
     GWeatherParser *parser;
 
     if (!global_world) {
-	parser = _gweather_parser_new ();
+        const char *locations_path;
+
+        locations_path = g_getenv ("LIBGWEATHER_LOCATIONS_PATH");
+        if (locations_path) {
+            parser = _gweather_parser_new_for_path (locations_path);
+            if (!parser) {
+                g_warning ("Failed to open '%s' as LIBGWEATHER_LOCATIONS_PATH",
+                           locations_path);
+                parser = _gweather_parser_new ();
+            }
+        } else {
+            parser = _gweather_parser_new ();
+        }
 	if (!parser)
 	    return NULL;
 
 	global_world = location_new_from_xml (parser, GWEATHER_LOCATION_WORLD, NULL);
+	add_nearest_weather_stations (global_world);
 	_gweather_parser_free (parser);
     }
 
     return global_world;
-}
-
-/**
- * gweather_location_new_world:
- * @use_regions: whether or not to divide the world into regions
- *
- * Creates a new #GWeatherLocation of type %GWEATHER_LOCATION_WORLD,
- * representing a hierarchy containing all of the locations from
- * Locations.xml.
- *
- * Returns: (allow-none): a %GWEATHER_LOCATION_WORLD location, or
- *   %NULL if Locations.xml could not be found or could not be parsed.
- *
- * Deprecated: 3.10: Use gweather_location_get_world() instead.
- */
-GWeatherLocation *
-gweather_location_new_world (gboolean use_regions)
-{
-    return gweather_location_ref (gweather_location_get_world ());
 }
 
 /**
@@ -403,7 +469,6 @@ gweather_location_unref (GWeatherLocation *loc)
     g_free (loc->tz_hint);
     g_free (loc->station_code);
     g_free (loc->forecast_zone);
-    g_free (loc->yahoo_id);
     g_free (loc->radar);
 
     if (loc->children) {
@@ -688,7 +753,8 @@ gweather_location_find_nearest_city_full (GWeatherLocation  *loc,
      * an O(n) search. */
     struct FindNearestCityData data;
 
-    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY, NULL);
+    g_return_val_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY ||
+			  loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE, NULL);
 
     if (loc == NULL)
         loc = gweather_location_get_world ();
@@ -765,8 +831,6 @@ _got_place (GObject      *source_object,
  * @loc must be at most a %GWEATHER_LOCATION_ADM2 location.
  * This restriction may be lifted in a future version.
  *
- * Returns: void
- *
  * Since: 3.12
  */
 void
@@ -782,7 +846,8 @@ gweather_location_detect_nearest_city (GWeatherLocation    *loc,
     GeocodeReverse *reverse;
     GTask *task;
 
-    g_return_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY);
+    g_return_if_fail (loc == NULL || loc->level < GWEATHER_LOCATION_CITY ||
+		      loc->level == GWEATHER_LOCATION_NAMED_TIMEZONE);
 
     if (loc == NULL)
         loc = gweather_location_get_world ();
@@ -946,6 +1011,34 @@ gweather_location_get_timezone (GWeatherLocation *loc)
     return NULL;
 }
 
+/**
+ * gweather_location_get_timezone_str:
+ * @loc: a #GWeatherLocation
+ *
+ * Gets the timezone associated with @loc, if known, as a string.
+ *
+ * The timezone string is owned either by @loc or by one of its
+ * parents, do not free it.
+ *
+ * Return value: (transfer none) (allow-none): @loc's timezone as
+ * a string, or %NULL
+ **/
+const char *
+gweather_location_get_timezone_str (GWeatherLocation *loc)
+{
+    const char *tz_hint;
+
+    g_return_val_if_fail (loc != NULL, NULL);
+
+    while (loc && !loc->tz_hint)
+	loc = loc->parent;
+    if (!loc)
+	return NULL;
+    tz_hint = loc->tz_hint;
+
+    return tz_hint;
+}
+
 static void
 add_timezones (GWeatherLocation *loc, GPtrArray *zones)
 {
@@ -1084,7 +1177,7 @@ void
 _gweather_location_update_weather_location (GWeatherLocation *gloc,
 					    WeatherLocation  *loc)
 {
-    const char *code = NULL, *zone = NULL, *yahoo_id = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
+    const char *code = NULL, *zone = NULL, *radar = NULL, *tz_hint = NULL, *country = NULL;
     gboolean latlon_valid = FALSE;
     gdouble lat = DBL_MAX, lon = DBL_MAX;
     GWeatherLocation *l;
@@ -1099,8 +1192,6 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
 	    code = l->station_code;
 	if (!zone && l->forecast_zone)
 	    zone = l->forecast_zone;
-	if (!yahoo_id && l->yahoo_id)
-	    yahoo_id = l->yahoo_id;
 	if (!radar && l->radar)
 	    radar = l->radar;
 	if (!tz_hint && l->tz_hint)
@@ -1118,7 +1209,6 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
     loc->name = g_strdup (gloc->local_name),
     loc->code = g_strdup (code);
     loc->zone = g_strdup (zone);
-    loc->yahoo_id = g_strdup (yahoo_id);
     loc->radar = g_strdup (radar);
     loc->country_code = g_strdup (country);
     loc->tz_hint = g_strdup (tz_hint);
@@ -1331,6 +1421,12 @@ gweather_location_common_deserialize (GWeatherLocation *world,
 
     /* First find the list of candidate locations */
     candidates = g_hash_table_lookup (world->metar_code_cache, station_code);
+
+    /* A station code beginning with @ indicates a named timezone entry, just
+     * return it directly
+     */
+    if (station_code[0] == '@')
+       return gweather_location_ref (candidates->data);
 
     /* If we don't have coordinates, fallback immediately to making up
      * a location

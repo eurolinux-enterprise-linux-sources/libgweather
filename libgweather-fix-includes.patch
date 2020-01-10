@@ -1,0 +1,11 @@
+--- libgweather-3.28.1/libgweather/weather-metar.c.orig	2018-03-22 15:41:39.000000000 +0100
++++ libgweather-3.28.1/libgweather/weather-metar.c	2018-05-16 19:21:55.647614204 +0200
+@@ -23,6 +23,8 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/types.h>
++#define __USE_BSD
++#include <time.h>
+ 
+ #include "gweather-private.h"
+ 
