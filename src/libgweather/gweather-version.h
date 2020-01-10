@@ -52,7 +52,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MINOR_VERSION              (20)
+#define GWEATHER_MINOR_VERSION              (26)
 
 /**
  * GWEATHER_MICRO_VERSION:
@@ -61,7 +61,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MICRO_VERSION              (4)
+#define GWEATHER_MICRO_VERSION              (0)
 
 /**
  * GWEATHER_VERSION
@@ -70,7 +70,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_VERSION                    (3.20.4)
+#define GWEATHER_VERSION                    (3.26.0)
 
 /**
  * GWEATHER_VERSION_S:
@@ -80,7 +80,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_VERSION_S                  "3.20.4"
+#define GWEATHER_VERSION_S                  "3.26.0"
 
 /**
  * GWEATHER_VERSION_HEX:

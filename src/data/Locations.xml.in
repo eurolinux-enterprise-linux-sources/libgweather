@@ -1739,13 +1739,13 @@
       </timezones>
       <tz-hint>Africa/Windhoek</tz-hint>
       <city>
-	<name>Windhoek</name>
-	<coordinates>-22.57 17.083611</coordinates>
-	<location>
-	  <name>Hosea Kutako International Airport</name>
-	  <code>FYWH</code>
-	  <coordinates>-22.486667 17.4625</coordinates>
-	</location>
+        <_name>Windhoek</_name>
+        <coordinates>-22.57 17.083611</coordinates>
+        <location>
+          <name>Hosea Kutako International Airport</name>
+          <code>FYWH</code>
+          <coordinates>-22.486667 17.4625</coordinates>
+        </location>
       </city>
     </country>
     <country>
@@ -1802,12 +1802,12 @@
       </timezones>
       <tz-hint>Africa/Lagos</tz-hint>
       <city>
-	<name>Abuja</name>
-	<coordinates>9.0066666667 7.2630555556</coordinates>
-	<location>
-	  <name>Abuja</name>
-	  <code>DNAA</code>
-	  <coordinates>9.0066666667 7.2630555556</coordinates>
+        <_name>Abuja</_name>
+        <coordinates>9.0066666667 7.2630555556</coordinates>
+        <location>
+          <name>Abuja</name>
+          <code>DNAA</code>
+          <coordinates>9.0066666667 7.2630555556</coordinates>
         </location>
       </city>
       <city>
@@ -2806,7 +2806,7 @@
       </timezones>
       <tz-hint>Antarctica/McMurdo</tz-hint>
       <city>
-        <name>Amundsen-Scott South Pole Station</name>
+        <_name>Amundsen-Scott South Pole Station</_name>
         <coordinates>-90.000000 00.000000</coordinates>
         <!-- An American research station in Antarctica, which keeps
              the same time as New Zealand.
@@ -3563,18 +3563,18 @@
       </timezones>
       <tz-hint>Asia/Tbilisi</tz-hint>
       <state>
-	<name>Tbilisi</name>
-	<fips-code>GG51</fips-code>
-	<!-- A city in Georgia -->
-	<city>
-	  <name>Tbilisi</name>
-	  <coordinates>25.038889 102.718333</coordinates>
-	  <location>
-	    <name>Tbilisi</name>
-	    <code>TBS</code>
-	    <coordinates>41.669167 44.954722</coordinates>
-	  </location>
-	</city>
+        <_name>Tbilisi</_name>
+        <fips-code>GG51</fips-code>
+        <!-- A city in Georgia -->
+        <city>
+          <_name>Tbilisi</_name>
+          <coordinates>25.038889 102.718333</coordinates>
+          <location>
+            <name>Tbilisi</name>
+            <code>TBS</code>
+            <coordinates>41.669167 44.954722</coordinates>
+          </location>
+        </city>
       </state>
     </country>
     <country>
@@ -4941,11 +4941,20 @@
         <!-- The capital of Kazakhstan -->
         <_name>Astana</_name>
         <coordinates>51.181111 71.427778</coordinates>
-        <tz-hint>Asia/Aqtobe</tz-hint>
         <location>
           <name>Astana</name>
           <code>UACC</code>
           <coordinates>51.200000 71.450000</coordinates>
+        </location>
+      </city>
+      <city>
+        <!-- A city in Kazakhstan -->
+        <_name>Atyrau</_name>
+        <coordinates>47.1050000 51.9200000</coordinates>
+        <location>
+          <name>Atyrau</name>
+          <code>UATG</code>
+          <coordinates>47.1050000 51.9200000</coordinates>
         </location>
       </city>
       <city>
@@ -4979,7 +4988,6 @@
           -->
         <_name>Qostanay</_name>
         <coordinates>53.166667 63.583333</coordinates>
-        <tz-hint>Asia/Aqtobe</tz-hint>
         <location>
           <name>Qostanay</name>
           <code>UAUU</code>
@@ -5003,7 +5011,6 @@
         <!-- A city in Kazakhstan -->
         <_name>Shymkent</_name>
         <coordinates>42.300000 69.600000</coordinates>
-        <tz-hint>Asia/Aqtobe</tz-hint>
         <location>
           <name>Shymkent</name>
           <code>UAII</code>
@@ -5376,7 +5383,7 @@
       <_name>Myanmar</_name>
       <!-- Could not find information about the following stations,
            which may be in Myanmar:
-           VYMD 
+           VYMD
         -->
       <iso-code>MM</iso-code>
       <fips-code>BM</fips-code>
@@ -5425,16 +5432,24 @@
            Korea
         -->
       <_name>North Korea</_name>
-      <!-- Could not find weather stations for the following major
-           cities:
-           Pyongyang
-        -->
       <iso-code>KP</iso-code>
       <fips-code>KN</fips-code>
       <timezones>
         <timezone id="Asia/Pyongyang" />
       </timezones>
       <tz-hint>Asia/Pyongyang</tz-hint>
+      <city>
+        <!-- The capital of North Korea.
+             The local name in Korean is "평양".
+          -->
+        <_name>Pyongyang</_name>
+        <coordinates>39.0338500 125.7543200</coordinates>
+        <location>
+          <name>Pyongyang Sunan International Airport</name>
+          <code>ZKPY</code>
+          <coordinates>39.0338500 125.7543200</coordinates>
+        </location>
+      </city>
     </country>
     <country>
       <!-- PK - Pakistan -->
@@ -16097,11 +16112,6 @@
             <code>LIPA</code>
             <coordinates>46.033333 12.600000</coordinates>
           </location>
-          <location>
-            <name>Aviano US Air Force Base</name>
-            <code>LIYW</code>
-            <coordinates>46.033333 12.616667</coordinates>
-          </location>
         </city>
         <city>
           <!-- A city in Italy -->
@@ -17834,10 +17844,20 @@
       <tz-hint>Europe/Warsaw</tz-hint>
       <city>
         <!-- A city in Poland -->
+        <_name>Bydgoszcz</_name>
+        <coordinates>53.123480 18.008438</coordinates>
+        <location>
+          <name>Bydgoszcz-Szwederowo</name>
+          <code>EPBY</code>
+          <coordinates>53.097951 17.972681</coordinates>
+        </location>
+      </city>
+      <city>
+        <!-- A city in Poland -->
         <_name>Gdańsk</_name>
         <coordinates>54.350000 18.666667</coordinates>
         <location>
-          <name>Gdansk-Rebiechowo</name>
+          <name>Gdańsk-Rębiechowo</name>
           <code>EPGD</code>
           <coordinates>54.383333 18.466667</coordinates>
         </location>
@@ -17847,7 +17867,7 @@
         <_name>Katowice</_name>
         <coordinates>50.266667 19.016667</coordinates>
         <location>
-          <name>Katowice</name>
+          <name>Katowice-Pyrzowice</name>
           <code>EPKT</code>
           <coordinates>50.233333 19.033333</coordinates>
         </location>
@@ -17857,9 +17877,19 @@
         <_name>Kraków</_name>
         <coordinates>50.083333 19.916667</coordinates>
         <location>
-          <name>Kraków</name>
+          <name>Kraków-Balice</name>
           <code>EPKK</code>
           <coordinates>50.083333 19.800000</coordinates>
+        </location>
+      </city>
+      <city>
+        <!-- A city in Poland -->
+        <_name>Lublin</_name>
+        <coordinates>51.246452 22.568445</coordinates>
+        <location>
+          <name>Lublin-Świdnik</name>
+          <code>EPLB</code>
+          <coordinates>51.235810 22.715066</coordinates>
         </location>
       </city>
       <city>
@@ -17867,9 +17897,19 @@
         <_name>Łódź</_name>
         <coordinates>51.750000 19.466667</coordinates>
         <location>
-          <name>Łódź</name>
+          <name>Łódź-Lublinek</name>
           <code>EPLL</code>
           <coordinates>51.733333 19.400000</coordinates>
+        </location>
+      </city>
+      <city>
+        <!-- A city in Poland -->
+        <_name>Olsztyn</_name>
+        <coordinates>53.778422 20.480119</coordinates>
+        <location>
+          <name>Olsztyn-Szymany</name>
+          <code>EPSY</code>
+          <coordinates>53.480557 20.936228</coordinates>
         </location>
       </city>
       <city>
@@ -17877,7 +17917,7 @@
         <_name>Poznań</_name>
         <coordinates>52.416667 16.966667</coordinates>
         <location>
-          <name>Poznań</name>
+          <name>Poznań-Ławica</name>
           <code>EPPO</code>
           <coordinates>52.416667 16.833333</coordinates>
         </location>
@@ -17887,7 +17927,7 @@
         <_name>Rzeszów</_name>
         <coordinates>50.050000 22.000000</coordinates>
         <location>
-          <name>Rzeszow-Jasionka</name>
+          <name>Rzeszów-Jasionka</name>
           <code>EPRZ</code>
           <coordinates>50.100000 22.050000</coordinates>
         </location>
@@ -17897,7 +17937,7 @@
         <_name>Szczecin</_name>
         <coordinates>53.416667 14.583333</coordinates>
         <location>
-          <name>Szczecin</name>
+          <name>Szczecin-Goleniów</name>
           <code>EPSC</code>
           <coordinates>53.400000 14.616667</coordinates>
         </location>
@@ -17910,7 +17950,7 @@
         <_name msgctxt="City in Poland">Warsaw</_name>
         <coordinates>52.250000 21.000000</coordinates>
         <location>
-          <name>Warszawa-Okecie</name>
+          <name>Warszawa-Okęcie</name>
           <code>EPWA</code>
           <coordinates>52.166667 20.966667</coordinates>
         </location>
@@ -17920,9 +17960,19 @@
         <_name>Wrocław</_name>
         <coordinates>51.100000 17.033333</coordinates>
         <location>
-          <name>Wrocław</name>
+          <name>Wrocław-Strachowice</name>
           <code>EPWR</code>
           <coordinates>51.100000 16.883333</coordinates>
+        </location>
+      </city>
+      <city>
+        <!-- A city in Poland -->
+        <_name>Zielona Góra</_name>
+        <coordinates>51.935621 15.506186</coordinates>
+        <location>
+          <name>Zielona Góra-Babimost</name>
+          <code>EPZG</code>
+          <coordinates>52.137026 15.777645</coordinates>
         </location>
       </city>
     </country>
@@ -32577,7 +32627,7 @@
           </location>
         </city>
         <city>
-          <name msgctxt="City in Colorado, United States">Boulder</name>
+          <_name msgctxt="City in Colorado, United States">Boulder</_name>
           <coordinates>40.019444 -105.292778</coordinates>
           <location>
             <name>Boulder Municipal Airport</name>

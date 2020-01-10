@@ -26,7 +26,6 @@ gweather_location_level_get_type (void)
 	}
 	return etype;
 }
-
 /* enumerations from "gweather-weather.h" */
 GType
 gweather_provider_get_type (void)
@@ -47,7 +46,6 @@ gweather_provider_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_wind_direction_get_type (void)
 {
@@ -79,7 +77,6 @@ gweather_wind_direction_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_sky_get_type (void)
 {
@@ -99,7 +96,6 @@ gweather_sky_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_phenomenon_get_type (void)
 {
@@ -138,7 +134,6 @@ gweather_phenomenon_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_qualifier_get_type (void)
 {
@@ -166,7 +161,6 @@ gweather_qualifier_get_type (void)
 	}
 	return etype;
 }
-
 /* enumerations from "gweather-enums.h" */
 GType
 gweather_temperature_unit_get_type (void)
@@ -185,7 +179,6 @@ gweather_temperature_unit_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_speed_unit_get_type (void)
 {
@@ -205,7 +198,6 @@ gweather_speed_unit_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_pressure_unit_get_type (void)
 {
@@ -226,7 +218,6 @@ gweather_pressure_unit_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_distance_unit_get_type (void)
 {
@@ -244,7 +235,6 @@ gweather_distance_unit_get_type (void)
 	}
 	return etype;
 }
-
 GType
 gweather_forecast_type_get_type (void)
 {
@@ -260,7 +250,21 @@ gweather_forecast_type_get_type (void)
 	}
 	return etype;
 }
-
+GType
+gweather_format_options_get_type (void)
+{
+	static GType etype = 0;
+	if (G_UNLIKELY (etype == 0)) {
+		static const GFlagsValue values[] = {
+			{ GWEATHER_FORMAT_OPTION_DEFAULT, "GWEATHER_FORMAT_OPTION_DEFAULT", "default" },
+			{ GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION, "GWEATHER_FORMAT_OPTION_SENTENCE_CAPITALIZATION", "sentence-capitalization" },
+			{ GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION, "GWEATHER_FORMAT_OPTION_NO_CAPITALIZATION", "no-capitalization" },
+			{ 0, NULL, NULL }
+		};
+		etype = g_flags_register_static (g_intern_static_string ("GWeatherFormatOptions"), values);
+	}
+	return etype;
+}
 
 /* Generated data ends here */
 

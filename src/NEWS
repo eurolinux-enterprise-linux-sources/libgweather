@@ -1,4 +1,45 @@
 ==============
+Version 3.26.0
+==============
+
+* Updated translations
+
+===============
+Version 3.25.92
+===============
+
+* Location database fixes
+* Updated translations
+
+===============
+Version 3.25.91
+===============
+
+* New API to show uncapitalized weather [Florian Muellner, #779872]
+* Memory management fixes [Florian Muellner, #781828]
+* User visible string fixes [#785274]
+* Location database updates and fixes [Piotr Drag, #780244]
+* Updated translations
+
+==============
+Version 3.24.1
+==============
+
+* Memory management fixes [Florian Muellner, #780278; Andreas Brauchli, #782760]
+* Updated translations
+
+==============
+Version 3.24.0
+==============
+
+* New API to find a country by code [#753332]
+* Location entry now respects country when choosing the closest
+  weather station [#753332]
+* Misc bug fixes [Will Thompson, #776170; #770979; Piotr Drag, #772758]
+* Location database updates and fixes [#775737; #776337; #770579]
+* Updated translations
+
+==============
 Version 3.20.4
 ==============
 

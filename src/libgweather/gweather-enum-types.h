@@ -39,6 +39,8 @@ GType gweather_distance_unit_get_type (void) G_GNUC_CONST;
 #define GWEATHER_TYPE_DISTANCE_UNIT (gweather_distance_unit_get_type ())
 GType gweather_forecast_type_get_type (void) G_GNUC_CONST;
 #define GWEATHER_TYPE_FORECAST_TYPE (gweather_forecast_type_get_type ())
+GType gweather_format_options_get_type (void) G_GNUC_CONST;
+#define GWEATHER_TYPE_FORMAT_OPTIONS (gweather_format_options_get_type ())
 G_END_DECLS
 
 #endif /* __GWEATHER_ENUM_TYPES_H__ */

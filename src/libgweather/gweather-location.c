@@ -141,8 +141,11 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
     loc->level = level;
     loc->ref_count = 1;
     loc->msgctxt = NULL;
-    if (level == GWEATHER_LOCATION_WORLD)
+    if (level == GWEATHER_LOCATION_WORLD) {
 	loc->metar_code_cache = g_hash_table_ref (parser->metar_code_cache);
+	loc->country_code_cache = g_hash_table_ref (parser->country_code_cache);
+	loc->timezone_cache = g_hash_table_ref (parser->timezone_cache);
+    }
     children = g_ptr_array_new ();
 
     if (xmlTextReaderRead (parser->xml) != 1)
@@ -162,7 +165,8 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    if (!value)
 		goto error_out;
 
-	    loc->english_name = value;
+	    loc->english_name = g_strdup (value);
+
 	    if (loc->msgctxt) {
 		loc->local_name = g_strdup (g_dpgettext2 ("libgweather-locations",
 							  (char*) loc->msgctxt, value));
@@ -177,6 +181,7 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	    normalized = g_utf8_normalize (loc->english_name, -1, G_NORMALIZE_ALL);
 	    loc->english_sort_name = g_utf8_casefold (normalized, -1);
 	    g_free (normalized);
+	    xmlFree (value);
 	} else if (!strcmp (tagname, "iso-code") && !loc->country_code) {
 	    value = _gweather_parser_get_value (parser);
 	    if (!value)
@@ -273,6 +278,13 @@ location_new_from_xml (GWeatherParser *parser, GWeatherLocationLevel level,
 	b = g_list_append (a, gweather_location_ref (loc));
 	if (b != a)
 	    g_hash_table_replace (parser->metar_code_cache, loc->station_code, b);
+    }
+
+    if (level == GWEATHER_LOCATION_COUNTRY) {
+	if (loc->country_code) {
+	    g_hash_table_replace (parser->country_code_cache, loc->country_code,
+				  gweather_location_ref (loc));
+	}
     }
 
     if (children->len) {
@@ -391,6 +403,7 @@ gweather_location_unref (GWeatherLocation *loc)
     g_free (loc->tz_hint);
     g_free (loc->station_code);
     g_free (loc->forecast_zone);
+    g_free (loc->yahoo_id);
     g_free (loc->radar);
 
     if (loc->children) {
@@ -411,6 +424,8 @@ gweather_location_unref (GWeatherLocation *loc)
 	g_hash_table_unref (loc->metar_code_cache);
     if (loc->timezone_cache)
 	g_hash_table_unref (loc->timezone_cache);
+    if (loc->country_code_cache)
+	g_hash_table_unref (loc->country_code_cache);
 
     g_slice_free (GWeatherLocation, loc);
 }
@@ -1125,7 +1140,7 @@ _gweather_location_update_weather_location (GWeatherLocation *gloc,
  *
  * See gweather_location_deserialize() to recover a stored #GWeatherLocation.
  *
- * Returns: a weather station level #GWeatherLocation for @station_code,
+ * Returns: (transfer none): a weather station level #GWeatherLocation for @station_code,
  *          or %NULL if none exists in the database.
  */
 GWeatherLocation *
@@ -1136,6 +1151,23 @@ gweather_location_find_by_station_code (GWeatherLocation *world,
 
     l = g_hash_table_lookup (world->metar_code_cache, station_code);
     return l ? l->data : NULL;
+}
+
+/**
+ * gweather_location_find_by_country_code:
+ * @world: a #GWeatherLocation at the world
+ * @country_code: a country code
+ *
+ * Retrieves the country identified by the specified ISO 3166 code,
+ * if present in the database.
+ *
+ * Returns: (transfer none): a country level #GWeatherLocation, or %NULL.
+ */
+GWeatherLocation *
+gweather_location_find_by_country_code (GWeatherLocation *world,
+                                        const gchar      *country_code)
+{
+	return g_hash_table_lookup (world->country_code_cache, country_code);
 }
 
 /**

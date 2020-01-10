@@ -13,6 +13,7 @@
     <sub name="API Index" link="api-index-full.html"/>
     <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
     <sub name="Index of new symbols in 3.12" link="ix03.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
     <keyword type="macro" name="GWEATHER_CHECK_VERSION()" link="libgweather-Versioning-information.html#GWEATHER-CHECK-VERSION:CAPS" since="3.12"/>

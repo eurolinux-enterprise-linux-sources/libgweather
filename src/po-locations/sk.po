@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-applets-locations\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-28 11:00+0000\n"
-"PO-Revision-Date: 2015-02-28 17:16+0100\n"
+"POT-Creation-Date: 2017-08-20 13:18+0000\n"
+"PO-Revision-Date: 2017-09-02 10:22+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 2.0.3\n"
 
 msgid "Africa"
 msgstr "Afrika"
@@ -2301,6 +2301,9 @@ msgstr "Jün-nan"
 msgid "Zhejiang"
 msgstr "Če-ťiang"
 
+msgid "Tbilisi"
+msgstr "Tbilisi"
+
 #. A state/province/territory in Germany
 msgid "Baden-Württemberg"
 msgstr "Bádensko-Württembersko"
@@ -2942,6 +2945,9 @@ msgstr "Pago Pago"
 #. The capital of Anguilla
 msgid "The Valley"
 msgstr "The Valley"
+
+msgid "Amundsen-Scott South Pole Station"
+msgstr "Stanica Amundsen-Scott na južnom póle"
 
 #. A city in Antigua and Barbuda
 msgid "Fitches Creek"
@@ -5702,7 +5708,6 @@ msgstr "Hohhot"
 
 #. A city in Shandong in China.
 #. The name is also written "济南"
-#| msgid "Hainan"
 msgid "Jinan"
 msgstr "Jinan"
 
@@ -7901,7 +7906,6 @@ msgstr "Semnan"
 
 #. A city in Iran.
 #.
-#| msgid "Sharm ash Shaykh"
 msgid "Shahin Shahr"
 msgstr "Shahin Shahr"
 
@@ -7963,19 +7967,15 @@ msgstr "Athlone"
 msgid "Bray"
 msgstr "Bray"
 
-#| msgctxt "City in Michigan, United States"
-#| msgid "Charlotte"
 msgid "Carlow"
 msgstr "Carlow"
 
 msgid "Carrick on Shannon"
 msgstr "Carrick on Shannon"
 
-#| msgid "Castlegar"
 msgid "Castlebar"
 msgstr "Castlebar"
 
-#| msgid "Havana"
 msgid "Cavan"
 msgstr "Cavan"
 
@@ -7988,16 +7988,12 @@ msgstr "Cork"
 msgid "Drogheda"
 msgstr "Drogheda"
 
-#| msgctxt "City in Ireland"
-#| msgid "Dublin"
 msgid "Dublin"
 msgstr "Dublin"
 
-#| msgid "Dundee"
 msgid "Dundalk"
 msgstr "Dundalk"
 
-#| msgid "Hyannis"
 msgid "Ennis"
 msgstr "Ennis"
 
@@ -8007,41 +8003,33 @@ msgstr "Galway"
 msgid "Kilkenny"
 msgstr "Kilkenny"
 
-#| msgid "Safford"
 msgid "Lifford"
 msgstr "Lifford"
 
 msgid "Limerick"
 msgstr "Limerick"
 
-#| msgctxt "City in California, United States"
-#| msgid "Hanford"
 msgid "Longford"
 msgstr "Longford"
 
 msgid "Monaghan"
 msgstr "Monaghan"
 
-#| msgid "Mullan"
 msgid "Mullingar"
 msgstr "Mullingar"
 
 msgid "Naas"
 msgstr "Naas"
 
-#| msgid "Havana"
 msgid "Navan"
 msgstr "Navan"
 
-#| msgid "Nenana"
 msgid "Nenagh"
 msgstr "Nenagh"
 
-#| msgid "Lethbridge"
 msgid "Newbridge"
 msgstr "Newbridge"
 
-#| msgid "Port Louis"
 msgid "Portlaoise"
 msgstr "Portlaoise"
 
@@ -8054,7 +8042,6 @@ msgstr "Sligo"
 msgid "Swords"
 msgstr "Swords"
 
-#| msgid "Tallahassee"
 msgid "Tallaght"
 msgstr "Tallaght"
 
@@ -8064,20 +8051,15 @@ msgstr "Tralee"
 msgid "Trim"
 msgstr "Trim"
 
-#| msgid "Claremore"
 msgid "Tullamore"
 msgstr "Tullamore"
 
-#| msgid "Weatherford"
 msgid "Waterford"
 msgstr "Waterford"
 
-#| msgctxt "City in Connecticut, United States"
-#| msgid "Oxford"
 msgid "Wexford"
 msgstr "Wexford"
 
-#| msgid "Wick"
 msgid "Wicklow"
 msgstr "Wicklow"
 
@@ -8806,6 +8788,10 @@ msgstr "Aktobe"
 msgid "Astana"
 msgstr "Astana"
 
+#. A city in Kazakhstan
+msgid "Atyrau"
+msgstr "Atyrau"
+
 #. A city in Kazakhstan.
 #. The local name in Russian is "Ural'sk".
 #.
@@ -9483,6 +9469,9 @@ msgstr "Quelimane"
 msgid "Rangoon"
 msgstr "Rangún"
 
+msgid "Windhoek"
+msgstr "Windhoek"
+
 #. The capital of Nepal.
 #. The local name in Nepali is "काठमाडौं".
 #.
@@ -9624,6 +9613,9 @@ msgstr "Niamey"
 msgid "Zinder"
 msgstr "Zinder"
 
+msgid "Abuja"
+msgstr "Abuja"
+
 #. A city in Lagos Nigeria
 msgid "Ikeja"
 msgstr "Ikeja"
@@ -9652,6 +9644,12 @@ msgstr "Alofi"
 msgctxt "City in Norfolk Island"
 msgid "Kingston"
 msgstr "Kingston"
+
+#. The capital of North Korea.
+#. The local name in Korean is "평양".
+#.
+msgid "Pyongyang"
+msgstr "Pyongyang"
 
 #. A city in the Northern Mariana Islands
 msgid "Chalan Kanoa"
@@ -10026,6 +10024,10 @@ msgid "Zamboanga City"
 msgstr "Zamboanga City"
 
 #. A city in Poland
+msgid "Bydgoszcz"
+msgstr "Bydhosť"
+
+#. A city in Poland
 msgid "Gdańsk"
 msgstr "Gdansk"
 
@@ -10036,6 +10038,15 @@ msgstr "Katovice"
 #. A city in Poland
 msgid "Kraków"
 msgstr "Krakov"
+
+#. A city in Poland
+#| msgid "Dublin"
+msgid "Lublin"
+msgstr "Lublin"
+
+#. A city in Poland
+msgid "Olsztyn"
+msgstr "Olsztyn"
 
 #. A city in Poland
 msgid "Poznań"
@@ -10060,6 +10071,10 @@ msgstr "Varšava"
 #. A city in Poland
 msgid "Wrocław"
 msgstr "Vroclav"
+
+#. A city in Poland
+msgid "Zielona Góra"
+msgstr "Zelená Hora"
 
 #. A city in Poland
 msgid "Łódź"
@@ -10274,7 +10289,6 @@ msgstr "Bryansk"
 #. A city in Russia.
 #. The local name in Russian is "Чебоксары".
 #.
-#| msgid "Cheboygan"
 msgid "Cheboksary"
 msgstr "Cheboksary"
 
@@ -10449,7 +10463,6 @@ msgid "Rostov"
 msgstr "Rostov nad Donom"
 
 #. A city in Russia
-#| msgid "Chelyabinsk"
 msgid "Rybinsk"
 msgstr "Rybinsk"
 
@@ -10830,7 +10843,6 @@ msgid "Lučenec"
 msgstr "Lučenec"
 
 #. A city in Slovakia
-#| msgid "Martinique"
 msgid "Martin"
 msgstr "Martin"
 
@@ -10851,7 +10863,6 @@ msgid "Poprad"
 msgstr "Poprad"
 
 #. A city in Slovakia
-#| msgid "Holešov"
 msgid "Prešov"
 msgstr "Prešov"
 
@@ -10860,7 +10871,6 @@ msgid "Prievidza"
 msgstr "Prievidza"
 
 #. A city in Slovakia
-#| msgid "Lumberton"
 msgid "Ružomberok"
 msgstr "Ružomberok"
 
@@ -10877,13 +10887,10 @@ msgid "Svidník"
 msgstr "Svidník"
 
 #. A city in Slovakia
-#| msgctxt "City in Ontario, Canada"
-#| msgid "Trenton"
 msgid "Trenčín"
 msgstr "Trenčín"
 
 #. A city in Slovakia
-#| msgid "Jilin"
 msgid "Žilina"
 msgstr "Žilina"
 
@@ -10979,7 +10986,7 @@ msgstr "Pusan"
 
 #. The capital of South Korea.
 #. "Seoul" is the traditional English name.
-#. The local name in Korean is "Soul".
+#. The local name in Korean is "서울" (transliterated as "Soul").
 #.
 msgid "Seoul"
 msgstr "Soul"
@@ -13051,6 +13058,10 @@ msgstr "Boscobel"
 #. A city in Massachusetts in the United States
 msgid "Boston"
 msgstr "Boston"
+
+msgctxt "City in Colorado, United States"
+msgid "Boulder"
+msgstr "Boulder"
 
 #. A city in Kentucky in the United States
 msgid "Bowling Green"

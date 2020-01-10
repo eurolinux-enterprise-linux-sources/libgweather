@@ -1,5 +1,5 @@
 Name:           libgweather
-Version:        3.20.4
+Version:        3.26.0
 Release:        1%{?dist}
 Summary:        A library for weather information
 
@@ -88,6 +88,10 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 
 %changelog
+* Mon Oct 23 2017 Florian Müllner <fmuellner@redhat.com> - 3.26.0-1
+- Update to 3.26.0
+- Related: #1481381
+
 * Tue Dec 27 2016 Kalev Lember <klember@redhat.com> - 3.20.4-1
 - Update to 3.20.4
 - Resolves: #1387009
