@@ -1,4 +1,142 @@
 ==============
+Version 3.20.4
+==============
+
+* Updated translations
+
+==============
+Version 3.20.3
+==============
+
+* NOAA shut down their METAR provider service, so libgweather
+  switched to a different provider [Frank Dana, #770321]
+* Updates translations
+
+==============
+Version 3.20.2
+==============
+
+* Fixed NOAA API URL [Daniel Aleksandersen, #765322]
+* Updated translations
+
+==============
+Version 3.20.1
+==============
+
+* Updated translations
+
+==============
+Version 3.20.0
+==============
+
+* Updated translations
+
+===============
+Version 3.19.92
+===============
+
+* Update to new yr.no API [Daniel Aleksandersen, #763175]
+* Updated translations
+
+===============
+Version 3.19.90
+===============
+
+* Build system updates
+* Fix build with Clang [Ting-Wei Lan, #760178]
+* libsoup dependency bumped to 2.44
+* Updated translations
+
+==============
+Version 3.18.1
+==============
+
+* Build system fixes
+* Updated translations
+
+==============
+Version 3.18.0
+==============
+
+* Updated translations
+
+===============
+Version 3.17.92
+===============
+
+* Updated translations
+
+==============
+Version 3.17.2
+==============
+
+* New API to resolve default values for units (only temperature for now)
+* Reduced use of deprecated APIs
+* Updated translations
+
+==============
+Version 3.17.1
+==============
+
+* API break: some include files were renamed, and single includes
+  are now mandatory. Binary compatibility was preserved.
+* Misc bug fixes to the search in the database [#747017, #748299]
+* Location database fixes [Changwoo Ryu, #747155]
+* Build system updates to improve operation with GNOME Builder
+* Build system fixes [Emmanuele Bassi, #747837] [#747890]
+
+==============
+Version 3.16.1
+==============
+
+* Updated translations
+
+==============
+Version 3.16.0
+==============
+
+* Updated translations
+
+===============
+Version 3.15.92
+===============
+
+* Improved integration with geocode-glib (which avoids showing the
+  country name twice now)
+* Misc bug fixes
+* Updated translations
+
+===============
+Version 3.15.91
+===============
+
+* Updated translations
+
+===============
+Version 3.15.90
+===============
+
+* New API: gweather_location_new_detached(), for easier integration
+  with services that provide only a description, latitude and longitude
+* New and improved documentation
+* Updated translations
+
+==============
+Version 3.15.1
+==============
+
+* Location database fixes [Maksim Kraev, #743092, #743111, #743112]
+* Updated translations
+
+==============
+Version 3.14.3
+==============
+
+* Fixed a crash in the location entry [Matthias Clasen, #739899]
+* Location database fixes [#740932, #721446]
+* Updated translations
+
+==============
 Version 3.14.1
 ==============
 

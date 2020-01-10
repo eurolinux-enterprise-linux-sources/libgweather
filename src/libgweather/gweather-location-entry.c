@@ -26,9 +26,8 @@
 #include <geocode-glib/geocode-glib.h>
 #include <gio/gio.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "location-entry.h"
-#include "weather-priv.h"
+#include "gweather-location-entry.h"
+#include "gweather-private.h"
 
 /**
  * SECTION:gweatherlocationentry
@@ -39,7 +38,6 @@
  */
 
 struct _GWeatherLocationEntryPrivate {
-    GtkTreeModel     *filter_model;
     GWeatherLocation *location;
     GWeatherLocation *top;
     gboolean          custom_text;
@@ -102,22 +100,6 @@ static void     entry_changed (GWeatherLocationEntry *entry);
 static void _no_matches (GtkEntryCompletion *completion, GWeatherLocationEntry *entry);
 
 static void
-hack_filter_model_data_func (GtkCellLayout   *layout,
-			     GtkCellRenderer *renderer,
-			     GtkTreeModel    *model,
-			     GtkTreeIter     *iter,
-			     gpointer         data)
-{
-    GWeatherLocationEntry *self;
-    GWeatherLocationEntryPrivate *priv;
-
-    self = GWEATHER_LOCATION_ENTRY (gtk_entry_completion_get_entry (GTK_ENTRY_COMPLETION (layout)));
-    priv = self->priv;
-
-    priv->filter_model = model;
-}
-
-static void
 gweather_location_entry_init (GWeatherLocationEntry *entry)
 {
     GtkEntryCompletion *completion;
@@ -130,23 +112,7 @@ gweather_location_entry_init (GWeatherLocationEntry *entry)
     gtk_entry_completion_set_popup_set_width (completion, FALSE);
     gtk_entry_completion_set_text_column (completion, LOC_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME);
     gtk_entry_completion_set_match_func (completion, matcher, NULL, NULL);
-
-    /* Giant Hack!
-       We want to grab the filter model used internally by GtkEntryCompletion.
-       We know that it is "leaked" by a few functions and signals, such
-       as the CellDataFunc in GtkCellLayout. So we set that in a way that
-       when it gets called, it sets the filter model where we can access it.
-    */
-    {
-	GList *renderers;
-
-	renderers = gtk_cell_layout_get_cells (GTK_CELL_LAYOUT (completion));
-	gtk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (completion),
-					    renderers->data,
-					    hack_filter_model_data_func, NULL, NULL);
-
-	g_list_free (renderers);
-    }
+    gtk_entry_completion_set_inline_completion (completion, TRUE);
 
     g_signal_connect (completion, "match-selected",
 		      G_CALLBACK (match_selected), entry);
@@ -200,45 +166,14 @@ dispose (GObject *object)
 }
 
 static void
-gweather_location_entry_activate (GtkEntry *entry)
-{
-    GWeatherLocationEntry *self;
-    GWeatherLocationEntryPrivate *priv;
-    GtkEntryCompletion *completion;
-
-    self = GWEATHER_LOCATION_ENTRY (entry);
-    priv = self->priv;
-
-    completion = gtk_entry_get_completion (entry);
-    gtk_entry_completion_complete (completion);
-
-    if (priv->custom_text &&
-	gtk_tree_model_iter_n_children (priv->filter_model, NULL) == 1) {
-	GtkTreeIter iter, real_iter;
-
-	gtk_tree_model_get_iter_first (priv->filter_model, &iter);
-	gtk_tree_model_filter_convert_iter_to_child_iter (GTK_TREE_MODEL_FILTER (priv->filter_model),
-							  &real_iter, &iter);
-
-	set_location_internal (self, gtk_entry_completion_get_model (completion),
-			       &real_iter, NULL);
-    }
-
-    GTK_ENTRY_CLASS (gweather_location_entry_parent_class)->activate (entry);
-}
-
-static void
 gweather_location_entry_class_init (GWeatherLocationEntryClass *location_entry_class)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (location_entry_class);
-    GtkEntryClass *entry_class = GTK_ENTRY_CLASS (location_entry_class);
 
     object_class->finalize = finalize;
     object_class->set_property = set_property;
     object_class->get_property = get_property;
     object_class->dispose = dispose;
-
-    entry_class->activate = gweather_location_entry_activate;
 
     /* properties */
     g_object_class_install_property (
@@ -664,7 +599,10 @@ static gboolean
 match_compare_name (const char *key, const char *name)
 {
     gboolean is_first_word = TRUE;
-    int len;
+    size_t len;
+
+    /* Ignore whitespace before the string */
+    key += strspn (key, " ");
 
     /* All but the last word in KEY must match a full word from NAME,
      * in order (but possibly skipping some words from NAME).
@@ -686,7 +624,13 @@ match_compare_name (const char *key, const char *name)
     }
 
     /* The last word in KEY must match a prefix of a following word in NAME */
-    return find_word (name, key, strlen (key), FALSE, is_first_word) != NULL;
+    if (len == 0) {
+	return TRUE;
+    } else {
+	// if we get here, key[len] == 0, so...
+	g_assert (len == strlen(key));
+	return find_word (name, key, len, FALSE, is_first_word) != NULL;
+    }
 }
 
 static gboolean
@@ -714,22 +658,29 @@ match_selected (GtkEntryCompletion *completion,
 		gpointer            entry)
 {
     if (model != ((GWeatherLocationEntry *)entry)->priv->model) {
-        GeocodePlace *place;
-        gtk_tree_model_get (model, iter,
-                            PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, &place,
-                            -1);
-        GeocodeLocation *loc = geocode_place_get_location (place);
+	GeocodePlace *place;
+	char *display_name;
+	GeocodeLocation *loc;
+	GWeatherLocation *location;
 
-        GWeatherLocation *location;
-        location = gweather_location_find_nearest_city (NULL, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
+	gtk_tree_model_get (model, iter,
+			    PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, &place,
+			    PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, &display_name,
+			    -1);
 
-        location = create_new_detached_location(location, geocode_location_get_description (loc), TRUE,
-                                                geocode_location_get_latitude (loc) * M_PI / 180.0,
-                                                geocode_location_get_longitude (loc) * M_PI / 180.0);
+	loc = geocode_place_get_location (place);
+	location = gweather_location_find_nearest_city (NULL, geocode_location_get_latitude (loc), geocode_location_get_longitude (loc));
 
-        set_location_internal (entry, model, NULL, location);
+	location = create_new_detached_location(location, display_name, TRUE,
+						geocode_location_get_latitude (loc) * M_PI / 180.0,
+						geocode_location_get_longitude (loc) * M_PI / 180.0);
+
+	set_location_internal (entry, model, NULL, location);
+
+	g_object_unref (place);
+	g_free (display_name);
     } else {
-        set_location_internal (entry, model, iter, NULL);
+	set_location_internal (entry, model, iter, NULL);
     }
     return TRUE;
 }
@@ -741,19 +692,44 @@ new_matcher (GtkEntryCompletion *completion, const char *key,
     return TRUE;
 }
 
+static char *
+sanitize_display_name (GeocodeLocation *loc)
+{
+    const char *display_name;
+    const char *last_comma;
+
+    display_name = geocode_location_get_description (loc);
+    last_comma = g_utf8_strrchr (display_name, -1, ',');
+    if (last_comma == NULL)
+	return g_strdup (display_name);
+    else
+	return g_strndup (display_name, last_comma - display_name);
+}
+
 static void
 fill_store (gpointer data, gpointer user_data)
 {
     GeocodePlace *place = GEOCODE_PLACE (data);
     GeocodeLocation *loc = geocode_place_get_location (place);
     GtkTreeIter iter;
+    char *display_name;
+    char *normalized;
+    char *compare_name;
+
+    display_name = sanitize_display_name (loc);
+    normalized = g_utf8_normalize (display_name, -1, G_NORMALIZE_ALL);
+    compare_name = g_utf8_casefold (normalized, -1);
 
     gtk_tree_store_append (user_data, &iter, NULL);
     gtk_tree_store_set (user_data, &iter,
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, geocode_location_get_description (loc),
-                        PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, geocode_location_get_description (loc),
-                        -1);
+			PLACE_GWEATHER_LOCATION_ENTRY_COL_PLACE, place,
+			PLACE_GWEATHER_LOCATION_ENTRY_COL_DISPLAY_NAME, display_name,
+			PLACE_GWEATHER_LOCATION_ENTRY_COL_LOCAL_COMPARE_NAME, compare_name,
+			-1);
+
+    g_free (display_name);
+    g_free (normalized);
+    g_free (compare_name);
 }
 
 static void
@@ -785,6 +761,7 @@ _got_places (GObject      *source_object,
     completion = gtk_entry_get_completion (user_data);
     store = gtk_tree_store_new (4, G_TYPE_STRING, GEOCODE_TYPE_PLACE, G_TYPE_STRING, G_TYPE_STRING);
     g_list_foreach (places, fill_store, store);
+    g_list_free (places);
     gtk_entry_completion_set_match_func (completion, new_matcher, NULL, NULL);
     gtk_entry_completion_set_model (completion, GTK_TREE_MODEL (store));
     g_object_unref (store);
@@ -804,7 +781,7 @@ _no_matches (GtkEntryCompletion *completion, GWeatherLocationEntry *entry) {
         g_object_unref (entry->priv->cancellable);
         entry->priv->cancellable = NULL;
     } else {
-        gtk_entry_completion_insert_action_text (completion, 0, "Loading...");
+        gtk_entry_completion_insert_action_text (completion, 0, _("Loading..."));
     }
 
     entry->priv->cancellable = g_cancellable_new ();

@@ -1,6 +1,6 @@
 m4_define(libgweather_major_version,   3)
-m4_define(libgweather_minor_version,  14)
-m4_define(libgweather_micro_version,  1)
+m4_define(libgweather_minor_version,  20)
+m4_define(libgweather_micro_version,  4)
 m4_define(libgweather_version, libgweather_major_version.libgweather_minor_version.libgweather_micro_version)
 
 AC_INIT([libgweather],
@@ -13,6 +13,7 @@ AC_PREREQ([2.64])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR([build-aux])
+AX_IS_RELEASE([minor-version])
 
 AM_INIT_AUTOMAKE([1.11 foreign no-dist-gzip dist-xz tar-ustar])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -36,12 +37,12 @@ AC_SUBST(LIBGWEATHER_VERSION)
 #   change to C+1:0:0
 # - If the interface is the same as the previous version, change to C:R+1:A
 
-LT_VERSION=9:2:3
+LT_VERSION=11:1:5
 AC_SUBST(LT_VERSION)
 
 GTK_REQUIRED=3.13.5
 GLIB_REQUIRED=2.35.1
-LIBSOUP_REQUIRED=2.34.0
+LIBSOUP_REQUIRED=2.44.0
 LIBXML_REQUIRED=2.6.0
 
 LT_PREREQ([2.2.6])
@@ -55,7 +56,7 @@ AM_PROG_CC_C_O
 
 GLIB_GSETTINGS
 
-GNOME_COMPILE_WARNINGS([maximum])
+AX_COMPILER_FLAGS([WARN_CFLAGS],[WARN_LDFLAGS], [$ax_is_release], [], [-Wno-switch-default])
 
 PKG_CHECK_MODULES(DEPS, [gtk+-3.0 >= $GTK_REQUIRED
                          libxml-2.0 >= $LIBXML_REQUIRED
@@ -68,9 +69,6 @@ dnl -- check for glib; redundant at this point, but sets $GLIB_MKENUMS
 AM_PATH_GLIB_2_0($GLIB_REQUIRED)
 
 dnl gettext
-AM_GNU_GETTEXT_VERSION([0.18])
-AM_GNU_GETTEXT([external])
-
 IT_PROG_INTLTOOL([0.50.0])
 IT_PO_SUBDIR([po-locations])
 
@@ -208,16 +206,16 @@ dnl *** Output Makefiles et al                                              ***
 dnl ***************************************************************************
 AC_CONFIG_FILES([
 Makefile
-doc/Makefile
-doc/version.xml
-po/Makefile.in
-po-locations/Makefile.in
-libgweather/Makefile
-libgweather/gweather-3.0.pc
-libgweather/gweather-3.0-uninstalled.pc
-libgweather/gweather-version.h
+data/gweather-3.0.pc
+data/gweather-3.0-uninstalled.pc
 data/Makefile
 data/glade/Makefile
+doc/Makefile
+doc/version.xml
+libgweather/Makefile
+libgweather/gweather-version.h
+po/Makefile.in
+po-locations/Makefile.in
 schemas/Makefile
 ])
 AC_OUTPUT

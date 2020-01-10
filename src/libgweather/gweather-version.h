@@ -24,6 +24,10 @@
 #ifndef __GWEATHER_VERSION_H__
 #define __GWEATHER_VERSION_H__
 
+#if !(defined(IN_GWEATHER_H) || defined(GWEATHER_COMPILATION))
+#error "gweather-version.h must not be included individually, include gweather.h instead"
+#endif
+
 /**
  * SECTION:gweatherversion
  * @short_description: libgweather version checking
@@ -48,7 +52,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MINOR_VERSION              (14)
+#define GWEATHER_MINOR_VERSION              (20)
 
 /**
  * GWEATHER_MICRO_VERSION:
@@ -57,7 +61,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_MICRO_VERSION              (1)
+#define GWEATHER_MICRO_VERSION              (4)
 
 /**
  * GWEATHER_VERSION
@@ -66,7 +70,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_VERSION                    (3.14.1)
+#define GWEATHER_VERSION                    (3.20.4)
 
 /**
  * GWEATHER_VERSION_S:
@@ -76,7 +80,7 @@
  *
  * Since: 3.12
  */
-#define GWEATHER_VERSION_S                  "3.14.1"
+#define GWEATHER_VERSION_S                  "3.20.4"
 
 /**
  * GWEATHER_VERSION_HEX:

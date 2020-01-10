@@ -20,7 +20,6 @@
 #include <config.h>
 #endif
 
-#define _GNU_SOURCE /* for strptime */
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -35,8 +34,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
+#include "gweather-private.h"
 
 #define XC(t) ((const xmlChar *)(t))
 
@@ -201,7 +199,7 @@ read_wind_direction (GWeatherInfo *info,
 		     xmlNodePtr    node)
 {
     xmlChar *val;
-    int i;
+    unsigned int i;
 
     val = xmlGetProp (node, XC("code"));
     if (val == NULL)

@@ -22,14 +22,13 @@
 #include <config.h>
 #endif
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
-
-#include "parser.h"
 #include <string.h>
 #include <glib.h>
 #include <libxml/xmlreader.h>
 #include <glib/gi18n-lib.h>
+
+#include "gweather-private.h"
+#include "gweather-parser.h"
 
 /*
  * _gweather_parser_get_value:

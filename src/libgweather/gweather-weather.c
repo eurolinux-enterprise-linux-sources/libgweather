@@ -34,9 +34,8 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-weather.h"
-#include "weather-priv.h"
+#include "gweather-private.h"
 #include "gweather-enum-types.h"
 
 #define MOON_PHASES 36
@@ -330,6 +329,7 @@ calc_apparent (GWeatherInfo *info)
     else if (temp >= 80.0) {
         if (temp >= -500. && humidity >= 0) {
 	    gdouble t2, h2;
+	    gdouble t3, h3;
 
 	    t2 = temp * temp;
 	    h2 = humidity * humidity;
@@ -340,8 +340,9 @@ calc_apparent (GWeatherInfo *info)
 	     * constrained by the accuracy of the instruments and that the
 	     * we receive the temperature and dewpoints as integers.
 	     */
-	    gdouble t3 = t2 * temp;
-	    gdouble h3 = h2 * temp;
+
+	    t3 = t2 * temp;
+	    h3 = h2 * temp;
 
 	    apparent = 16.923
 		+ 0.185212 * temp
@@ -501,9 +502,7 @@ ref_session (void)
     if (session != NULL)
 	return g_object_ref (session);
 
-    session = soup_session_async_new ();
-    soup_session_add_feature_by_type (session, SOUP_TYPE_PROXY_RESOLVER_DEFAULT);
-    soup_session_add_feature_by_type (session, SOUP_TYPE_CONTENT_DECODER);
+    session = soup_session_new ();
 
     cache = get_cache ();
     soup_session_add_feature (session, SOUP_SESSION_FEATURE (cache));
@@ -763,8 +762,15 @@ is_locale_metric (void)
     return TRUE;
 }
 
-static GWeatherTemperatureUnit
-temperature_unit_to_real (GWeatherTemperatureUnit unit)
+/**
+ * gweather_temperature_unit_to_real:
+ * @unit: a tempeature unit, or %GWEATHER_TEMP_UNIT_DEFAULT
+ *
+ * Resolve @unit into a real temperature unit, potentially considering
+ * locale defaults.
+ */
+GWeatherTemperatureUnit
+gweather_temperature_unit_to_real (GWeatherTemperatureUnit unit)
 {
     if (G_UNLIKELY (unit == GWEATHER_TEMP_UNIT_INVALID)) {
 	g_critical("Conversion to invalid temperature unit");
@@ -782,7 +788,7 @@ temperature_unit_to_real (GWeatherTemperatureUnit unit)
 static gchar *
 temperature_string (gfloat temp_f, GWeatherTemperatureUnit to_unit, gboolean want_round)
 {
-    to_unit = temperature_unit_to_real (to_unit);
+    to_unit = gweather_temperature_unit_to_real (to_unit);
 
     switch (to_unit) {
     case GWEATHER_TEMP_UNIT_FAHRENHEIT:
@@ -1487,7 +1493,7 @@ temperature_value (gdouble temp_f,
 
     if (to_unit == GWEATHER_TEMP_UNIT_DEFAULT)
 	    to_unit = g_settings_get_enum (settings, TEMPERATURE_UNIT);
-    to_unit = temperature_unit_to_real (to_unit);
+    to_unit = gweather_temperature_unit_to_real (to_unit);
 
     switch (to_unit) {
         case GWEATHER_TEMP_UNIT_FAHRENHEIT:
@@ -1875,8 +1881,8 @@ gweather_info_get_value_sunset (GWeatherInfo *info, time_t *value)
 /**
  * gweather_info_get_value_moonphase:
  * @info: a #GWeatherInfo
- * @value: (out): the current moon phase (represented as the visible percentage)
- * @lat: (out): the latitude the moon is at (???)
+ * @value: (out): the current moon phase
+ * @lat: (out): the moon declension
  *
  * Returns: TRUE is @value is valid, FALSE otherwise.
  */
@@ -2000,8 +2006,9 @@ gweather_info_set_location_internal (GWeatherInfo     *info,
 	gweather_location_ref (location);
     } else {
 	GWeatherLocation *world;
-	GVariant *default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
 	const gchar *station_code;
+
+	default_loc = g_settings_get_value (priv->settings, DEFAULT_LOCATION);
 
 	g_variant_get (default_loc, "(&s&sm(dd))", &name, &station_code, &latlon_override, &lat, &lon);
 

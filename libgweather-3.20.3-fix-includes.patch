@@ -1,0 +1,12 @@
+diff -up libgweather-3.20.3/libgweather/weather-metar.c.orig libgweather-3.20.3/libgweather/weather-metar.c
+--- libgweather-3.20.3/libgweather/weather-metar.c.orig	2016-10-19 22:31:40.442361440 +0200
++++ libgweather-3.20.3/libgweather/weather-metar.c	2016-10-19 22:30:45.844251364 +0200
+@@ -25,6 +25,8 @@
+ #include <string.h>
+ #include <sys/types.h>
+ #include <regex.h>
++#define __USE_BSD
++#include <time.h>
+ 
+ #include "gweather-private.h"
+ 

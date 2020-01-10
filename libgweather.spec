@@ -1,31 +1,24 @@
 Name:           libgweather
-Version:        3.14.1
-Release:        3%{?dist}
+Version:        3.20.4
+Release:        1%{?dist}
 Summary:        A library for weather information
 
-Group:          System Environment/Libraries
 License:        GPLv2+
-URL:            http://www.gnome.org
-#VCS: git:git://git.gnome.org/libgweather
-Source0:        http://download.gnome.org/sources/libgweather/3.14/%{name}-%{version}.tar.xz
+URL:            https://wiki.gnome.org/Projects/LibGWeather
+Source0:        https://download.gnome.org/sources/libgweather/3.20/%{name}-%{version}.tar.xz
+Patch0:         libgweather-3.20.3-fix-includes.patch
 
-Patch0:         translations.patch
-Patch1:         0001-Switch-to-new-METAR-data-provider.patch
-
-BuildRequires:  dbus-devel
-BuildRequires:  geocode-glib-devel
-BuildRequires:  glade-devel
-BuildRequires:  gtk3-devel >= 2.90.0
-BuildRequires:  gtk-doc
-BuildRequires:  libsoup-devel >= 2.4
-BuildRequires:  libxml2-devel >= 2.6
+BuildRequires:  pkgconfig(geocode-glib-1.0)
+BuildRequires:  pkgconfig(gladeui-2.0)
+BuildRequires:  pkgconfig(gobject-introspection-1.0) >= 0.10
+BuildRequires:  pkgconfig(gtk+-3.0) >= 3.13.5
+BuildRequires:  pkgconfig(libsoup-2.4) >= 2.34
+BuildRequires:  pkgconfig(libxml-2.0) >= 2.6.0
 BuildRequires:  gettext
 BuildRequires:  intltool
-BuildRequires:  autoconf automake libtool
-BuildRequires:  gobject-introspection-devel >= 0.10
 BuildRequires:  gnome-common
 BuildRequires:  vala-devel
-BuildRequires:  vala-tools
+BuildRequires:  vala
 
 %description
 libgweather is a library to access weather information from online
@@ -34,7 +27,6 @@ services for numerous locations.
 
 %package        devel
 Summary:        Development files for %{name}
-Group:          Development/Libraries
 Requires:       %{name}%{_isa} = %{version}-%{release}
 
 %description    devel
@@ -45,14 +37,13 @@ developing applications that use %{name}.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %configure --disable-static --disable-gtk-doc
 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 
 %find_lang %{name} --all-name
@@ -70,7 +61,8 @@ fi
 glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 %files -f %{name}.lang
-%doc COPYING
+%doc HACKING NEWS README
+%license COPYING
 %{_libdir}/libgweather-3.so.*
 %{_libdir}/girepository-1.0/GWeather-3.0.typelib
 %dir %{_datadir}/libgweather
@@ -96,6 +88,10 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &>/dev/null || :
 
 
 %changelog
+* Tue Dec 27 2016 Kalev Lember <klember@redhat.com> - 3.20.4-1
+- Update to 3.20.4
+- Resolves: #1387009
+
 * Wed Aug 31 2016 Kalev Lember <klember@redhat.com> - 3.14.1-3
 - Switch to new METAR data provider
 - Resolves: #1371550

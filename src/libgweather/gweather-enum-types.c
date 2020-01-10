@@ -1,7 +1,6 @@
 
 /* Generated data (by glib-mkenums) */
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
 #include "gweather-enum-types.h"
 #include "gweather-location.h"
 #include "gweather-enums.h"

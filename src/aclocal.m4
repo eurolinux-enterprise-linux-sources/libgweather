@@ -1,6 +1,6 @@
-# generated automatically by aclocal 1.14.1 -*- Autoconf -*-
+# generated automatically by aclocal 1.15 -*- Autoconf -*-
 
-# Copyright (C) 1996-2013 Free Software Foundation, Inc.
+# Copyright (C) 1996-2014 Free Software Foundation, Inc.
 
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -20,895 +20,7 @@ You have another version of autoconf.  It may work, but is not guaranteed to.
 If you have problems, you may need to regenerate the build system entirely.
 To do so, use the procedure documented by the package, typically 'autoreconf'.])])
 
-# Configure paths for GLIB
-# Owen Taylor     1997-2001
-
-dnl AM_PATH_GLIB_2_0([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND [, MODULES]]]])
-dnl Test for GLIB, and define GLIB_CFLAGS and GLIB_LIBS, if gmodule, gobject,
-dnl gthread, or gio is specified in MODULES, pass to pkg-config
-dnl
-AC_DEFUN([AM_PATH_GLIB_2_0],
-[dnl 
-dnl Get the cflags and libraries from pkg-config
-dnl
-AC_ARG_ENABLE(glibtest, [  --disable-glibtest      do not try to compile and run a test GLIB program],
-		    , enable_glibtest=yes)
-
-  pkg_config_args=glib-2.0
-  for module in . $4
-  do
-      case "$module" in
-         gmodule) 
-             pkg_config_args="$pkg_config_args gmodule-2.0"
-         ;;
-         gmodule-no-export) 
-             pkg_config_args="$pkg_config_args gmodule-no-export-2.0"
-         ;;
-         gobject) 
-             pkg_config_args="$pkg_config_args gobject-2.0"
-         ;;
-         gthread) 
-             pkg_config_args="$pkg_config_args gthread-2.0"
-         ;;
-         gio*) 
-             pkg_config_args="$pkg_config_args $module-2.0"
-         ;;
-      esac
-  done
-
-  PKG_PROG_PKG_CONFIG([0.16])
-
-  no_glib=""
-
-  if test "x$PKG_CONFIG" = x ; then
-    no_glib=yes
-    PKG_CONFIG=no
-  fi
-
-  min_glib_version=ifelse([$1], ,2.0.0,$1)
-  AC_MSG_CHECKING(for GLIB - version >= $min_glib_version)
-
-  if test x$PKG_CONFIG != xno ; then
-    ## don't try to run the test against uninstalled libtool libs
-    if $PKG_CONFIG --uninstalled $pkg_config_args; then
-	  echo "Will use uninstalled version of GLib found in PKG_CONFIG_PATH"
-	  enable_glibtest=no
-    fi
-
-    if $PKG_CONFIG --atleast-version $min_glib_version $pkg_config_args; then
-	  :
-    else
-	  no_glib=yes
-    fi
-  fi
-
-  if test x"$no_glib" = x ; then
-    GLIB_GENMARSHAL=`$PKG_CONFIG --variable=glib_genmarshal glib-2.0`
-    GOBJECT_QUERY=`$PKG_CONFIG --variable=gobject_query glib-2.0`
-    GLIB_MKENUMS=`$PKG_CONFIG --variable=glib_mkenums glib-2.0`
-    GLIB_COMPILE_RESOURCES=`$PKG_CONFIG --variable=glib_compile_resources gio-2.0`
-
-    GLIB_CFLAGS=`$PKG_CONFIG --cflags $pkg_config_args`
-    GLIB_LIBS=`$PKG_CONFIG --libs $pkg_config_args`
-    glib_config_major_version=`$PKG_CONFIG --modversion glib-2.0 | \
-           sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
-    glib_config_minor_version=`$PKG_CONFIG --modversion glib-2.0 | \
-           sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\2/'`
-    glib_config_micro_version=`$PKG_CONFIG --modversion glib-2.0 | \
-           sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
-    if test "x$enable_glibtest" = "xyes" ; then
-      ac_save_CFLAGS="$CFLAGS"
-      ac_save_LIBS="$LIBS"
-      CFLAGS="$CFLAGS $GLIB_CFLAGS"
-      LIBS="$GLIB_LIBS $LIBS"
-dnl
-dnl Now check if the installed GLIB is sufficiently new. (Also sanity
-dnl checks the results of pkg-config to some extent)
-dnl
-      rm -f conf.glibtest
-      AC_TRY_RUN([
-#include <glib.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-int 
-main ()
-{
-  unsigned int major, minor, micro;
-
-  fclose (fopen ("conf.glibtest", "w"));
-
-  if (sscanf("$min_glib_version", "%u.%u.%u", &major, &minor, &micro) != 3) {
-     printf("%s, bad version string\n", "$min_glib_version");
-     exit(1);
-   }
-
-  if ((glib_major_version != $glib_config_major_version) ||
-      (glib_minor_version != $glib_config_minor_version) ||
-      (glib_micro_version != $glib_config_micro_version))
-    {
-      printf("\n*** 'pkg-config --modversion glib-2.0' returned %d.%d.%d, but GLIB (%d.%d.%d)\n", 
-             $glib_config_major_version, $glib_config_minor_version, $glib_config_micro_version,
-             glib_major_version, glib_minor_version, glib_micro_version);
-      printf ("*** was found! If pkg-config was correct, then it is best\n");
-      printf ("*** to remove the old version of GLib. You may also be able to fix the error\n");
-      printf("*** by modifying your LD_LIBRARY_PATH enviroment variable, or by editing\n");
-      printf("*** /etc/ld.so.conf. Make sure you have run ldconfig if that is\n");
-      printf("*** required on your system.\n");
-      printf("*** If pkg-config was wrong, set the environment variable PKG_CONFIG_PATH\n");
-      printf("*** to point to the correct configuration files\n");
-    } 
-  else if ((glib_major_version != GLIB_MAJOR_VERSION) ||
-	   (glib_minor_version != GLIB_MINOR_VERSION) ||
-           (glib_micro_version != GLIB_MICRO_VERSION))
-    {
-      printf("*** GLIB header files (version %d.%d.%d) do not match\n",
-	     GLIB_MAJOR_VERSION, GLIB_MINOR_VERSION, GLIB_MICRO_VERSION);
-      printf("*** library (version %d.%d.%d)\n",
-	     glib_major_version, glib_minor_version, glib_micro_version);
-    }
-  else
-    {
-      if ((glib_major_version > major) ||
-        ((glib_major_version == major) && (glib_minor_version > minor)) ||
-        ((glib_major_version == major) && (glib_minor_version == minor) && (glib_micro_version >= micro)))
-      {
-        return 0;
-       }
-     else
-      {
-        printf("\n*** An old version of GLIB (%u.%u.%u) was found.\n",
-               glib_major_version, glib_minor_version, glib_micro_version);
-        printf("*** You need a version of GLIB newer than %u.%u.%u. The latest version of\n",
-	       major, minor, micro);
-        printf("*** GLIB is always available from ftp://ftp.gtk.org.\n");
-        printf("***\n");
-        printf("*** If you have already installed a sufficiently new version, this error\n");
-        printf("*** probably means that the wrong copy of the pkg-config shell script is\n");
-        printf("*** being found. The easiest way to fix this is to remove the old version\n");
-        printf("*** of GLIB, but you can also set the PKG_CONFIG environment to point to the\n");
-        printf("*** correct copy of pkg-config. (In this case, you will have to\n");
-        printf("*** modify your LD_LIBRARY_PATH enviroment variable, or edit /etc/ld.so.conf\n");
-        printf("*** so that the correct libraries are found at run-time))\n");
-      }
-    }
-  return 1;
-}
-],, no_glib=yes,[echo $ac_n "cross compiling; assumed OK... $ac_c"])
-       CFLAGS="$ac_save_CFLAGS"
-       LIBS="$ac_save_LIBS"
-     fi
-  fi
-  if test "x$no_glib" = x ; then
-     AC_MSG_RESULT(yes (version $glib_config_major_version.$glib_config_minor_version.$glib_config_micro_version))
-     ifelse([$2], , :, [$2])     
-  else
-     AC_MSG_RESULT(no)
-     if test "$PKG_CONFIG" = "no" ; then
-       echo "*** A new enough version of pkg-config was not found."
-       echo "*** See http://www.freedesktop.org/software/pkgconfig/"
-     else
-       if test -f conf.glibtest ; then
-        :
-       else
-          echo "*** Could not run GLIB test program, checking why..."
-          ac_save_CFLAGS="$CFLAGS"
-          ac_save_LIBS="$LIBS"
-          CFLAGS="$CFLAGS $GLIB_CFLAGS"
-          LIBS="$LIBS $GLIB_LIBS"
-          AC_TRY_LINK([
-#include <glib.h>
-#include <stdio.h>
-],      [ return ((glib_major_version) || (glib_minor_version) || (glib_micro_version)); ],
-        [ echo "*** The test program compiled, but did not run. This usually means"
-          echo "*** that the run-time linker is not finding GLIB or finding the wrong"
-          echo "*** version of GLIB. If it is not finding GLIB, you'll need to set your"
-          echo "*** LD_LIBRARY_PATH environment variable, or edit /etc/ld.so.conf to point"
-          echo "*** to the installed location  Also, make sure you have run ldconfig if that"
-          echo "*** is required on your system"
-	  echo "***"
-          echo "*** If you have an old version installed, it is best to remove it, although"
-          echo "*** you may also be able to get things to work by modifying LD_LIBRARY_PATH" ],
-        [ echo "*** The test program failed to compile or link. See the file config.log for the"
-          echo "*** exact error that occured. This usually means GLIB is incorrectly installed."])
-          CFLAGS="$ac_save_CFLAGS"
-          LIBS="$ac_save_LIBS"
-       fi
-     fi
-     GLIB_CFLAGS=""
-     GLIB_LIBS=""
-     GLIB_GENMARSHAL=""
-     GOBJECT_QUERY=""
-     GLIB_MKENUMS=""
-     GLIB_COMPILE_RESOURCES=""
-     ifelse([$3], , :, [$3])
-  fi
-  AC_SUBST(GLIB_CFLAGS)
-  AC_SUBST(GLIB_LIBS)
-  AC_SUBST(GLIB_GENMARSHAL)
-  AC_SUBST(GOBJECT_QUERY)
-  AC_SUBST(GLIB_MKENUMS)
-  AC_SUBST(GLIB_COMPILE_RESOURCES)
-  rm -f conf.glibtest
-])
-
-# gnome-compiler-flags.m4
-#
-# serial 2
-#
-
-dnl GNOME_COMPILE_WARNINGS
-dnl Turn on many useful compiler warnings and substitute the result into
-dnl WARN_CFLAGS
-dnl For now, only works on GCC
-dnl Pass the default value of the --enable-compile-warnings configure option as
-dnl the first argument to the macro, defaulting to 'yes'.
-dnl Additional warning/error flags can be passed as an optional second argument.
-dnl
-dnl For example: GNOME_COMPILE_WARNINGS([maximum],[-Werror=some-flag -Wfoobar])
-AC_DEFUN([GNOME_COMPILE_WARNINGS],[
-    dnl ******************************
-    dnl More compiler warnings
-    dnl ******************************
-
-    AC_ARG_ENABLE(compile-warnings, 
-                  AS_HELP_STRING([--enable-compile-warnings=@<:@no/minimum/yes/maximum/error@:>@],
-                                 [Turn on compiler warnings]),,
-                  [enable_compile_warnings="m4_default([$1],[yes])"])
-
-    if test "x$GCC" != xyes; then
-	enable_compile_warnings=no
-    fi
-
-    warning_flags=
-    realsave_CFLAGS="$CFLAGS"
-
-    dnl These are warning flags that aren't marked as fatal.  Can be
-    dnl overridden on a per-project basis with -Wno-foo.
-    base_warn_flags=" \
-        -Wall \
-        -Wstrict-prototypes \
-        -Wnested-externs \
-    "
-
-    dnl These compiler flags typically indicate very broken or suspicious
-    dnl code.  Some of them such as implicit-function-declaration are
-    dnl just not default because gcc compiles a lot of legacy code.
-    dnl We choose to make this set into explicit errors.
-    base_error_flags=" \
-        -Werror=missing-prototypes \
-        -Werror=implicit-function-declaration \
-        -Werror=pointer-arith \
-        -Werror=init-self \
-        -Werror=format-security \
-        -Werror=format=2 \
-        -Werror=missing-include-dirs \
-    "
-
-    dnl Additional warning or error flags provided by the module author to
-    dnl allow stricter standards to be imposed on a per-module basis.
-    dnl The author can pass -W or -Werror flags here as they see fit.
-    additional_flags="m4_default([$2],[])"
-
-    case "$enable_compile_warnings" in
-    no)
-        warning_flags="-w"
-        ;;
-    minimum)
-        warning_flags="-Wall"
-        ;;
-    yes|maximum|error)
-        warning_flags="$base_warn_flags $base_error_flags $additional_flags"
-        ;;
-    *)
-        AC_MSG_ERROR(Unknown argument '$enable_compile_warnings' to --enable-compile-warnings)
-        ;;
-    esac
-
-    if test "$enable_compile_warnings" = "error" ; then
-        warning_flags="$warning_flags -Werror"
-    fi
-
-    dnl Check whether GCC supports the warning options
-    for option in $warning_flags; do
-	save_CFLAGS="$CFLAGS"
-	CFLAGS="$CFLAGS $option"
-	AC_MSG_CHECKING([whether gcc understands $option])
-	AC_TRY_COMPILE([], [],
-	    has_option=yes,
-	    has_option=no,)
-	CFLAGS="$save_CFLAGS"
-	AC_MSG_RESULT([$has_option])
-	if test $has_option = yes; then
-	    tested_warning_flags="$tested_warning_flags $option"
-	fi
-	unset has_option
-	unset save_CFLAGS
-    done
-    unset option
-    CFLAGS="$realsave_CFLAGS"
-    AC_MSG_CHECKING(what warning flags to pass to the C compiler)
-    AC_MSG_RESULT($tested_warning_flags)
-
-    AC_ARG_ENABLE(iso-c,
-                  AS_HELP_STRING([--enable-iso-c],
-                                 [Try to warn if code is not ISO C ]),,
-                  [enable_iso_c=no])
-
-    AC_MSG_CHECKING(what language compliance flags to pass to the C compiler)
-    complCFLAGS=
-    if test "x$enable_iso_c" != "xno"; then
-	if test "x$GCC" = "xyes"; then
-	case " $CFLAGS " in
-	    *[\ \	]-ansi[\ \	]*) ;;
-	    *) complCFLAGS="$complCFLAGS -ansi" ;;
-	esac
-	case " $CFLAGS " in
-	    *[\ \	]-pedantic[\ \	]*) ;;
-	    *) complCFLAGS="$complCFLAGS -pedantic" ;;
-	esac
-	fi
-    fi
-    AC_MSG_RESULT($complCFLAGS)
-
-    WARN_CFLAGS="$tested_warning_flags $complCFLAGS"
-    AC_SUBST(WARN_CFLAGS)
-])
-
-dnl For C++, do basically the same thing.
-
-AC_DEFUN([GNOME_CXX_WARNINGS],[
-  AC_ARG_ENABLE(cxx-warnings,
-                AS_HELP_STRING([--enable-cxx-warnings=@<:@no/minimum/yes@:>@]
-                               [Turn on compiler warnings.]),,
-                [enable_cxx_warnings="m4_default([$1],[minimum])"])
-
-  AC_MSG_CHECKING(what warning flags to pass to the C++ compiler)
-  warnCXXFLAGS=
-  if test "x$GXX" != xyes; then
-    enable_cxx_warnings=no
-  fi
-  if test "x$enable_cxx_warnings" != "xno"; then
-    if test "x$GXX" = "xyes"; then
-      case " $CXXFLAGS " in
-      *[\ \	]-Wall[\ \	]*) ;;
-      *) warnCXXFLAGS="-Wall -Wno-unused" ;;
-      esac
-
-      ## -W is not all that useful.  And it cannot be controlled
-      ## with individual -Wno-xxx flags, unlike -Wall
-      if test "x$enable_cxx_warnings" = "xyes"; then
-	warnCXXFLAGS="$warnCXXFLAGS -Wshadow -Woverloaded-virtual"
-      fi
-    fi
-  fi
-  AC_MSG_RESULT($warnCXXFLAGS)
-
-   AC_ARG_ENABLE(iso-cxx,
-                 AS_HELP_STRING([--enable-iso-cxx],
-                                [Try to warn if code is not ISO C++ ]),,
-                 [enable_iso_cxx=no])
-
-   AC_MSG_CHECKING(what language compliance flags to pass to the C++ compiler)
-   complCXXFLAGS=
-   if test "x$enable_iso_cxx" != "xno"; then
-     if test "x$GXX" = "xyes"; then
-      case " $CXXFLAGS " in
-      *[\ \	]-ansi[\ \	]*) ;;
-      *) complCXXFLAGS="$complCXXFLAGS -ansi" ;;
-      esac
-
-      case " $CXXFLAGS " in
-      *[\ \	]-pedantic[\ \	]*) ;;
-      *) complCXXFLAGS="$complCXXFLAGS -pedantic" ;;
-      esac
-     fi
-   fi
-  AC_MSG_RESULT($complCXXFLAGS)
-
-  WARN_CXXFLAGS="$CXXFLAGS $warnCXXFLAGS $complCXXFLAGS"
-  AC_SUBST(WARN_CXXFLAGS)
-])
-
-dnl GLIB_GSETTINGS
-dnl Defines GSETTINGS_SCHEMAS_INSTALL which controls whether
-dnl the schema should be compiled
-dnl
-
-AC_DEFUN([GLIB_GSETTINGS],
-[
-  m4_pattern_allow([AM_V_GEN])
-  AC_ARG_ENABLE(schemas-compile,
-                AS_HELP_STRING([--disable-schemas-compile],
-                               [Disable regeneration of gschemas.compiled on install]),
-                [case ${enableval} in
-                  yes) GSETTINGS_DISABLE_SCHEMAS_COMPILE=""  ;;
-                  no)  GSETTINGS_DISABLE_SCHEMAS_COMPILE="1" ;;
-                  *) AC_MSG_ERROR([bad value ${enableval} for --enable-schemas-compile]) ;;
-                 esac])
-  AC_SUBST([GSETTINGS_DISABLE_SCHEMAS_COMPILE])
-  PKG_PROG_PKG_CONFIG([0.16])
-  AC_SUBST(gsettingsschemadir, [${datadir}/glib-2.0/schemas])
-  if test x$cross_compiling != xyes; then
-    GLIB_COMPILE_SCHEMAS=`$PKG_CONFIG --variable glib_compile_schemas gio-2.0`
-  else
-    AC_PATH_PROG(GLIB_COMPILE_SCHEMAS, glib-compile-schemas)
-  fi
-  AC_SUBST(GLIB_COMPILE_SCHEMAS)
-  if test "x$GLIB_COMPILE_SCHEMAS" = "x"; then
-    ifelse([$2],,[AC_MSG_ERROR([glib-compile-schemas not found.])],[$2])
-  else
-    ifelse([$1],,[:],[$1])
-  fi
-
-  GSETTINGS_RULES='
-.PHONY : uninstall-gsettings-schemas install-gsettings-schemas clean-gsettings-schemas
-
-mostlyclean-am: clean-gsettings-schemas
-
-gsettings__enum_file = $(addsuffix .enums.xml,$(gsettings_ENUM_NAMESPACE))
-
-%.gschema.valid: %.gschema.xml $(gsettings__enum_file)
-	$(AM_V_GEN) $(GLIB_COMPILE_SCHEMAS) --strict --dry-run $(addprefix --schema-file=,$(gsettings__enum_file)) --schema-file=$< && mkdir -p [$](@D) && touch [$]@
-
-all-am: $(gsettings_SCHEMAS:.xml=.valid)
-uninstall-am: uninstall-gsettings-schemas
-install-data-am: install-gsettings-schemas
-
-.SECONDARY: $(gsettings_SCHEMAS)
-
-install-gsettings-schemas: $(gsettings_SCHEMAS) $(gsettings__enum_file)
-	@$(NORMAL_INSTALL)
-	if test -n "$^"; then \
-		test -z "$(gsettingsschemadir)" || $(MKDIR_P) "$(DESTDIR)$(gsettingsschemadir)"; \
-		$(INSTALL_DATA) $^ "$(DESTDIR)$(gsettingsschemadir)"; \
-		test -n "$(GSETTINGS_DISABLE_SCHEMAS_COMPILE)$(DESTDIR)" || $(GLIB_COMPILE_SCHEMAS) $(gsettingsschemadir); \
-	fi
-
-uninstall-gsettings-schemas:
-	@$(NORMAL_UNINSTALL)
-	@list='\''$(gsettings_SCHEMAS) $(gsettings__enum_file)'\''; test -n "$(gsettingsschemadir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e '\''s|^.*/||'\''`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '\''$(DESTDIR)$(gsettingsschemadir)'\'' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(gsettingsschemadir)" && rm -f $$files
-	test -n "$(GSETTINGS_DISABLE_SCHEMAS_COMPILE)$(DESTDIR)" || $(GLIB_COMPILE_SCHEMAS) $(gsettingsschemadir)
-
-clean-gsettings-schemas:
-	rm -f $(gsettings_SCHEMAS:.xml=.valid) $(gsettings__enum_file)
-
-ifdef gsettings_ENUM_NAMESPACE
-$(gsettings__enum_file): $(gsettings_ENUM_FILES)
-	$(AM_V_GEN) glib-mkenums --comments '\''<!-- @comment@ -->'\'' --fhead "<schemalist>" --vhead "  <@type@ id='\''$(gsettings_ENUM_NAMESPACE).@EnumName@'\''>" --vprod "    <value nick='\''@valuenick@'\'' value='\''@valuenum@'\''/>" --vtail "  </@type@>" --ftail "</schemalist>" [$]^ > [$]@.tmp && mv [$]@.tmp [$]@
-endif
-'
-  _GSETTINGS_SUBST(GSETTINGS_RULES)
-])
-
-dnl _GSETTINGS_SUBST(VARIABLE)
-dnl Abstract macro to do either _AM_SUBST_NOTMAKE or AC_SUBST
-AC_DEFUN([_GSETTINGS_SUBST],
-[
-AC_SUBST([$1])
-m4_ifdef([_AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE([$1])])
-]
-)
-
-dnl -*- mode: autoconf -*-
-dnl Copyright 2009 Johan Dahlin
-dnl
-dnl This file is free software; the author(s) gives unlimited
-dnl permission to copy and/or distribute it, with or without
-dnl modifications, as long as this notice is preserved.
-dnl
-
-# serial 1
-
-m4_define([_GOBJECT_INTROSPECTION_CHECK_INTERNAL],
-[
-    AC_BEFORE([AC_PROG_LIBTOOL],[$0])dnl setup libtool first
-    AC_BEFORE([AM_PROG_LIBTOOL],[$0])dnl setup libtool first
-    AC_BEFORE([LT_INIT],[$0])dnl setup libtool first
-
-    dnl enable/disable introspection
-    m4_if([$2], [require],
-    [dnl
-        enable_introspection=yes
-    ],[dnl
-        AC_ARG_ENABLE(introspection,
-                  AS_HELP_STRING([--enable-introspection[=@<:@no/auto/yes@:>@]],
-                                 [Enable introspection for this build]),, 
-                                 [enable_introspection=auto])
-    ])dnl
-
-    AC_MSG_CHECKING([for gobject-introspection])
-
-    dnl presence/version checking
-    AS_CASE([$enable_introspection],
-    [no], [dnl
-        found_introspection="no (disabled, use --enable-introspection to enable)"
-    ],dnl
-    [yes],[dnl
-        PKG_CHECK_EXISTS([gobject-introspection-1.0],,
-                         AC_MSG_ERROR([gobject-introspection-1.0 is not installed]))
-        PKG_CHECK_EXISTS([gobject-introspection-1.0 >= $1],
-                         found_introspection=yes,
-                         AC_MSG_ERROR([You need to have gobject-introspection >= $1 installed to build AC_PACKAGE_NAME]))
-    ],dnl
-    [auto],[dnl
-        PKG_CHECK_EXISTS([gobject-introspection-1.0 >= $1], found_introspection=yes, found_introspection=no)
-	dnl Canonicalize enable_introspection
-	enable_introspection=$found_introspection
-    ],dnl
-    [dnl	
-        AC_MSG_ERROR([invalid argument passed to --enable-introspection, should be one of @<:@no/auto/yes@:>@])
-    ])dnl
-
-    AC_MSG_RESULT([$found_introspection])
-
-    INTROSPECTION_SCANNER=
-    INTROSPECTION_COMPILER=
-    INTROSPECTION_GENERATE=
-    INTROSPECTION_GIRDIR=
-    INTROSPECTION_TYPELIBDIR=
-    if test "x$found_introspection" = "xyes"; then
-       INTROSPECTION_SCANNER=`$PKG_CONFIG --variable=g_ir_scanner gobject-introspection-1.0`
-       INTROSPECTION_COMPILER=`$PKG_CONFIG --variable=g_ir_compiler gobject-introspection-1.0`
-       INTROSPECTION_GENERATE=`$PKG_CONFIG --variable=g_ir_generate gobject-introspection-1.0`
-       INTROSPECTION_GIRDIR=`$PKG_CONFIG --variable=girdir gobject-introspection-1.0`
-       INTROSPECTION_TYPELIBDIR="$($PKG_CONFIG --variable=typelibdir gobject-introspection-1.0)"
-       INTROSPECTION_CFLAGS=`$PKG_CONFIG --cflags gobject-introspection-1.0`
-       INTROSPECTION_LIBS=`$PKG_CONFIG --libs gobject-introspection-1.0`
-       INTROSPECTION_MAKEFILE=`$PKG_CONFIG --variable=datadir gobject-introspection-1.0`/gobject-introspection-1.0/Makefile.introspection
-    fi
-    AC_SUBST(INTROSPECTION_SCANNER)
-    AC_SUBST(INTROSPECTION_COMPILER)
-    AC_SUBST(INTROSPECTION_GENERATE)
-    AC_SUBST(INTROSPECTION_GIRDIR)
-    AC_SUBST(INTROSPECTION_TYPELIBDIR)
-    AC_SUBST(INTROSPECTION_CFLAGS)
-    AC_SUBST(INTROSPECTION_LIBS)
-    AC_SUBST(INTROSPECTION_MAKEFILE)
-
-    AM_CONDITIONAL(HAVE_INTROSPECTION, test "x$found_introspection" = "xyes")
-])
-
-
-dnl Usage:
-dnl   GOBJECT_INTROSPECTION_CHECK([minimum-g-i-version])
-
-AC_DEFUN([GOBJECT_INTROSPECTION_CHECK],
-[
-  _GOBJECT_INTROSPECTION_CHECK_INTERNAL([$1])
-])
-
-dnl Usage:
-dnl   GOBJECT_INTROSPECTION_REQUIRE([minimum-g-i-version])
-
-
-AC_DEFUN([GOBJECT_INTROSPECTION_REQUIRE],
-[
-  _GOBJECT_INTROSPECTION_CHECK_INTERNAL([$1], [require])
-])
-
-# pkg.m4 - Macros to locate and utilise pkg-config.            -*- Autoconf -*-
-# serial 1 (pkg-config-0.24)
-# 
-# Copyright © 2004 Scott James Remnant <scott@netsplit.com>.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-#
-# As a special exception to the GNU General Public License, if you
-# distribute this file as part of a program that contains a
-# configuration script generated by Autoconf, you may include it under
-# the same distribution terms that you use for the rest of that program.
-
-# PKG_PROG_PKG_CONFIG([MIN-VERSION])
-# ----------------------------------
-AC_DEFUN([PKG_PROG_PKG_CONFIG],
-[m4_pattern_forbid([^_?PKG_[A-Z_]+$])
-m4_pattern_allow([^PKG_CONFIG(_(PATH|LIBDIR|SYSROOT_DIR|ALLOW_SYSTEM_(CFLAGS|LIBS)))?$])
-m4_pattern_allow([^PKG_CONFIG_(DISABLE_UNINSTALLED|TOP_BUILD_DIR|DEBUG_SPEW)$])
-AC_ARG_VAR([PKG_CONFIG], [path to pkg-config utility])
-AC_ARG_VAR([PKG_CONFIG_PATH], [directories to add to pkg-config's search path])
-AC_ARG_VAR([PKG_CONFIG_LIBDIR], [path overriding pkg-config's built-in search path])
-
-if test "x$ac_cv_env_PKG_CONFIG_set" != "xset"; then
-	AC_PATH_TOOL([PKG_CONFIG], [pkg-config])
-fi
-if test -n "$PKG_CONFIG"; then
-	_pkg_min_version=m4_default([$1], [0.9.0])
-	AC_MSG_CHECKING([pkg-config is at least version $_pkg_min_version])
-	if $PKG_CONFIG --atleast-pkgconfig-version $_pkg_min_version; then
-		AC_MSG_RESULT([yes])
-	else
-		AC_MSG_RESULT([no])
-		PKG_CONFIG=""
-	fi
-fi[]dnl
-])# PKG_PROG_PKG_CONFIG
-
-# PKG_CHECK_EXISTS(MODULES, [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
-#
-# Check to see whether a particular set of modules exists.  Similar
-# to PKG_CHECK_MODULES(), but does not set variables or print errors.
-#
-# Please remember that m4 expands AC_REQUIRE([PKG_PROG_PKG_CONFIG])
-# only at the first occurence in configure.ac, so if the first place
-# it's called might be skipped (such as if it is within an "if", you
-# have to call PKG_CHECK_EXISTS manually
-# --------------------------------------------------------------
-AC_DEFUN([PKG_CHECK_EXISTS],
-[AC_REQUIRE([PKG_PROG_PKG_CONFIG])dnl
-if test -n "$PKG_CONFIG" && \
-    AC_RUN_LOG([$PKG_CONFIG --exists --print-errors "$1"]); then
-  m4_default([$2], [:])
-m4_ifvaln([$3], [else
-  $3])dnl
-fi])
-
-# _PKG_CONFIG([VARIABLE], [COMMAND], [MODULES])
-# ---------------------------------------------
-m4_define([_PKG_CONFIG],
-[if test -n "$$1"; then
-    pkg_cv_[]$1="$$1"
- elif test -n "$PKG_CONFIG"; then
-    PKG_CHECK_EXISTS([$3],
-                     [pkg_cv_[]$1=`$PKG_CONFIG --[]$2 "$3" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes ],
-		     [pkg_failed=yes])
- else
-    pkg_failed=untried
-fi[]dnl
-])# _PKG_CONFIG
-
-# _PKG_SHORT_ERRORS_SUPPORTED
-# -----------------------------
-AC_DEFUN([_PKG_SHORT_ERRORS_SUPPORTED],
-[AC_REQUIRE([PKG_PROG_PKG_CONFIG])
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi[]dnl
-])# _PKG_SHORT_ERRORS_SUPPORTED
-
-
-# PKG_CHECK_MODULES(VARIABLE-PREFIX, MODULES, [ACTION-IF-FOUND],
-# [ACTION-IF-NOT-FOUND])
-#
-#
-# Note that if there is a possibility the first call to
-# PKG_CHECK_MODULES might not happen, you should be sure to include an
-# explicit call to PKG_PROG_PKG_CONFIG in your configure.ac
-#
-#
-# --------------------------------------------------------------
-AC_DEFUN([PKG_CHECK_MODULES],
-[AC_REQUIRE([PKG_PROG_PKG_CONFIG])dnl
-AC_ARG_VAR([$1][_CFLAGS], [C compiler flags for $1, overriding pkg-config])dnl
-AC_ARG_VAR([$1][_LIBS], [linker flags for $1, overriding pkg-config])dnl
-
-pkg_failed=no
-AC_MSG_CHECKING([for $1])
-
-_PKG_CONFIG([$1][_CFLAGS], [cflags], [$2])
-_PKG_CONFIG([$1][_LIBS], [libs], [$2])
-
-m4_define([_PKG_TEXT], [Alternatively, you may set the environment variables $1[]_CFLAGS
-and $1[]_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.])
-
-if test $pkg_failed = yes; then
-   	AC_MSG_RESULT([no])
-        _PKG_SHORT_ERRORS_SUPPORTED
-        if test $_pkg_short_errors_supported = yes; then
-	        $1[]_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "$2" 2>&1`
-        else 
-	        $1[]_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "$2" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$$1[]_PKG_ERRORS" >&AS_MESSAGE_LOG_FD
-
-	m4_default([$4], [AC_MSG_ERROR(
-[Package requirements ($2) were not met:
-
-$$1_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-_PKG_TEXT])[]dnl
-        ])
-elif test $pkg_failed = untried; then
-     	AC_MSG_RESULT([no])
-	m4_default([$4], [AC_MSG_FAILURE(
-[The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-_PKG_TEXT
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.])[]dnl
-        ])
-else
-	$1[]_CFLAGS=$pkg_cv_[]$1[]_CFLAGS
-	$1[]_LIBS=$pkg_cv_[]$1[]_LIBS
-        AC_MSG_RESULT([yes])
-	$3
-fi[]dnl
-])# PKG_CHECK_MODULES
-
-
-# PKG_INSTALLDIR(DIRECTORY)
-# -------------------------
-# Substitutes the variable pkgconfigdir as the location where a module
-# should install pkg-config .pc files. By default the directory is
-# $libdir/pkgconfig, but the default can be changed by passing
-# DIRECTORY. The user can override through the --with-pkgconfigdir
-# parameter.
-AC_DEFUN([PKG_INSTALLDIR],
-[m4_pushdef([pkg_default], [m4_default([$1], ['${libdir}/pkgconfig'])])
-m4_pushdef([pkg_description],
-    [pkg-config installation directory @<:@]pkg_default[@:>@])
-AC_ARG_WITH([pkgconfigdir],
-    [AS_HELP_STRING([--with-pkgconfigdir], pkg_description)],,
-    [with_pkgconfigdir=]pkg_default)
-AC_SUBST([pkgconfigdir], [$with_pkgconfigdir])
-m4_popdef([pkg_default])
-m4_popdef([pkg_description])
-]) dnl PKG_INSTALLDIR
-
-
-# PKG_NOARCH_INSTALLDIR(DIRECTORY)
-# -------------------------
-# Substitutes the variable noarch_pkgconfigdir as the location where a
-# module should install arch-independent pkg-config .pc files. By
-# default the directory is $datadir/pkgconfig, but the default can be
-# changed by passing DIRECTORY. The user can override through the
-# --with-noarch-pkgconfigdir parameter.
-AC_DEFUN([PKG_NOARCH_INSTALLDIR],
-[m4_pushdef([pkg_default], [m4_default([$1], ['${datadir}/pkgconfig'])])
-m4_pushdef([pkg_description],
-    [pkg-config arch-independent installation directory @<:@]pkg_default[@:>@])
-AC_ARG_WITH([noarch-pkgconfigdir],
-    [AS_HELP_STRING([--with-noarch-pkgconfigdir], pkg_description)],,
-    [with_noarch_pkgconfigdir=]pkg_default)
-AC_SUBST([noarch_pkgconfigdir], [$with_noarch_pkgconfigdir])
-m4_popdef([pkg_default])
-m4_popdef([pkg_description])
-]) dnl PKG_NOARCH_INSTALLDIR
-
-
-# PKG_CHECK_VAR(VARIABLE, MODULE, CONFIG-VARIABLE,
-# [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
-# -------------------------------------------
-# Retrieves the value of the pkg-config variable for the given module.
-AC_DEFUN([PKG_CHECK_VAR],
-[AC_REQUIRE([PKG_PROG_PKG_CONFIG])dnl
-AC_ARG_VAR([$1], [value of $3 for $2, overriding pkg-config])dnl
-
-_PKG_CONFIG([$1], [variable="][$3]["], [$2])
-AS_VAR_COPY([$1], [pkg_cv_][$1])
-
-AS_VAR_IF([$1], [""], [$5], [$4])dnl
-])# PKG_CHECK_VAR
-
-dnl vapigen.m4
-dnl
-dnl Copyright 2012 Evan Nemerson
-dnl
-dnl This library is free software; you can redistribute it and/or
-dnl modify it under the terms of the GNU Lesser General Public
-dnl License as published by the Free Software Foundation; either
-dnl version 2.1 of the License, or (at your option) any later version.
-dnl
-dnl This library is distributed in the hope that it will be useful,
-dnl but WITHOUT ANY WARRANTY; without even the implied warranty of
-dnl MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-dnl Lesser General Public License for more details.
-dnl
-dnl You should have received a copy of the GNU Lesser General Public
-dnl License along with this library; if not, write to the Free Software
-dnl Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
-
-# VAPIGEN_CHECK([VERSION], [API_VERSION], [FOUND_INTROSPECTION], [DEFAULT])
-# --------------------------------------
-# Check vapigen existence and version
-#
-# See http://live.gnome.org/Vala/UpstreamGuide for detailed documentation
-AC_DEFUN([VAPIGEN_CHECK],
-[
-  AS_IF([test "x$3" != "xyes"], [
-      m4_provide_if([GOBJECT_INTROSPECTION_CHECK], [], [
-          m4_provide_if([GOBJECT_INTROSPECTION_REQUIRE], [], [
-              AC_MSG_ERROR([[You must call GOBJECT_INTROSPECTION_CHECK or GOBJECT_INTROSPECTION_REQUIRE before using VAPIGEN_CHECK unless using the FOUND_INTROSPECTION argument is "yes"]])
-            ])
-        ])
-    ])
-
-  AC_ARG_ENABLE([vala],
-    [AS_HELP_STRING([--enable-vala[=@<:@no/auto/yes@:>@]],[build Vala bindings @<:@default=]ifelse($4,,auto,$4)[@:>@])],,[
-      AS_IF([test "x$4" = "x"], [
-          enable_vala=auto
-        ], [
-          enable_vala=$4
-        ])
-    ])
-
-  AS_CASE([$enable_vala], [no], [enable_vala=no],
-      [yes], [
-        AS_IF([test "x$3" != "xyes" -a "x$found_introspection" != "xyes"], [
-            AC_MSG_ERROR([Vala bindings require GObject Introspection])
-          ])
-      ], [auto], [
-        AS_IF([test "x$3" != "xyes" -a "x$found_introspection" != "xyes"], [
-            enable_vala=no
-          ])
-      ], [
-        AC_MSG_ERROR([Invalid argument passed to --enable-vala, should be one of @<:@no/auto/yes@:>@])
-      ])
-
-  AS_IF([test "x$2" = "x"], [
-      vapigen_pkg_name=vapigen
-    ], [
-      vapigen_pkg_name=vapigen-$2
-    ])
-  AS_IF([test "x$1" = "x"], [
-      vapigen_pkg="$vapigen_pkg_name"
-    ], [
-      vapigen_pkg="$vapigen_pkg_name >= $1"
-    ])
-
-  PKG_PROG_PKG_CONFIG
-
-  PKG_CHECK_EXISTS([$vapigen_pkg], [
-      AS_IF([test "$enable_vala" = "auto"], [
-          enable_vala=yes
-        ])
-    ], [
-      AS_CASE([$enable_vala], [yes], [
-          AC_MSG_ERROR([$vapigen_pkg not found])
-        ], [auto], [
-          enable_vala=no
-        ])
-    ])
-
-  AC_MSG_CHECKING([for vapigen])
-
-  AS_CASE([$enable_vala],
-    [yes], [
-      VAPIGEN=`$PKG_CONFIG --variable=vapigen $vapigen_pkg_name`
-      VAPIGEN_MAKEFILE=`$PKG_CONFIG --variable=datadir $vapigen_pkg_name`/vala/Makefile.vapigen
-      AS_IF([test "x$2" = "x"], [
-          VAPIGEN_VAPIDIR=`$PKG_CONFIG --variable=vapidir $vapigen_pkg_name`
-        ], [
-          VAPIGEN_VAPIDIR=`$PKG_CONFIG --variable=vapidir_versioned $vapigen_pkg_name`
-        ])
-    ])
-
-  AC_MSG_RESULT([$enable_vala])
-
-  AC_SUBST([VAPIGEN])
-  AC_SUBST([VAPIGEN_VAPIDIR])
-  AC_SUBST([VAPIGEN_MAKEFILE])
-
-  AM_CONDITIONAL(ENABLE_VAPIGEN, test "x$enable_vala" = "xyes")
-])
-
-# Copyright (C) 2002-2013 Free Software Foundation, Inc.
+# Copyright (C) 2002-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -920,10 +32,10 @@ AC_DEFUN([VAPIGEN_CHECK],
 # generated from the m4 files accompanying Automake X.Y.
 # (This private macro should not be called outside this file.)
 AC_DEFUN([AM_AUTOMAKE_VERSION],
-[am__api_version='1.14'
+[am__api_version='1.15'
 dnl Some users find AM_AUTOMAKE_VERSION and mistake it for a way to
 dnl require some minimum version.  Point them to the right macro.
-m4_if([$1], [1.14.1], [],
+m4_if([$1], [1.15], [],
       [AC_FATAL([Do not call $0, use AM_INIT_AUTOMAKE([$1]).])])dnl
 ])
 
@@ -939,14 +51,14 @@ m4_define([_AM_AUTOCONF_VERSION], [])
 # Call AM_AUTOMAKE_VERSION and AM_AUTOMAKE_VERSION so they can be traced.
 # This function is AC_REQUIREd by AM_INIT_AUTOMAKE.
 AC_DEFUN([AM_SET_CURRENT_AUTOMAKE_VERSION],
-[AM_AUTOMAKE_VERSION([1.14.1])dnl
+[AM_AUTOMAKE_VERSION([1.15])dnl
 m4_ifndef([AC_AUTOCONF_VERSION],
   [m4_copy([m4_PACKAGE_VERSION], [AC_AUTOCONF_VERSION])])dnl
 _AM_AUTOCONF_VERSION(m4_defn([AC_AUTOCONF_VERSION]))])
 
 # AM_AUX_DIR_EXPAND                                         -*- Autoconf -*-
 
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -991,15 +103,14 @@ _AM_AUTOCONF_VERSION(m4_defn([AC_AUTOCONF_VERSION]))])
 # configured tree to be moved without reconfiguration.
 
 AC_DEFUN([AM_AUX_DIR_EXPAND],
-[dnl Rely on autoconf to set up CDPATH properly.
-AC_PREREQ([2.50])dnl
-# expand $ac_aux_dir to an absolute path
-am_aux_dir=`cd $ac_aux_dir && pwd`
+[AC_REQUIRE([AC_CONFIG_AUX_DIR_DEFAULT])dnl
+# Expand $ac_aux_dir to an absolute path.
+am_aux_dir=`cd "$ac_aux_dir" && pwd`
 ])
 
 # AM_CONDITIONAL                                            -*- Autoconf -*-
 
-# Copyright (C) 1997-2013 Free Software Foundation, Inc.
+# Copyright (C) 1997-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1030,7 +141,7 @@ AC_CONFIG_COMMANDS_PRE(
 Usually this means the macro was only invoked conditionally.]])
 fi])])
 
-# Copyright (C) 1999-2013 Free Software Foundation, Inc.
+# Copyright (C) 1999-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1221,7 +332,7 @@ _AM_SUBST_NOTMAKE([am__nodep])dnl
 
 # Generate code to set up dependency tracking.              -*- Autoconf -*-
 
-# Copyright (C) 1999-2013 Free Software Foundation, Inc.
+# Copyright (C) 1999-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1297,7 +408,7 @@ AC_DEFUN([AM_OUTPUT_DEPENDENCY_COMMANDS],
 
 # Do all the work for Automake.                             -*- Autoconf -*-
 
-# Copyright (C) 1996-2013 Free Software Foundation, Inc.
+# Copyright (C) 1996-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1387,8 +498,8 @@ AC_REQUIRE([AC_PROG_MKDIR_P])dnl
 # <http://lists.gnu.org/archive/html/automake/2012-07/msg00001.html>
 # <http://lists.gnu.org/archive/html/automake/2012-07/msg00014.html>
 AC_SUBST([mkdir_p], ['$(MKDIR_P)'])
-# We need awk for the "check" target.  The system "awk" is bad on
-# some platforms.
+# We need awk for the "check" target (and possibly the TAP driver).  The
+# system "awk" is bad on some platforms.
 AC_REQUIRE([AC_PROG_AWK])dnl
 AC_REQUIRE([AC_PROG_MAKE_SET])dnl
 AC_REQUIRE([AM_SET_LEADING_DOT])dnl
@@ -1461,7 +572,11 @@ to "yes", and re-run configure.
 END
     AC_MSG_ERROR([Your 'rm' program is bad, sorry.])
   fi
-fi])
+fi
+dnl The trailing newline in this macro's definition is deliberate, for
+dnl backward compatibility and to allow trailing 'dnl'-style comments
+dnl after the AM_INIT_AUTOMAKE invocation. See automake bug#16841.
+])
 
 dnl Hook into '_AC_COMPILER_EXEEXT' early to learn its expansion.  Do not
 dnl add the conditional right here, as _AC_COMPILER_EXEEXT may be further
@@ -1490,7 +605,7 @@ for _am_header in $config_headers :; do
 done
 echo "timestamp for $_am_arg" >`AS_DIRNAME(["$_am_arg"])`/stamp-h[]$_am_stamp_count])
 
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1501,7 +616,7 @@ echo "timestamp for $_am_arg" >`AS_DIRNAME(["$_am_arg"])`/stamp-h[]$_am_stamp_co
 # Define $install_sh.
 AC_DEFUN([AM_PROG_INSTALL_SH],
 [AC_REQUIRE([AM_AUX_DIR_EXPAND])dnl
-if test x"${install_sh}" != xset; then
+if test x"${install_sh+set}" != xset; then
   case $am_aux_dir in
   *\ * | *\	*)
     install_sh="\${SHELL} '$am_aux_dir/install-sh'" ;;
@@ -1511,7 +626,7 @@ if test x"${install_sh}" != xset; then
 fi
 AC_SUBST([install_sh])])
 
-# Copyright (C) 2003-2013 Free Software Foundation, Inc.
+# Copyright (C) 2003-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1532,7 +647,7 @@ AC_SUBST([am__leading_dot])])
 
 # Check to see how 'make' treats includes.	            -*- Autoconf -*-
 
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1582,7 +697,7 @@ rm -f confinc confmf
 
 # Fake the existence of programs that GNU maintainers use.  -*- Autoconf -*-
 
-# Copyright (C) 1997-2013 Free Software Foundation, Inc.
+# Copyright (C) 1997-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1619,41 +734,9 @@ else
 fi
 ])
 
-# Copyright (C) 2003-2013 Free Software Foundation, Inc.
-#
-# This file is free software; the Free Software Foundation
-# gives unlimited permission to copy and/or distribute it,
-# with or without modifications, as long as this notice is preserved.
-
-# AM_PROG_MKDIR_P
-# ---------------
-# Check for 'mkdir -p'.
-AC_DEFUN([AM_PROG_MKDIR_P],
-[AC_PREREQ([2.60])dnl
-AC_REQUIRE([AC_PROG_MKDIR_P])dnl
-dnl FIXME we are no longer going to remove this! adjust warning
-dnl FIXME message accordingly.
-AC_DIAGNOSE([obsolete],
-[$0: this macro is deprecated, and will soon be removed.
-You should use the Autoconf-provided 'AC][_PROG_MKDIR_P' macro instead,
-and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.])
-dnl Automake 1.8 to 1.9.6 used to define mkdir_p.  We now use MKDIR_P,
-dnl while keeping a definition of mkdir_p for backward compatibility.
-dnl @MKDIR_P@ is magic: AC_OUTPUT adjusts its value for each Makefile.
-dnl However we cannot define mkdir_p as $(MKDIR_P) for the sake of
-dnl Makefile.ins that do not define MKDIR_P, so we do our own
-dnl adjustment using top_builddir (which is defined more often than
-dnl MKDIR_P).
-AC_SUBST([mkdir_p], ["$MKDIR_P"])dnl
-case $mkdir_p in
-  [[\\/$]]* | ?:[[\\/]]*) ;;
-  */*) mkdir_p="\$(top_builddir)/$mkdir_p" ;;
-esac
-])
-
 # Helper functions for option handling.                     -*- Autoconf -*-
 
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1682,7 +765,7 @@ AC_DEFUN([_AM_SET_OPTIONS],
 AC_DEFUN([_AM_IF_OPTION],
 [m4_ifset(_AM_MANGLE_OPTION([$1]), [$2], [$3])])
 
-# Copyright (C) 1999-2013 Free Software Foundation, Inc.
+# Copyright (C) 1999-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1729,7 +812,7 @@ AC_LANG_POP([C])])
 # For backward compatibility.
 AC_DEFUN_ONCE([AM_PROG_CC_C_O], [AC_REQUIRE([AC_PROG_CC])])
 
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1748,7 +831,7 @@ AC_DEFUN([AM_RUN_LOG],
 
 # Check to make sure that the build environment is sane.    -*- Autoconf -*-
 
-# Copyright (C) 1996-2013 Free Software Foundation, Inc.
+# Copyright (C) 1996-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1829,7 +912,7 @@ AC_CONFIG_COMMANDS_PRE(
 rm -f conftest.file
 ])
 
-# Copyright (C) 2009-2013 Free Software Foundation, Inc.
+# Copyright (C) 2009-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1889,7 +972,7 @@ AC_SUBST([AM_BACKSLASH])dnl
 _AM_SUBST_NOTMAKE([AM_BACKSLASH])dnl
 ])
 
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1917,7 +1000,7 @@ fi
 INSTALL_STRIP_PROGRAM="\$(install_sh) -c -s"
 AC_SUBST([INSTALL_STRIP_PROGRAM])])
 
-# Copyright (C) 2006-2013 Free Software Foundation, Inc.
+# Copyright (C) 2006-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -1936,7 +1019,7 @@ AC_DEFUN([AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE($@)])
 
 # Check how to create a tarball.                            -*- Autoconf -*-
 
-# Copyright (C) 2004-2013 Free Software Foundation, Inc.
+# Copyright (C) 2004-2014 Free Software Foundation, Inc.
 #
 # This file is free software; the Free Software Foundation
 # gives unlimited permission to copy and/or distribute it,
@@ -2067,20 +1150,28 @@ AC_SUBST([am__tar])
 AC_SUBST([am__untar])
 ]) # _AM_PROG_TAR
 
-m4_include([m4/gettext.m4])
+m4_include([m4/ax_append_compile_flags.m4])
+m4_include([m4/ax_append_flag.m4])
+m4_include([m4/ax_append_link_flags.m4])
+m4_include([m4/ax_check_compile_flag.m4])
+m4_include([m4/ax_check_link_flag.m4])
+m4_include([m4/ax_compiler_flags.m4])
+m4_include([m4/ax_compiler_flags_cflags.m4])
+m4_include([m4/ax_compiler_flags_gir.m4])
+m4_include([m4/ax_compiler_flags_ldflags.m4])
+m4_include([m4/ax_is_release.m4])
+m4_include([m4/ax_require_defined.m4])
+m4_include([m4/glib-2.0.m4])
+m4_include([m4/gsettings.m4])
 m4_include([m4/gtk-doc.m4])
-m4_include([m4/iconv.m4])
-m4_include([m4/intlmacosx.m4])
 m4_include([m4/intltool.m4])
-m4_include([m4/lib-ld.m4])
-m4_include([m4/lib-link.m4])
-m4_include([m4/lib-prefix.m4])
+m4_include([m4/introspection.m4])
 m4_include([m4/libtool.m4])
 m4_include([m4/ltoptions.m4])
 m4_include([m4/ltsugar.m4])
 m4_include([m4/ltversion.m4])
 m4_include([m4/lt~obsolete.m4])
 m4_include([m4/nls.m4])
-m4_include([m4/po.m4])
-m4_include([m4/progtest.m4])
+m4_include([m4/pkg.m4])
+m4_include([m4/vapigen.m4])
 m4_include([acinclude.m4])

@@ -5,16 +5,20 @@ noinst_LTLIBRARIES = libgweather-internal-3.la
 noinst_PROGRAMS = test_metar test_locations test_sun_moon
 
 AM_CPPFLAGS = 			\
+	-DGWEATHER_COMPILATION  \
+	-D_XOPEN_SOURCE=700	\
+	-D_DEFAULT_SOURCE	\
 	$(DEPS_CFLAGS)		\
 	-I$(top_srcdir)		\
+	-I$(top_builddir)	\
 	-I$(srcdir)
 
 AM_CFLAGS = $(WARN_CFLAGS)
 
 gweather_new_headers = \
 	gweather.h \
-	gweather-location.h location-entry.h \
-	gweather-timezone.h timezone-menu.h \
+	gweather-location.h gweather-location-entry.h \
+	gweather-timezone.h gweather-timezone-menu.h \
 	gweather-weather.h gweather-enums.h
 
 libgweatherincdir = $(includedir)/libgweather-3.0/libgweather
@@ -23,17 +27,31 @@ libgweatherinc_HEADERS = \
 	gweather-enum-types.h		\
 	gweather-version.h
 
-libgweather_internal_3_la_SOURCES = \
-	weather.c weather-priv.h \
+gweather_c_sources = \
+	gweather.c gweather-private.c \
+	gweather-weather.c \
 	weather-metar.c weather-iwin.c weather-yahoo.c \
 	weather-wx.c weather-yrno.c weather-owm.c \
 	weather-sun.c weather-moon.c \
-	gweather-enum-types.c \
-	gweather-location.c gweather-location.h \
-	gweather-timezone.c gweather-timezone.h \
-	location-entry.c location-entry.h \
-	timezone-menu.c timezone-menu.h \
-	parser.c parser.h
+	gweather-location.c \
+	gweather-timezone.c \
+	gweather-location-entry.c \
+	gweather-timezone-menu.c \
+	gweather-parser.c
+
+introspection_sources = \
+	$(gweather_c_sources) \
+	$(gweather_new_headers)
+
+built_introspection_sources = \
+	gweather-enum-types.h gweather-enum-types.c
+
+libgweather_internal_3_la_SOURCES = \
+	$(gweather_c_sources) \
+	$(gweather_new_headers) \
+	$(built_introspection_sources) \
+	gweather-private.h \
+	gweather-parser.h
 
 libgweather_internal_3_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)			\
@@ -75,10 +93,7 @@ gweather-enum-types.c: $(gweather_new_headers)
 
 BUILT_SOURCES = gweather-enum-types.c gweather-enum-types.h
 
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gweather-3.0.pc
-
-EXTRA_DIST = gweather-3.0.pc.in gweather-3.0-uninstalled.pc.in gweather-version.h.in
+EXTRA_DIST = gweather-version.h.in
 
 CLEANFILES = $(noinst_PROGRAMS) $(BUILT_SOURCES)
 
@@ -89,27 +104,18 @@ INTROSPECTION_SCANNER_ARGS = --warn-all --add-include-path=$(srcdir) --c-include
 INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 
 if HAVE_INTROSPECTION
-introspection_sources = 	\
-	weather.c gweather-weather.h \
-	gweather-location.c gweather-location.h \
-	gweather-timezone.c gweather-timezone.h \
-	location-entry.c location-entry.h \
-	timezone-menu.c timezone-menu.h
-
-built_introspection_sources = gweather-enum-types.h gweather-enums.h
-
 GWeather-3.0.gir: libgweather-3.la Makefile
 GWeather_3_0_gir_INCLUDES = GObject-2.0 Gtk-3.0
-GWeather_3_0_gir_CFLAGS = $(libgweather_internal_3_la_CPPFLAGS) -DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
+GWeather_3_0_gir_CFLAGS = $(libgweather_internal_3_la_CPPFLAGS)
 GWeather_3_0_gir_LIBS = libgweather-3.la
 GWeather_3_0_gir_SCANNERFLAGS = --identifier-prefix=GWeather --symbol-prefix=gweather --pkg-export=gweather-3.0
 GWeather_3_0_gir_FILES = $(addprefix $(srcdir)/,$(introspection_sources)) $(addprefix $(builddir)/,$(built_introspection_sources))
 INTROSPECTION_GIRS += GWeather-3.0.gir
 
-girdir = $(INTROSPECTION_GIRDIR)
+girdir = $(datadir)/gir-1.0
 gir_DATA = $(INTROSPECTION_GIRS)
 
-typelibdir = $(INTROSPECTION_TYPELIBDIR)
+typelibdir = $(libdir)/girepository-1.0
 typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 
 CLEANFILES += $(gir_DATA) $(typelib_DATA)

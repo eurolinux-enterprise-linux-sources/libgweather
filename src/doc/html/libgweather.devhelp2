@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
-<book xmlns="http://www.devhelp.net/book" title="libgweather Reference Manual" link="index.html" author="" name="libgweather" version="2" language="c">
+<book xmlns="http://www.devhelp.net/book" title="libgweather Reference Manual" link="index.html" author="" name="libgweather" version="2" language="c" online="http://developer.gnome.org/libgweather/unstable/">
   <chapters>
     <sub name="libgweather Reference Manual" link="ch01.html">
       <sub name="GWeatherLocation" link="GWeatherLocation.html"/>
-      <sub name="GWeatherTimezone" link="GWeatherTimezone.html"/>
+      <sub name="gweathertimezone" link="libgweather-gweathertimezone.html"/>
       <sub name="GWeatherInfo" link="GWeatherInfo.html"/>
       <sub name="GWeatherLocationEntry" link="GWeatherLocationEntry.html"/>
       <sub name="GWeatherTimezoneMenu" link="GWeatherTimezoneMenu.html"/>
@@ -14,134 +13,14 @@
     <sub name="API Index" link="api-index-full.html"/>
     <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
     <sub name="Index of new symbols in 3.12" link="ix03.html"/>
-    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
-    <keyword type="function" name="gweather_location_find_nearest_city ()" link="GWeatherLocation.html#gweather-location-find-nearest-city" since="3.12"/>
-    <keyword type="function" name="gweather_location_get_world ()" link="GWeatherLocation.html#gweather-location-get-world"/>
-    <keyword type="function" name="gweather_location_new_world ()" link="GWeatherLocation.html#gweather-location-new-world" deprecated="3.10: Use gweather_location_get_world() instead."/>
-    <keyword type="function" name="gweather_location_ref ()" link="GWeatherLocation.html#gweather-location-ref"/>
-    <keyword type="function" name="gweather_location_unref ()" link="GWeatherLocation.html#gweather-location-unref"/>
-    <keyword type="function" name="gweather_location_serialize ()" link="GWeatherLocation.html#gweather-location-serialize"/>
-    <keyword type="function" name="gweather_location_deserialize ()" link="GWeatherLocation.html#gweather-location-deserialize"/>
-    <keyword type="function" name="gweather_location_equal ()" link="GWeatherLocation.html#gweather-location-equal"/>
-    <keyword type="function" name="gweather_location_find_by_station_code ()" link="GWeatherLocation.html#gweather-location-find-by-station-code"/>
-    <keyword type="function" name="gweather_location_get_level ()" link="GWeatherLocation.html#gweather-location-get-level"/>
-    <keyword type="function" name="gweather_location_get_parent ()" link="GWeatherLocation.html#gweather-location-get-parent"/>
-    <keyword type="function" name="gweather_location_get_children ()" link="GWeatherLocation.html#gweather-location-get-children"/>
-    <keyword type="function" name="gweather_location_get_name ()" link="GWeatherLocation.html#gweather-location-get-name"/>
-    <keyword type="function" name="gweather_location_get_sort_name ()" link="GWeatherLocation.html#gweather-location-get-sort-name"/>
-    <keyword type="function" name="gweather_location_has_coords ()" link="GWeatherLocation.html#gweather-location-has-coords"/>
-    <keyword type="function" name="gweather_location_get_coords ()" link="GWeatherLocation.html#gweather-location-get-coords"/>
-    <keyword type="function" name="gweather_location_get_distance ()" link="GWeatherLocation.html#gweather-location-get-distance"/>
-    <keyword type="function" name="gweather_location_get_country ()" link="GWeatherLocation.html#gweather-location-get-country"/>
-    <keyword type="function" name="gweather_location_get_timezone ()" link="GWeatherLocation.html#gweather-location-get-timezone"/>
-    <keyword type="function" name="gweather_location_get_timezones ()" link="GWeatherLocation.html#gweather-location-get-timezones"/>
-    <keyword type="function" name="gweather_location_get_code ()" link="GWeatherLocation.html#gweather-location-get-code"/>
-    <keyword type="function" name="gweather_location_get_city_name ()" link="GWeatherLocation.html#gweather-location-get-city-name"/>
-    <keyword type="struct" name="GWeatherLocation" link="GWeatherLocation.html#GWeatherLocation-struct"/>
-    <keyword type="enum" name="enum GWeatherLocationLevel" link="GWeatherLocation.html#GWeatherLocationLevel"/>
-    <keyword type="function" name="gweather_timezone_get_type ()" link="GWeatherTimezone.html#gweather-timezone-get-type"/>
-    <keyword type="macro" name="GWEATHER_TYPE_TIMEZONE" link="GWeatherTimezone.html#GWEATHER-TYPE-TIMEZONE:CAPS"/>
-    <keyword type="function" name="gweather_timezone_get_name ()" link="GWeatherTimezone.html#gweather-timezone-get-name"/>
-    <keyword type="function" name="gweather_timezone_get_tzid ()" link="GWeatherTimezone.html#gweather-timezone-get-tzid"/>
-    <keyword type="function" name="gweather_timezone_get_by_tzid ()" link="GWeatherTimezone.html#gweather-timezone-get-by-tzid" since="3.12"/>
-    <keyword type="function" name="gweather_timezone_get_offset ()" link="GWeatherTimezone.html#gweather-timezone-get-offset"/>
-    <keyword type="function" name="gweather_timezone_has_dst ()" link="GWeatherTimezone.html#gweather-timezone-has-dst"/>
-    <keyword type="function" name="gweather_timezone_get_dst_offset ()" link="GWeatherTimezone.html#gweather-timezone-get-dst-offset"/>
-    <keyword type="function" name="gweather_timezone_ref ()" link="GWeatherTimezone.html#gweather-timezone-ref"/>
-    <keyword type="function" name="gweather_timezone_unref ()" link="GWeatherTimezone.html#gweather-timezone-unref"/>
-    <keyword type="function" name="gweather_timezone_get_utc ()" link="GWeatherTimezone.html#gweather-timezone-get-utc"/>
-    <keyword type="struct" name="GWeatherTimezone" link="GWeatherTimezone.html#GWeatherTimezone-struct"/>
-    <keyword type="function" name="gweather_info_new ()" link="GWeatherInfo.html#gweather-info-new"/>
-    <keyword type="function" name="gweather_info_update ()" link="GWeatherInfo.html#gweather-info-update"/>
-    <keyword type="function" name="gweather_info_abort ()" link="GWeatherInfo.html#gweather-info-abort"/>
-    <keyword type="function" name="gweather_info_is_valid ()" link="GWeatherInfo.html#gweather-info-is-valid"/>
-    <keyword type="function" name="gweather_info_network_error ()" link="GWeatherInfo.html#gweather-info-network-error"/>
-    <keyword type="function" name="gweather_info_store_cache ()" link="GWeatherInfo.html#gweather-info-store-cache"/>
-    <keyword type="function" name="gweather_info_get_location ()" link="GWeatherInfo.html#gweather-info-get-location"/>
-    <keyword type="function" name="gweather_info_set_location ()" link="GWeatherInfo.html#gweather-info-set-location"/>
-    <keyword type="function" name="gweather_info_get_forecast ()" link="GWeatherInfo.html#gweather-info-get-forecast" deprecated="3.10: Use gweather_info_get_forecast_list() instead."/>
-    <keyword type="function" name="gweather_info_get_forecast_list ()" link="GWeatherInfo.html#gweather-info-get-forecast-list"/>
-    <keyword type="function" name="gweather_info_get_enabled_providers ()" link="GWeatherInfo.html#gweather-info-get-enabled-providers"/>
-    <keyword type="function" name="gweather_info_set_enabled_providers ()" link="GWeatherInfo.html#gweather-info-set-enabled-providers"/>
-    <keyword type="function" name="gweather_info_get_attribution ()" link="GWeatherInfo.html#gweather-info-get-attribution"/>
-    <keyword type="function" name="gweather_info_get_location_name ()" link="GWeatherInfo.html#gweather-info-get-location-name"/>
-    <keyword type="function" name="gweather_info_get_icon_name ()" link="GWeatherInfo.html#gweather-info-get-icon-name"/>
-    <keyword type="function" name="gweather_info_get_symbolic_icon_name ()" link="GWeatherInfo.html#gweather-info-get-symbolic-icon-name"/>
-    <keyword type="function" name="gweather_info_get_weather_summary ()" link="GWeatherInfo.html#gweather-info-get-weather-summary"/>
-    <keyword type="function" name="gweather_info_get_temp_summary ()" link="GWeatherInfo.html#gweather-info-get-temp-summary"/>
-    <keyword type="function" name="gweather_info_get_update ()" link="GWeatherInfo.html#gweather-info-get-update"/>
-    <keyword type="function" name="gweather_info_get_sky ()" link="GWeatherInfo.html#gweather-info-get-sky"/>
-    <keyword type="function" name="gweather_info_get_conditions ()" link="GWeatherInfo.html#gweather-info-get-conditions"/>
-    <keyword type="function" name="gweather_info_get_temp ()" link="GWeatherInfo.html#gweather-info-get-temp"/>
-    <keyword type="function" name="gweather_info_get_temp_min ()" link="GWeatherInfo.html#gweather-info-get-temp-min"/>
-    <keyword type="function" name="gweather_info_get_temp_max ()" link="GWeatherInfo.html#gweather-info-get-temp-max"/>
-    <keyword type="function" name="gweather_info_get_dew ()" link="GWeatherInfo.html#gweather-info-get-dew"/>
-    <keyword type="function" name="gweather_info_get_humidity ()" link="GWeatherInfo.html#gweather-info-get-humidity"/>
-    <keyword type="function" name="gweather_info_get_wind ()" link="GWeatherInfo.html#gweather-info-get-wind"/>
-    <keyword type="function" name="gweather_info_get_pressure ()" link="GWeatherInfo.html#gweather-info-get-pressure"/>
-    <keyword type="function" name="gweather_info_get_visibility ()" link="GWeatherInfo.html#gweather-info-get-visibility"/>
-    <keyword type="function" name="gweather_info_get_apparent ()" link="GWeatherInfo.html#gweather-info-get-apparent"/>
-    <keyword type="function" name="gweather_info_get_sunrise ()" link="GWeatherInfo.html#gweather-info-get-sunrise"/>
-    <keyword type="function" name="gweather_info_get_sunset ()" link="GWeatherInfo.html#gweather-info-get-sunset"/>
-    <keyword type="function" name="gweather_info_get_radar ()" link="GWeatherInfo.html#gweather-info-get-radar"/>
-    <keyword type="function" name="gweather_conditions_to_string ()" link="GWeatherInfo.html#gweather-conditions-to-string"/>
-    <keyword type="function" name="gweather_sky_to_string ()" link="GWeatherInfo.html#gweather-sky-to-string"/>
-    <keyword type="function" name="gweather_wind_direction_to_string ()" link="GWeatherInfo.html#gweather-wind-direction-to-string"/>
-    <keyword type="function" name="gweather_info_get_value_update ()" link="GWeatherInfo.html#gweather-info-get-value-update"/>
-    <keyword type="function" name="gweather_info_get_value_sky ()" link="GWeatherInfo.html#gweather-info-get-value-sky"/>
-    <keyword type="function" name="gweather_info_get_value_conditions ()" link="GWeatherInfo.html#gweather-info-get-value-conditions"/>
-    <keyword type="function" name="gweather_info_get_value_temp ()" link="GWeatherInfo.html#gweather-info-get-value-temp"/>
-    <keyword type="function" name="gweather_info_get_value_temp_min ()" link="GWeatherInfo.html#gweather-info-get-value-temp-min"/>
-    <keyword type="function" name="gweather_info_get_value_temp_max ()" link="GWeatherInfo.html#gweather-info-get-value-temp-max"/>
-    <keyword type="function" name="gweather_info_get_value_dew ()" link="GWeatherInfo.html#gweather-info-get-value-dew"/>
-    <keyword type="function" name="gweather_info_get_value_apparent ()" link="GWeatherInfo.html#gweather-info-get-value-apparent"/>
-    <keyword type="function" name="gweather_info_get_value_wind ()" link="GWeatherInfo.html#gweather-info-get-value-wind"/>
-    <keyword type="function" name="gweather_info_get_value_pressure ()" link="GWeatherInfo.html#gweather-info-get-value-pressure"/>
-    <keyword type="function" name="gweather_info_get_value_visibility ()" link="GWeatherInfo.html#gweather-info-get-value-visibility"/>
-    <keyword type="function" name="gweather_info_get_value_sunrise ()" link="GWeatherInfo.html#gweather-info-get-value-sunrise"/>
-    <keyword type="function" name="gweather_info_get_value_sunset ()" link="GWeatherInfo.html#gweather-info-get-value-sunset"/>
-    <keyword type="function" name="gweather_info_next_sun_event ()" link="GWeatherInfo.html#gweather-info-next-sun-event"/>
-    <keyword type="function" name="gweather_info_get_value_moonphase ()" link="GWeatherInfo.html#gweather-info-get-value-moonphase"/>
-    <keyword type="function" name="gweather_info_get_upcoming_moonphases ()" link="GWeatherInfo.html#gweather-info-get-upcoming-moonphases"/>
-    <keyword type="function" name="gweather_info_is_daytime ()" link="GWeatherInfo.html#gweather-info-is-daytime"/>
-    <keyword type="enum" name="enum GWeatherProvider" link="GWeatherInfo.html#GWeatherProvider"/>
-    <keyword type="enum" name="enum GWeatherConditionPhenomenon" link="GWeatherInfo.html#GWeatherConditionPhenomenon"/>
-    <keyword type="enum" name="enum GWeatherConditionQualifier" link="GWeatherInfo.html#GWeatherConditionQualifier"/>
-    <keyword type="struct" name="struct GWeatherConditions" link="GWeatherInfo.html#GWeatherConditions"/>
-    <keyword type="enum" name="enum GWeatherSky" link="GWeatherInfo.html#GWeatherSky"/>
-    <keyword type="enum" name="enum GWeatherWindDirection" link="GWeatherInfo.html#GWeatherWindDirection"/>
-    <keyword type="typedef" name="GWeatherMoonLatitude" link="GWeatherInfo.html#GWeatherMoonLatitude"/>
-    <keyword type="typedef" name="GWeatherMoonPhase" link="GWeatherInfo.html#GWeatherMoonPhase"/>
-    <keyword type="enum" name="enum GWeatherDistanceUnit" link="GWeatherInfo.html#GWeatherDistanceUnit"/>
-    <keyword type="enum" name="enum GWeatherPressureUnit" link="GWeatherInfo.html#GWeatherPressureUnit"/>
-    <keyword type="enum" name="enum GWeatherSpeedUnit" link="GWeatherInfo.html#GWeatherSpeedUnit"/>
-    <keyword type="enum" name="enum GWeatherTemperatureUnit" link="GWeatherInfo.html#GWeatherTemperatureUnit"/>
-    <keyword type="enum" name="enum GWeatherForecastType" link="GWeatherInfo.html#GWeatherForecastType"/>
-    <keyword type="property" name="The “enabled-providers” property" link="GWeatherInfo.html#GWeatherInfo--enabled-providers"/>
-    <keyword type="property" name="The “location” property" link="GWeatherInfo.html#GWeatherInfo--location"/>
-    <keyword type="signal" name="The “updated” signal" link="GWeatherInfo.html#GWeatherInfo-updated"/>
-    <keyword type="function" name="gweather_location_entry_new ()" link="GWeatherLocationEntry.html#gweather-location-entry-new"/>
-    <keyword type="function" name="gweather_location_entry_set_location ()" link="GWeatherLocationEntry.html#gweather-location-entry-set-location"/>
-    <keyword type="function" name="gweather_location_entry_get_location ()" link="GWeatherLocationEntry.html#gweather-location-entry-get-location"/>
-    <keyword type="function" name="gweather_location_entry_has_custom_text ()" link="GWeatherLocationEntry.html#gweather-location-entry-has-custom-text"/>
-    <keyword type="function" name="gweather_location_entry_set_city ()" link="GWeatherLocationEntry.html#gweather-location-entry-set-city"/>
-    <keyword type="struct" name="struct GWeatherLocationEntry" link="GWeatherLocationEntry.html#GWeatherLocationEntry-struct"/>
-    <keyword type="property" name="The “location” property" link="GWeatherLocationEntry.html#GWeatherLocationEntry--location"/>
-    <keyword type="property" name="The “top” property" link="GWeatherLocationEntry.html#GWeatherLocationEntry--top"/>
-    <keyword type="function" name="gweather_timezone_menu_new ()" link="GWeatherTimezoneMenu.html#gweather-timezone-menu-new"/>
-    <keyword type="function" name="gweather_timezone_menu_set_tzid ()" link="GWeatherTimezoneMenu.html#gweather-timezone-menu-set-tzid"/>
-    <keyword type="function" name="gweather_timezone_menu_get_tzid ()" link="GWeatherTimezoneMenu.html#gweather-timezone-menu-get-tzid"/>
-    <keyword type="struct" name="struct GWeatherTimezoneMenu" link="GWeatherTimezoneMenu.html#GWeatherTimezoneMenu-struct"/>
-    <keyword type="property" name="The “top” property" link="GWeatherTimezoneMenu.html#GWeatherTimezoneMenu--top"/>
-    <keyword type="property" name="The “tzid” property" link="GWeatherTimezoneMenu.html#GWeatherTimezoneMenu--tzid"/>
+    <keyword type="macro" name="GWEATHER_CHECK_VERSION()" link="libgweather-Versioning-information.html#GWEATHER-CHECK-VERSION:CAPS" since="3.12"/>
     <keyword type="macro" name="GWEATHER_MAJOR_VERSION" link="libgweather-Versioning-information.html#GWEATHER-MAJOR-VERSION:CAPS" since="3.12"/>
     <keyword type="macro" name="GWEATHER_MINOR_VERSION" link="libgweather-Versioning-information.html#GWEATHER-MINOR-VERSION:CAPS" since="3.12"/>
     <keyword type="macro" name="GWEATHER_MICRO_VERSION" link="libgweather-Versioning-information.html#GWEATHER-MICRO-VERSION:CAPS" since="3.12"/>
     <keyword type="macro" name="GWEATHER_VERSION" link="libgweather-Versioning-information.html#GWEATHER-VERSION:CAPS" since="3.12"/>
-    <keyword type="macro" name="GWEATHER_VERSION_HEX" link="libgweather-Versioning-information.html#GWEATHER-VERSION-HEX:CAPS" since="3.12"/>
-    <keyword type="macro" name="GWEATHER_CHECK_VERSION()" link="libgweather-Versioning-information.html#GWEATHER-CHECK-VERSION:CAPS" since="3.12"/>
     <keyword type="macro" name="GWEATHER_VERSION_S" link="libgweather-Versioning-information.html#GWEATHER-VERSION-S:CAPS" since="3.12"/>
+    <keyword type="macro" name="GWEATHER_VERSION_HEX" link="libgweather-Versioning-information.html#GWEATHER-VERSION-HEX:CAPS" since="3.12"/>
   </functions>
 </book>

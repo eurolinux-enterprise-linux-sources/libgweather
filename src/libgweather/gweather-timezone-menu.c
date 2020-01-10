@@ -22,9 +22,8 @@
 #include <config.h>
 #endif
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "timezone-menu.h"
-#include "weather-priv.h"
+#include "gweather-timezone-menu.h"
+#include "gweather-private.h"
 
 #include <string.h>
 

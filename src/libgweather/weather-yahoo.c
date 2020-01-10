@@ -22,7 +22,6 @@
 #include <config.h>
 #endif
 
-#define _GNU_SOURCE /* for strptime */
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,8 +33,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 
-#define GWEATHER_I_KNOW_THIS_IS_UNSTABLE
-#include "weather-priv.h"
+#include "gweather-private.h"
 
 #define XC(t) ((const xmlChar *)(t))
 
@@ -166,7 +164,7 @@ make_info_from_node (GWeatherInfo *master_info,
     GWeatherInfo *info;
     GWeatherInfoPrivate *priv;
     xmlChar *val;
-    int code;
+    unsigned long code;
 
     g_return_val_if_fail (node->type == XML_ELEMENT_NODE, NULL);
 
@@ -189,8 +187,8 @@ make_info_from_node (GWeatherInfo *master_info,
     priv->valid = priv->tempMinMaxValid;
 
     val = xmlGetProp (node, XC("code"));
-    code = strtol((const char*) val, NULL, 0);
-    if (code >= 0 && code < G_N_ELEMENTS (condition_codes)) {
+    code = strtoul((const char*) val, NULL, 0);
+    if (code < G_N_ELEMENTS (condition_codes)) {
 	priv->cond = condition_codes[code];
 	priv->sky = sky_codes[code];
     } else
